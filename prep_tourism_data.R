@@ -40,4 +40,4 @@ for (i in seq_along(country_rows)) {
 print(extracted_data)
 
 # Save as CSV
-write.csv(extracted_data, "cleaned_tourism_data.csv", row.names = FALSE)
+write.csv(extracted_data, here("data","cleaned_tourism_data.csv"), row.names = FALSE)
