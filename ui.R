@@ -19,7 +19,7 @@ library(leaflet)
 ## The map will have some filters that include year and season, etc.. 
 # ---
 ### Map: World Map, data points for coastal cities (small dots in blue) & microplastic data (size=microplastic #, opaque, colored red)
-### Data Overlay: Click on a city & see the plastic density (?) there
+### Data Overlay: Click on a city & see the plastic data there (sampling method, density range & class, org, date sampled)
 ### Filters: Data filters that refresh the page (year, season, type of plastic, anything else we can include from the plastics data)
 
 
@@ -27,6 +27,8 @@ library(leaflet)
 ## Users will be able to click on those cities to see exact #s for how many tourists visits per year on average, and what is the population of those cities. 
 ## Map will have some filters like year, season, and switching between tourists info to population info
 # ---
+### Filter: Hide/show population data & tourism data
+
 
 # Widget 3: A calculator estimate based on averages from the first two widgets (plastic debris + coastal city population/tourist info) 
 ## where a user will be able to put in their coastal town/city #s and season/year and get an estimate of how much plastic was present or is present in the surrounding oceans
@@ -34,6 +36,7 @@ library(leaflet)
 ### Calculator: User inputs city, year, season
 ### Calculator can re-create model using data currently shown in the map, and filter out those that aren't being utilized currently
 ### Calculator spits out LM (LR, RF?) with predictive data on estimate of plastic debris in the ocean  
+#### when buffering, turn miles into lat&long and group -> https://gis.stackexchange.com/questions/2951/algorithm-for-offsetting-a-latitude-longitude-by-some-amount-of-meters
 
 # Widget 4: allows you to graphically see trends in pollution over time by using drop downs that let you change the graph by location and time range
 ## This will be a line graph that shows the amount of plastic in the ocean over time for a specific location
@@ -93,5 +96,15 @@ ui = fluidPage(
                  plotOutput("trend_graph", height = "500px"))
       )
     )
-  )
+  ),
+  theme = bs_theme(
+    version = 5,  # Use Bootstrap 5
+    bootswatch = "cosmo",  # Try different themes like "darkly", "cosmo", etc.
+    primary = "#1E88E5",  # Custom primary color
+    secondary = "#D32F2F",  # Secondary color (red)
+    success = "#388E3C",  # Success color (green)
+    font_scale = 1.1,  # Slightly larger font size
+    bg = "#F5F5F5",  # Background color
+    fg = "#333333"  # Foreground text color
+  ),
 )

@@ -13,6 +13,7 @@ library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
 library(readxl)
+library(bslib)
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
 
@@ -30,10 +31,15 @@ library(readxl)
 
 # - We may still need to look for more plastic data or if we want to pivot from plastic carbon emission data.
 
-
+### PREP DATA SOURCES
 
 # Load the data
-microplastics <- read_csv(here::here("data","noaa_microplastics.csv"))
+microplastics <- read_csv(here::here("data","noaa_microplastics.csv")) |>
+  janitor::clean_names()
+# lubridate the year, 
+
+# convert in format 5/21/2001 12:00:00 AM to date
+microplastics$date <- as.Date(microplastics$date, format = "%m/%d/%Y %I:%M:%S %p")
 
 # Doesn't exist yet - population <- read_csv(here::here("data","un_population.csv"))
 tourism <- readxl::read_xlsx(here::here("data","unwto_tourism.xlsx")) # data needs to be reformatted
@@ -101,14 +107,7 @@ server = function(input, output, session) {
       actionButton("calculate", "Calculate")
     )
   })
-    
-  # Filter the microplastics data
-  microplastics_filtered <- microplastics %>%
-    filter(city == city, year == year, season == season)
-  
-  # Filter the population data
-  population_filtered <- population %>%
-    filter(city == city)
+ 
   
   # Update the map on a new event
   observeEvent(input$refresh, {
