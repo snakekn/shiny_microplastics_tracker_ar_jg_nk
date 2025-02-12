@@ -8,7 +8,11 @@
 #
 
 library(shiny)
-
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(readxl)
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
 
@@ -27,20 +31,95 @@ library(shiny)
 # - We may still need to look for more plastic data or if we want to pivot from plastic carbon emission data.
 
 
+
+# Load the data
+microplastics <- read_csv(here::here("data","noaa_microplastics.csv"))
+
+# Doesn't exist yet - population <- read_csv(here::here("data","un_population.csv"))
+tourism <- readxl::read_xlsx(here::here("data","unwto_tourism.xlsx")) # data needs to be reformatted
+
+# bring in world map
+world_sf <- ne_countries(scale = "medium", returnclass = "sf")
+
+# Merge the population data with the world map - doesn't work yet
+# world_population <- left_join(world, population, by = c("name" = "city"))
+
+# Merge the tourism data with the world map - doesn't work yet
+# world_tourism <- left_join(world, tourism, by = c("name" = "city"))
+
+
 # Define server logic required to draw a histogram
-function(input, output, session) {
+server = function(input, output, session) {
   
-  output$distPlot <- renderPlot({
-    
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2]
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
-    
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white',
-         xlab = 'Waiting time to next eruption (in mins)',
-         main = 'Histogram of waiting times')
-    
+  reactive_data <- reactive({
+    city_data %>%
+      select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
   })
   
+  # Render Leaflet Map
+  output$map <- renderLeaflet({
+    leaflet(city_data) %>%
+      addTiles() %>%
+      addCircleMarkers(
+        lng = ~lon, lat = ~lat,
+        label = ~paste(city, "<br>", input$map_variable, ":", variable),
+        color = "blue",
+        radius = ~variable * 2,  # Scale marker size
+        fillOpacity = 0.7
+      )
+  })
+  
+  # Create a reactive expression for the population map
+  output$population_map <- renderLeaflet({
+    leaflet(world_population) %>%
+      addTiles() %>%
+      addCircleMarkers(
+        radius = ~population,
+        color = "blue",
+        fillOpacity = 0.8
+      )
+  })
+  
+  # Create a reactive expression for the tourism map
+  output$tourism_map <- renderLeaflet({
+    leaflet(world_tourism) %>%
+      addTiles() %>%
+      addCircleMarkers(
+        radius = ~tourism,
+        color = "green",
+        fillOpacity = 0.8
+      )
+  })
+  
+  # Create a reactive expression for the calculator
+  output$calculator <- renderUI({
+    # Create a form for the user to input data
+    tagList(
+      textInput("city", "City"),
+      numericInput("year", "Year", value = 2021),
+      selectInput("season", "Season", choices = c("Spring", "Summer", "Fall", "Winter")),
+      actionButton("calculate", "Calculate")
+    )
+  })
+    
+  # Filter the microplastics data
+  microplastics_filtered <- microplastics %>%
+    filter(city == city, year == year, season == season)
+  
+  # Filter the population data
+  population_filtered <- population %>%
+    filter(city == city)
+  
+  # Update the map on a new event
+  observeEvent(input$refresh, {
+    leafletProxy("map", data = reactive_data()) %>%
+      clearMarkers() %>%
+      addCircleMarkers(
+        lng = ~lon, lat = ~lat,
+        label = ~paste(city, "<br>", input$map_variable, ":", variable),
+        color = "blue",
+        radius = ~variable * 2,
+        fillOpacity = 0.7
+      )
+  })
 }

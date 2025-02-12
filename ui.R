@@ -8,6 +8,9 @@
 #
 
 library(shiny)
+library(magrittr) # data import
+library(rvest) # data import
+library(leaflet)
 
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
@@ -39,29 +42,56 @@ library(shiny)
 ### Graph: Line graph, x-axis = time, y-axis = plastic debris
 
 
-# Define UI for application that draws a histogram
-fluidPage(
+library(shiny)
+library(leaflet)
+
+ui = fluidPage(
   
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  # Title
+  titlePanel("Microplastics & Coastal City Populations"),
   
-  # Sidebar with a slider input for number of bins
+  # Sidebar with filters
   sidebarLayout(
     sidebarPanel(
-      sliderInput("bins",
-                  "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
+      h3("Filters"),
+      selectInput("year", "Select Year:", choices = 2000:2025, selected = 2023),
+      selectInput("season", "Select Season:", choices = c("Spring", "Summer", "Fall", "Winter")),
+      selectInput("plastic_type", "Type of Plastic:", choices = c("All", "Microplastic", "Macroplastic")),
+      selectInput("city_data", "City Data Display:", choices = c("Tourism", "Population")),
+      actionButton("update_map", "Update Map"),
+      hr(),
+      h3("Plastic Debris Estimator"),
+      textInput("user_city", "Enter Coastal City Name:"),
+      numericInput("user_population", "City Population:", value = 100000),
+      numericInput("user_tourists", "Tourist Visits Per Year:", value = 500000),
+      actionButton("calculate_plastic", "Estimate Plastic Debris"),
+      hr(),
+      h3("Trend Analysis"),
+      selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically
+      sliderInput("time_range", "Select Time Range:", min = 2000, max = 2025, value = c(2010, 2025)),
+      actionButton("update_trend", "Update Graph")
     ),
     
-    # Show a plot of the generated distribution
+    # Main Panel for displaying maps and plots
     mainPanel(
-      plotOutput("distPlot")
+      tabsetPanel(
+        
+        # Tab 1: Interactive World Map for Microplastics
+        tabPanel("Microplastics Map", 
+                 leafletOutput("plastic_map", height = "600px")),
+        
+        # Tab 2: Interactive World Map for City Data (Tourism/Population)
+        tabPanel("City Data Map", 
+                 leafletOutput("city_map", height = "600px")),
+        
+        # Tab 3: Plastic Estimator
+        tabPanel("Plastic Estimator",
+                 verbatimTextOutput("plastic_estimate")),  # Display the model output
+        
+        # Tab 4: Pollution Trends Over Time
+        tabPanel("Pollution Trends", 
+                 plotOutput("trend_graph", height = "500px"))
+      )
     )
   )
-  
-  # interactive world map we can plot data on
-  
-  
 )
