@@ -57,6 +57,10 @@ ui = fluidPage(
   # Sidebar with filters
   sidebarLayout(
     sidebarPanel(
+      h3("Toggle Data"),
+      checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
+      checkboxInput("show_population","Show Population Data", value=TRUE),
+      checkboxInput("show_tourism","Show Tourism Data", value=TRUE),
       h3("Filters"),
       selectInput("year", "Select Year:", choices = 2000:2025, selected = 2023),
       selectInput("season", "Select Season:", choices = c("Spring", "Summer", "Fall", "Winter")),
@@ -78,24 +82,7 @@ ui = fluidPage(
     
     # Main Panel for displaying maps and plots
     mainPanel(
-      tabsetPanel(
-        
-        # Tab 1: Interactive World Map for Microplastics
-        tabPanel("Microplastics Map", 
-                 leafletOutput("plastic_map", height = "600px")),
-        
-        # Tab 2: Interactive World Map for City Data (Tourism/Population)
-        tabPanel("City Data Map", 
-                 leafletOutput("city_map", height = "600px")),
-        
-        # Tab 3: Plastic Estimator
-        tabPanel("Plastic Estimator",
-                 verbatimTextOutput("plastic_estimate")),  # Display the model output
-        
-        # Tab 4: Pollution Trends Over Time
-        tabPanel("Pollution Trends", 
-                 plotOutput("trend_graph", height = "500px"))
-      )
+      leafletOutput("us_map",height="600px")
     )
   ),
   theme = bs_theme(
@@ -109,3 +96,42 @@ ui = fluidPage(
     fg = "#333333"  # Foreground text color
   ),
 )
+
+
+# 
+# # Tab 1: Interactive World Map for Microplastics
+# tabPanel("Microplastics Map", 
+#          leafletOutput("plastic_map", height = "600px")),
+# 
+# # Tab 2: Interactive World Map for City Data (Tourism/Population)
+# tabPanel("City Data Map", 
+#          leafletOutput("city_map", height = "600px")),
+# 
+# # Tab 3: Plastic Estimator
+# tabPanel("Plastic Estimator",
+#          verbatimTextOutput("plastic_estimate")),  # Display the model output
+# 
+# # Tab 4: Pollution Trends Over Time
+# tabPanel("Pollution Trends", 
+#          plotOutput("trend_graph", height = "500px"))
+# ),
+# plotOutput("us_map")
+
+
+######## Workshopping Areas #########
+
+## Alon's Workspace ##
+
+
+## End Alon's Workspace ##
+
+## Justin's Workspace ##
+
+
+
+## End Justin's Workspace ##
+
+## Nadav's Workspace ##
+
+
+## End Nadav's Workspace ##
