@@ -92,8 +92,8 @@ server = function(input, output, session) {
   })
 }
 
-<<<<<<< HEAD
-=======
+
+
 
 
 
@@ -114,4 +114,4 @@ server = function(input, output, session) {
 
 
 ## End Nadav's Workspace ##
->>>>>>> 92a757b57e2add251b56d8973b642a6dc7490743
+
