@@ -82,7 +82,53 @@ ui = fluidPage(
     
     # Main Panel for displaying maps and plots
     mainPanel(
-      leafletOutput("us_map",height="600px")
+      tabsetPanel(
+        # World Map Tab (First)
+        tabPanel("U.S. Map", leafletOutput("us_map", height = "600px")),
+        
+        # Plastic Debris Estimator Tab (Second)
+        tabPanel("Plastic Debris Estimator", 
+                 fluidPage(
+                   h3("Plastic Debris Estimator"),
+                   p("Enter the details below to estimate the plastic debris in your city:"),
+                   textInput("user_city", "Enter Coastal City Name:"),
+                   numericInput("user_population", "City Population:", value = 100000),
+                   numericInput("user_tourists", "Tourist Visits Per Year:", value = 500000),
+                   actionButton("calculate_plastic", "Estimate Plastic Debris"),
+                   hr(),
+                   h4("Estimated Plastic Debris:"),
+                   textOutput("plastic_estimate")  # Displays the result of the estimation
+                 )),
+        
+        # Trend Analysis Tab (Third)
+        tabPanel("Trend Analysis", 
+                 h3("Pollution Trend Analysis"),
+                 p("This section allows users to explore trends in pollution over time based on selected locations and time range."),
+                 sliderInput("time_range", "Select Time Range:", min = 2000, max = 2025, value = c(2010, 2025)),
+                 actionButton("update_trend", "Update Graph"),
+                 plotOutput("trend_plot")  # Placeholder for trend plot
+        ),
+        
+        # Overview Tab (Last)
+        tabPanel("Overview", 
+                 fluidPage(
+                   h2("Overview of the Shiny App"),
+                   p("The goal of this project is to understand how plastic pollution in our oceans is related to coastal city populations and tourism. The app provides the following features:"),
+                   tags$ul(
+                     tags$li("Interactive U.S. map showing plastic data near coastal cities. The map also shows city data (tourism and population)."),
+                     tags$li("A plastic debris estimator that calculates plastic debris based on city population and tourist visits."),
+                     tags$li("Trend analysis of pollution data over time."),
+                   ),
+                   h3("How to Use the App"),
+                   p("1. Select the year and season to view relevant data."),
+                   p("2. Choose the type of plastic you wish to explore (microplastic or macroplastic)."),
+                   p("3. View city data (tourism or population) and see its correlation with plastic debris."),
+                   p("4. Use the plastic debris estimator to calculate plastic pollution in your city."),
+                   p("5. Analyze pollution trends over time to observe changes."),
+                   h3("Data Sources"),
+                   p("This app uses data from global and local pollution reports, population statistics, and tourism statistics. Data sources are regularly updated to provide the most accurate insights.")
+                 ))
+      )
     )
   ),
   theme = bs_theme(
