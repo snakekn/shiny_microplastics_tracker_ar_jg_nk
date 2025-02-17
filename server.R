@@ -46,7 +46,6 @@ microplastics$date <- as.Date(microplastics$date, format = "%m/%d/%Y %I:%M:%S %p
 tourism <- readxl::read_xlsx(here::here("data","unwto_tourism.xlsx")) # data needs to be reformatted
 
 # 4. City Population data
-us_pop = read.csv(here::here("data",population_data.csv))
 
 
 
