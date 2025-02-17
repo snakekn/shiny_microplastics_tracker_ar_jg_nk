@@ -32,26 +32,22 @@ library(bslib)
 # - We may still need to look for more plastic data or if we want to pivot from plastic carbon emission data.
 
 ### PREP DATA SOURCES
+# 1. World Map
+world_sf <- ne_countries(scale = "medium", returnclass = "sf")
 
-# Load the data
+# 2. Microplastics Data
 microplastics <- read_csv(here::here("data","noaa_microplastics.csv")) |>
   janitor::clean_names()
-# lubridate the year, 
-
 # convert in format 5/21/2001 12:00:00 AM to date
 microplastics$date <- as.Date(microplastics$date, format = "%m/%d/%Y %I:%M:%S %p")
 
+# 3. Tourism data - not yet found
 # Doesn't exist yet - population <- read_csv(here::here("data","un_population.csv"))
 tourism <- readxl::read_xlsx(here::here("data","unwto_tourism.xlsx")) # data needs to be reformatted
 
-# bring in world map
-world_sf <- ne_countries(scale = "medium", returnclass = "sf")
+# 4. City Population data
+us_pop = read.csv(here::here("data",population_data.csv))
 
-# Merge the population data with the world map - doesn't work yet
-# world_population <- left_join(world, population, by = c("name" = "city"))
-
-# Merge the tourism data with the world map - doesn't work yet
-# world_tourism <- left_join(world, tourism, by = c("name" = "city"))
 
 
 # Define server logic required to draw a histogram
@@ -61,40 +57,13 @@ server = function(input, output, session) {
     city_data %>%
       select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
   })
+
   
-  # Render Leaflet Map
-  output$map <- renderLeaflet({
-    leaflet(city_data) %>%
-      addTiles() %>%
-      addCircleMarkers(
-        lng = ~lon, lat = ~lat,
-        label = ~paste(city, "<br>", input$map_variable, ":", variable),
-        color = "blue",
-        radius = ~variable * 2,  # Scale marker size
-        fillOpacity = 0.7
-      )
-  })
-  
-  # Create a reactive expression for the population map
-  output$population_map <- renderLeaflet({
-    leaflet(world_population) %>%
-      addTiles() %>%
-      addCircleMarkers(
-        radius = ~population,
-        color = "blue",
-        fillOpacity = 0.8
-      )
-  })
-  
-  # Create a reactive expression for the tourism map
-  output$tourism_map <- renderLeaflet({
-    leaflet(world_tourism) %>%
-      addTiles() %>%
-      addCircleMarkers(
-        radius = ~tourism,
-        color = "green",
-        fillOpacity = 0.8
-      )
+  output$us_map <- renderLeaflet({
+    # Create the base map
+    leaflet() |>
+      addTiles() |>  # Default tile layer (OpenStreetMap)
+      setView(lng = -98.35, lat = 39.50, zoom = 4)  # Centered on the US
   })
   
   # Create a reactive expression for the calculator
@@ -123,3 +92,26 @@ server = function(input, output, session) {
   })
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+######## Workshopping Areas #########
+
+## Alon's Workspace ##
+
+
+## End Alon's Workspace ##
+
+## Justin's Workspace ##
+
+
+
+## End Justin's Workspace ##
+
+## Nadav's Workspace ##
+
+
+## End Nadav's Workspace ##
+>>>>>>> 92a757b57e2add251b56d8973b642a6dc7490743
