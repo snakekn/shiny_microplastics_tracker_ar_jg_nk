@@ -36,17 +36,45 @@ library(bslib)
 world_sf <- ne_countries(scale = "medium", returnclass = "sf")
 
 # 2. Microplastics Data
-microplastics <- read_csv(here::here("data","noaa_microplastics.csv")) |>
-  janitor::clean_names()
-# convert in format 5/21/2001 12:00:00 AM to date
-microplastics$date <- as.Date(microplastics$date, format = "%m/%d/%Y %I:%M:%S %p")
+microplastics_raw = read_csv(here::here("data","microplastics.csv"))
 
-# 3. Tourism data - not yet found
-# Doesn't exist yet - population <- read_csv(here::here("data","un_population.csv"))
-tourism <- readxl::read_xlsx(here::here("data","unwto_tourism.xlsx")) # data needs to be reformatted
+microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still needs to have non-USA data removed
+  janitor::clean_names() |>
+  select(-c("doi","organization","keywords","x","y"),-starts_with("accession"),-ends_with(c("reference", "id"))) |>
+  rename(lat=latitude, lon=longitude) |>
+  mutate(date = as.Date(microplastics$date, format = "%m/%d/%Y %I:%M:%S %p"),
+         season = case_when(
+           month(date) %in% 3:5 ~ "Spring",
+           month(date) %in% 6:8 ~ "Summer",
+           month(date) %in% 9:11 ~ "Fall",
+           TRUE ~ "Winter"
+         ))
+
+# 3. Tourism data
+tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
+  janitor::clean_names() |>
+  rename(msa = city_msa_visitation,
+         pct_2023 = market,
+         pct_2022 = market_1,
+         visits_2023 = visitation,
+         visits_2022 = visitation_1) |>
+  select(-x,-rank) |>
+  drop_na() |>
+  mutate(pct_2023 = as.numeric(gsub("[%,]","",pct_2023))/100,
+         pct_2022 = as.numeric(gsub("[%,]","",pct_2022))/100,
+         visits_2023 = as.numeric(gsub("[%,]","",visits_2023))*1000,
+         visits_2022 = as.numeric(gsub("[%,]","",visits_2022))*1000)
+
+tourism_geocode = tourism |>
+  tidygeocoder::geocode(city = msa, method = "osm", lat = latitude, long = longitude) # doesn't work on msa data :(
 
 # 4. City Population data
-
+population = read.csv(here::here("data","population.csv"))  |> # do we have the metadata on this?
+  janitor::clean_names() |>
+  pivot_longer(cols=starts_with("x"),names_to = "year",values_to="pop") |>
+  mutate(year = as.numeric(gsub("^x","",year))) |> # remove the x that janitor included for the numeric column names 
+  select(-c("id","stplfips_2010"),-ends_with(c("_bing","_source"))) |>
+  filter(pop!=0)
 
 
 # Define server logic required to draw a histogram
