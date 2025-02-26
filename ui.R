@@ -87,7 +87,7 @@ ui = fluidPage(
     
     # Main Panel for displaying maps and plots
     mainPanel(
-      tabsetPanel(
+      tabsetPanel(id = "tabs",
         
         # Overview Tab (First) - this explains the point of the app, and how to use it
         tabPanel("Overview", 
