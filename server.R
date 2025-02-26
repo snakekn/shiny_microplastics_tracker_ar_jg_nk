@@ -7,13 +7,23 @@
 #    https://shiny.posit.co/
 #
 
+# loading all libraries in the server for clarity
 library(shiny)
 library(tidyverse)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
-library(readxl)
+# library(readxl)
 library(bslib)
+# let's try lazy loading if possible, we have a slow start time!
+library(magrittr) # data import
+library(rvest) # data import
+library(leaflet)
+library(scales)
+library(leaflet.extras)
+library(bslib)
+
+
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
 
@@ -36,8 +46,6 @@ library(bslib)
 world_sf <- ne_countries(scale = "medium", returnclass = "sf")
 
 # 2. Microplastics Data
-microplastics_raw = read_csv(here::here("data","microplastics.csv"))
-
 microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still needs to have non-USA data removed
   janitor::clean_names() |>
   select(-c("doi","organization","keywords","x","y"),-starts_with("accession"),-ends_with(c("reference", "id"))) |>
@@ -48,25 +56,27 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
            month(date) %in% 6:8 ~ "Summer",
            month(date) %in% 9:11 ~ "Fall",
            TRUE ~ "Winter"
-         ))
+         ),
+         year = year(date))
 
-# 3. Tourism data
-tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
-  janitor::clean_names() |>
-  rename(msa = city_msa_visitation,
-         pct_2023 = market,
-         pct_2022 = market_1,
-         visits_2023 = visitation,
-         visits_2022 = visitation_1) |>
-  select(-x,-rank) |>
-  drop_na() |>
-  mutate(pct_2023 = as.numeric(gsub("[%,]","",pct_2023))/100,
-         pct_2022 = as.numeric(gsub("[%,]","",pct_2022))/100,
-         visits_2023 = as.numeric(gsub("[%,]","",visits_2023))*1000,
-         visits_2022 = as.numeric(gsub("[%,]","",visits_2022))*1000)
+# 3. Tourism data - skipping (this data source sucks)
+# tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
+#   janitor::clean_names() |>
+#   rename(msa = city_msa_visitation,
+#          pct_2023 = market,
+#          pct_2022 = market_1,
+#          visits_2023 = visitation,
+#          visits_2022 = visitation_1) |>
+#   select(-x,-rank) |>
+#   drop_na() |>
+#   mutate(pct_2023 = as.numeric(gsub("[%,]","",pct_2023))/100,
+#          pct_2022 = as.numeric(gsub("[%,]","",pct_2022))/100,
+#          visits_2023 = as.numeric(gsub("[%,]","",visits_2023))*1000,
+#          visits_2022 = as.numeric(gsub("[%,]","",visits_2022))*1000)
 
-tourism_geocode = tourism |>
-  tidygeocoder::geocode(city = msa, method = "osm", lat = latitude, long = longitude) # doesn't work on msa data :(
+# need to not have this in our script (it tries geocoding during each open). 
+# Do it in another script & save it here
+# tourism_geocode = tourism
 
 # 4. City Population data
 population = read.csv(here::here("data","population.csv"))  |> # do we have the metadata on this?
@@ -81,8 +91,22 @@ population = read.csv(here::here("data","population.csv"))  |> # do we have the 
 server = function(input, output, session) {
   
   reactive_data <- reactive({
+    
+    data_list = list()
+    
+    if (input$show_microplastics) {
+      data_list$microplastics = microplastics
+    }
+    if (input$show_population) {
+      data_list$population = population
+    }
+    # if (input$show_tourism) {
+    #   data_list$tourism = tourism
+    # }
     city_data %>%
       select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
+    
+    return(data_list)
   })
 
   
@@ -103,19 +127,53 @@ server = function(input, output, session) {
       actionButton("calculate", "Calculate")
     )
   })
- 
   
-  # Update the map on a new event
-  observeEvent(input$refresh, {
-    leafletProxy("map", data = reactive_data()) %>%
-      clearMarkers() %>%
-      addCircleMarkers(
-        lng = ~lon, lat = ~lat,
-        label = ~paste(city, "<br>", input$map_variable, ":", variable),
-        color = "blue",
-        radius = ~variable * 2,
-        fillOpacity = 0.7
-      )
+  observe({
+    leafletProxy("us_map") %>%
+      clearMarkers() |>
+      clearControls()
+    
+    # Add Microplastics data
+    if (input$show_microplastics) {
+      pal_microplastics <- colorNumeric("YlOrRd", domain = microplastics$density_class, na.color = "gray")
+      
+      leafletProxy("us_map", data = microplastics) %>%
+        addCircleMarkers(
+          lng = ~lon, lat = ~lat,
+          radius = ~sqrt(measurement) * 3,
+          color = ~pal_microplastics(density),  # Color by density
+          fillOpacity = 0.7,
+          popup = ~paste(
+            "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
+            "<strong>Density Class: </strong>",density_class, "<br>",
+            "<strong>Date Collected: </strong>",date)
+        ) |>
+        addLegend("bottomright", pal = pal_microplastics, values = ~density_class,
+                  title = "Microplastic Density", opacity = 1)
+    }
+    
+    # Add Population data
+    if (input$show_population) {
+      leafletProxy("us_map", data = population) %>%
+        addCircleMarkers(
+          lng = ~lon, lat = ~lat,
+          color = "green", radius = 5,
+          fillOpacity = 0.7,
+          popup = ~paste("<strong>City:</strong>", city, "<br>",
+                         "<strong>Population:</strong>", formatC(pop*1000, format = "d", big.mark = ","))
+        )
+    }
+    
+    # # Add Tourism data
+    # if (input$show_tourism) {
+    #   leafletProxy("us_map", data = tourism) %>%
+    #     addCircleMarkers(
+    #       lng = ~longitude, lat = ~latitude,
+    #       color = "red", radius = 5,
+    #       fillOpacity = 0.7,
+    #       popup = ~paste("Tourism Visits:", visits_2023)  # Modify based on actual column names
+    #     )
+    # }
   })
 }
 
