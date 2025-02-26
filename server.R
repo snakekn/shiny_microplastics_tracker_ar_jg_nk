@@ -21,7 +21,8 @@ library(rvest) # data import
 library(leaflet)
 library(scales)
 library(leaflet.extras)
-library(bslib)
+library(terra)
+library(tidyterra)
 
 
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
@@ -60,7 +61,11 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
          year = year(date),
          density_class=factor(density_class,ordered=TRUE,levels=c("Very Low","Low","Medium","High","Very High")),
          density_range=as.factor(density_range),
-         unit=as.factor(unit))
+         unit=as.factor(unit),
+         oceans=as.factor(oceans),
+         density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
+       )
+         
 
 # 3. Tourism data - skipping (this data source sucks)
 # tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
@@ -93,6 +98,15 @@ population = read.csv(here::here("data","population.csv"))  |> # do we have the 
 # Define server logic required to draw a histogram
 server = function(input, output, session) {
   
+  filtered_microplastics <- reactive({
+    microplastics %>%
+      filter(
+        season %in% input$season_filter,  # Filter by season
+        year >= input$year_range[1] & year <= input$year_range[2],  # Filter by year range
+        density_class == input$density_class_filter  # Filter by density class
+      )
+  })
+  
   reactive_data <- reactive({
     
     data_list = list()
@@ -109,6 +123,8 @@ server = function(input, output, session) {
     # city_data %>%
     #   select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
     # 
+    
+    
     return(data_list)
   })
 
@@ -143,15 +159,16 @@ server = function(input, output, session) {
         domain = microplastics$density_class  # The categorical variable
       )
 
-      leafletProxy("us_map", data = microplastics) %>%
+      leafletProxy("us_map", data = filtered_microplastics()) %>%
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
-          radius = ~sqrt(measurement) * 3,
+          radius = ~sqrt(density_marker_size),
           color = ~pal_microplastics(density_class),  # Color by density
           fillOpacity = 0.7,
           popup = ~paste(
             "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
             "<strong>Density Class: </strong>",density_class, "<br>",
+            "<strong>Sampling Method: </strong",sampling_method, "<br>",
             "<strong>Date Collected: </strong>",date)
         ) |>
         addLegend("bottomright", pal = pal_microplastics, values = ~density_class,
@@ -180,7 +197,7 @@ server = function(input, output, session) {
     #       popup = ~paste("Tourism Visits:", visits_2023)  # Modify based on actual column names
     #     )
     # }
-  })
+  }, priority = 1)
 }
 
 
@@ -221,6 +238,96 @@ population1 <- read.csv(here::here("data","population.csv")) %>%
 ## End Alon's Workspace ##
 
 ## Justin's Workspace ##
+
+#Krigging 
+
+# Split the data into Pacific and Atlantic
+microplastics_data_sf <- st_as_sf(microplastics_data, coords = c("longitude", "latitude"), crs = 4326)|>
+  mutate(density_numeric = case_when(
+    density_class == "very low" ~ 1,
+    density_class == "low" ~ 2,
+    density_class == "medium" ~ 3,
+    density_class == "high" ~ 4,
+    density_class == "very high" ~ 5))
+
+#Split Pacific and Atlantic 
+pacific_data <- microplastics %>% filter(Oceans == "Pacific")
+atlantic_data <- microplastics %>% filter(Oceans == "Atlantic")
+# Split Atlantic data into Gulf of Mexico and Other regions
+gulf_of_mexico_data <- atlantic_data %>% filter(Regions == "Gulf of Mexico")
+other_atlantic_data <- atlantic_data %>% filter(Regions != "Gulf of Mexico")
+
+
+# Variogram for Pacific Ocean
+pacific_vgm <- variogram(density_numeric ~ 1, data = pacific_data)
+pacific_vgm_fit <- fit.variogram(pacific_vgm, model = vgm(1, "Sph", 300, 1))
+
+# Create a grid for kriging
+grid_pacific <- st_bbox(pacific_data) %>%
+  st_as_stars(dx = 1000, dy = 1000)
+
+# Kriging for Pacific Ocean
+krige_pacific <- krige(density_numeric ~ 1, pacific_data, grid_pacific, model = pacific_vgm_fit)
+
+# Visualize Kriging Result for Pacific
+ggplot() + 
+  geom_spatraster(data = krige_pacific, aes(fill = pred)) + 
+  scale_fill_viridis_c() +
+  ggtitle("Kriging of Microplastic Density in Pacific Ocean")
+
+# Variogram for Other Atlantic
+atlantic_vgm <- variogram(density_numeric ~ 1, data = other_atlantic_data)
+atlantic_vgm_fit <- fit.variogram(atlantic_vgm, model = vgm(1, "Sph", 300, 1))
+
+# Create a grid for kriging
+grid_atlantic <- st_bbox(other_atlantic_data) %>%
+  st_as_stars(dx = 1000, dy = 1000)
+
+# Kriging for Other Atlantic
+krige_atlantic <- krige(density_numeric ~ 1, other_atlantic_data, grid_atlantic, model = atlantic_vgm_fit)
+
+# Visualize Kriging Result for Other Atlantic
+ggplot() + 
+  geom_spatraster(data = krige_atlantic, aes(fill = pred)) + 
+  scale_fill_viridis_c() +
+  ggtitle("Kriging of Microplastic Density in Other Atlantic Regions")
+
+# Variogram for Gulf of Mexico
+gulf_vgm <- variogram(density_numeric ~ 1, data = gulf_of_mexico_data)
+gulf_vgm_fit <- fit.variogram(gulf_vgm, model = vgm(1, "Sph", 300, 1))
+
+# Create a grid for kriging
+grid_gulf <- st_bbox(gulf_of_mexico_data) %>%
+  st_as_stars(dx = 1000, dy = 1000)
+
+# Kriging for Gulf of Mexico
+krige_gulf <- krige(density_numeric ~ 1, gulf_of_mexico_data, grid_gulf, model = gulf_vgm_fit)
+
+# Visualize Kriging Result for Gulf of Mexico
+ggplot() + 
+  geom_spatraster(data = krige_gulf, aes(fill = pred)) + 
+  scale_fill_viridis_c() +
+  ggtitle("Kriging of Microplastic Density in Gulf of Mexico")
+
+
+# Combine all kriged results
+krige_combined <- bind_rows(
+  mutate(krige_pacific, region = "Pacific"),
+  mutate(krige_gulf, region = "Gulf of Mexico"),
+  mutate(krige_atlantic, region = "Other Atlantic")
+)
+
+# Visualize combined Kriging results
+ggplot() + 
+  geom_spatraster(data = krige_combined, aes(fill = pred)) + 
+  scale_fill_viridis_c() +
+  facet_wrap(~region) +
+  ggtitle("Combined Kriging of Microplastic Density")
+
+
+
+
+
 
 
 
