@@ -50,12 +50,28 @@ ui = fluidPage(
       h3("Toggle Data"),
       checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
       checkboxInput("show_population","Show Population Data", value=TRUE),
-      # 
-      # checkboxInput("show_tourism","Show Tourism Data", value=TRUE),
+
       h3("Filters"),
-      selectInput("year", "Select Year:", choices = 2000:2025, selected = 2023),
-      selectInput("season", "Select Season:", choices = c("Spring", "Summer", "Fall", "Winter")),
-      selectInput("plastic_type", "Type of Plastic:", choices = c("All", "Microplastic", "Macroplastic")),
+      
+      # Year Slider (1972-2022)
+      sliderInput("year_range", "Select Year Range:", 
+                  min = min(microplastics$year, na.rm = TRUE),
+                  max = max(microplastics$year, na.rm = TRUE),
+                  value = c(1972, 2022),  # Default to entire population
+                  step = 1, sep = ""),
+      
+      # Season Checkbox Filter
+      checkboxGroupInput("season_filter", "Select Seasons:", 
+                         choices = c("Spring", "Summer", "Fall", "Winter"),
+                         selected = c("Spring", "Summer", "Fall", "Winter")),  # Default: All selected
+        
+      
+      # Density Class Filter (Dropdown)
+      selectInput("density_class_filter", "Density Class:", 
+                  choices = unique(microplastics$density_class),
+                  selected = unique(microplastics$density_class)[1], 
+                  multiple = TRUE), # allows for multiple density types
+      
       hr(),
       h3("Plastic Debris Estimator"),
       textInput("user_city", "Enter Coastal City Name:"),

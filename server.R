@@ -60,7 +60,11 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
          year = year(date),
          density_class=factor(density_class,ordered=TRUE,levels=c("Very Low","Low","Medium","High","Very High")),
          density_range=as.factor(density_range),
-         unit=as.factor(unit))
+         unit=as.factor(unit),
+         oceans=as.factor(oceans),
+         density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
+       )
+         
 
 # 3. Tourism data - skipping (this data source sucks)
 # tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
@@ -93,6 +97,15 @@ population = read.csv(here::here("data","population.csv"))  |> # do we have the 
 # Define server logic required to draw a histogram
 server = function(input, output, session) {
   
+  filtered_microplastics <- reactive({
+    microplastics %>%
+      filter(
+        season %in% input$season_filter,  # Filter by season
+        year >= input$year_range[1] & year <= input$year_range[2],  # Filter by year range
+        density_class == input$density_class_filter  # Filter by density class
+      )
+  })
+  
   reactive_data <- reactive({
     
     data_list = list()
@@ -109,6 +122,8 @@ server = function(input, output, session) {
     # city_data %>%
     #   select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
     # 
+    
+    
     return(data_list)
   })
 
@@ -143,15 +158,16 @@ server = function(input, output, session) {
         domain = microplastics$density_class  # The categorical variable
       )
 
-      leafletProxy("us_map", data = microplastics) %>%
+      leafletProxy("us_map", data = filtered_microplastics()) %>%
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
-          radius = ~sqrt(measurement) * 3,
+          radius = ~sqrt(density_marker_size),
           color = ~pal_microplastics(density_class),  # Color by density
           fillOpacity = 0.7,
           popup = ~paste(
             "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
             "<strong>Density Class: </strong>",density_class, "<br>",
+            "<strong>Sampling Method: </strong",sampling_method, "<br>",
             "<strong>Date Collected: </strong>",date)
         ) |>
         addLegend("bottomright", pal = pal_microplastics, values = ~density_class,
