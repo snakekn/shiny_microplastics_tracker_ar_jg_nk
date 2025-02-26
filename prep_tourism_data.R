@@ -41,3 +41,4 @@ print(extracted_data)
 
 # Save as CSV
 write.csv(extracted_data, here("data","cleaned_tourism_data.csv"), row.names = FALSE)
+
