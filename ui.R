@@ -69,7 +69,7 @@ ui = fluidPage(
       # Density Class Filter (Dropdown)
       selectInput("density_class_filter", "Density Class:", 
                   choices = unique(microplastics$density_class),
-                  selected = unique(microplastics$density_class)[1], 
+                  selected = unique(microplastics$density_class), 
                   multiple = TRUE), # allows for multiple density types
       
       hr(),

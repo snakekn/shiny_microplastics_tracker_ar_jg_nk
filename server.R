@@ -196,7 +196,7 @@ server = function(input, output, session) {
     #       popup = ~paste("Tourism Visits:", visits_2023)  # Modify based on actual column names
     #     )
     # }
-  })
+  }, priority = 1)
 }
 
 
