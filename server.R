@@ -24,6 +24,9 @@ library(leaflet.extras)
 library(terra)
 library(tidyterra)
 
+# source(here::here("helper","krigging.R"))
+source(here::here("helper","coastal_buffer.R"))
+
 
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
@@ -65,28 +68,8 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
          oceans=as.factor(oceans),
          density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
        )
-         
 
-# 3. Tourism data - skipping (this data source sucks)
-# tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
-#   janitor::clean_names() |>
-#   rename(msa = city_msa_visitation,
-#          pct_2023 = market,
-#          pct_2022 = market_1,
-#          visits_2023 = visitation,
-#          visits_2022 = visitation_1) |>
-#   select(-x,-rank) |>
-#   drop_na() |>
-#   mutate(pct_2023 = as.numeric(gsub("[%,]","",pct_2023))/100,
-#          pct_2022 = as.numeric(gsub("[%,]","",pct_2022))/100,
-#          visits_2023 = as.numeric(gsub("[%,]","",visits_2023))*1000,
-#          visits_2022 = as.numeric(gsub("[%,]","",visits_2022))*1000)
-
-# need to not have this in our script (it tries geocoding during each open). 
-# Do it in another script & save it here
-# tourism_geocode = tourism
-
-# 4. City Population data
+# 3. City Population data
 population = read.csv(here::here("data","population.csv"))  |> # do we have the metadata on this?
   janitor::clean_names() |>
   pivot_longer(cols=starts_with("x"),names_to = "year",values_to="pop") |>
@@ -117,13 +100,6 @@ server = function(input, output, session) {
     if (input$show_population) {
       data_list$population = population
     }
-    # if (input$show_tourism) {
-    #   data_list$tourism = tourism
-    # }
-    # city_data %>%
-    #   select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
-    # 
-    
     
     return(data_list)
   })
@@ -186,17 +162,6 @@ server = function(input, output, session) {
                          "<strong>Population:</strong>", formatC(pop*1000, format = "d", big.mark = ","))
         )
     }
-    
-    # # Add Tourism data
-    # if (input$show_tourism) {
-    #   leafletProxy("us_map", data = tourism) %>%
-    #     addCircleMarkers(
-    #       lng = ~longitude, lat = ~latitude,
-    #       color = "red", radius = 5,
-    #       fillOpacity = 0.7,
-    #       popup = ~paste("Tourism Visits:", visits_2023)  # Modify based on actual column names
-    #     )
-    # }
   }, once = TRUE)
 }
 
@@ -209,31 +174,6 @@ server = function(input, output, session) {
 
 ## Alon's Workspace ##
 
-# country boundaries
-countries <- ne_countries(scale = "medium", returnclass = "sf")
-# filter for US 
-us_boundaries <- countries |>
-  filter(iso_a3 == "USA")
-# land boundaries
-land <- ne_download(scale = "medium", type = "land", category = "physical", returnclass = "sf")
-# filter for US land boundary
-us_land <- land[st_intersects(land, us_boundaries, sparse = FALSE), ]
-# coastline data
-coastline <- ne_download(scale = 10, type = "coastline", category = "physical", returnclass = "sf")
-# filter for US coastline
-us_coastline <- coastline[st_intersects(coastline, us_boundaries, sparse = FALSE), ]
-# 30mi buffer around the coastline
-coastline_buffer <- st_buffer(us_coastline, dist = 48280)  # 30 miles in meters
-# plot buffer
-plot(coastline_buffer, col = "lightblue", border = "blue", lwd = 2)
-# Load the population data (cities)
-population1 <- read.csv(here::here("data","population.csv")) %>%
-  janitor::clean_names() %>%
-  pivot_longer(cols = starts_with("x"), names_to = "year", values_to = "pop") %>%
-  mutate(year = as.numeric(gsub("^x", "", year))) %>%
-  select(-c("id", "stplfips_2010"), -ends_with(c("_bing", "_source"))) %>%
-  filter(pop != 0)
-# 
 
 ## End Alon's Workspace ##
 
