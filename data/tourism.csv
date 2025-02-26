@@ -1,0 +1,111 @@
+RANK,CITY (MSA)  VISITATION**,MARKET,VISITATION,%,MARKET,VISITATION
+1,"New York-White Plains-Wayne, NY-NJ MD",28.25%,"8,890",27.1%,29.19%,"6,992"
+2,"Miami-Miami Beach-Kendall, FL MD",13.87%,"4,365",6.8%,17.06%,"4,086"
+3,"Los Angeles-Long Beach-Glendale, CA MD",11.45%,"3,603",31.0%,11.48%,"2,750"
+4,"Orlando-Kissimmee-Sanford, FL MSA",11.18%,"3,518",20.5%,12.19%,"2,920"
+5,"San Francisco-San Mateo-Redwood City, CA MD",7.25%,"2,281",31.2%,7.26%,"1,739"
+6,"Las Vegas-Paradise, NV MSA",6.60%,"2,077",25.1%,6.93%,"1,660"
+7,"Washington (DC Metro Area), DC-MD-VA",5.12%,"1,611",38.0%,4.87%,"1,167"
+8,"Chicago-Joliet-Naperville, IL MD",4.49%,"1,413",33.2%,4.43%,"1,061"
+9,"Honolulu, HI MSA",4.20%,"1,322",85.9%,2.97%,711
+10,"Boston-Quincy, MA MD",3.66%,"1,152",56.1%,3.08%,738
+11,"Houston-Sugar Land-Baytown, TX MSA",2.82%,887,48.8%,2.49%,596
+12,"Atlanta-Sandy Springs-Marietta, GA MSA",2.43%,765,111.3%,1.51%,362
+13,"Fort Lauderdale-Pompano Beach-Deerfield Beach, FL MD",2.38%,749,11.0%,2.82%,675
+14,"Dallas-Plano-Irving, TX MSA",2.08%,655,44.6%,1.89%,453
+14,"San Diego-Carlsbad-San Marcos, CA MSA",2.08%,655,17.4%,2.33%,558
+16,"Santa Ana-Anaheim-Irvine, CA MD",1.99%,626,58.5%,1.65%,395
+17,"Seattle-Bellevue-Everett, WA MD",1.84%,579,40.5%,1.72%,412
+18,"Flagstaff, AZ MSA",1.76%,554,38.5%,1.67%,400
+19,"Philadelphia, PA MSA",1.68%,529,62.3%,1.36%,326
+20,"Tampa-St. Petersburg-Clearwater, FL MSA",1.48%,466,37.1%,1.42%,340
+21,"San Jose-Sunnyvale-Santa Clara, CA MSA",1.23%,387,107.0%,0.78%,187
+22,"Key West, FL MSA",1.08%,340,69.2%,0.84%,201
+23,"Phoenix-Mesa-Glendale, AZ MSA",0.98%,308,42.6%,0.90%,216
+24,"Riverside-San Bernardino-Ontario, CA MSA",0.96%,302,37.3%,0.92%,220
+25,"Buffalo-Niagara Falls, NY MSA",0.93%,293,40.9%,0.87%,208
+26,"Denver-Aurora-Broomfield, CO MSA",0.91%,286,43.7%,0.83%,199
+27,"New Orleans-Metairie-Kenner, LA MSA",0.86%,271,-4.2%,1.18%,283
+28,"Nashville-Davidson-Murfreesboro-Franklin, TN MSA",0.85%,267,57.1%,0.71%,170
+29,"West Palm Beach-Boca Raton-Boynton Beach, FL MD",0.84%,264,3.9%,1.06%,254
+30,"Austin-Round Rock-San Marcos, TX MSA",0.78%,245,53.1%,0.67%,160
+30,"Salinas, CA MSA",0.78%,245,16.1%,0.88%,211
+32,"Detroit-Warren-Livonia, MI MSA",0.70%,220,58.3%,0.58%,139
+33,"Naples-Marco Island, FL MSA",0.66%,208,73.3%,0.50%,120
+33,"Newark-Union, NJ-PA MD",0.66%,208,13.0%,0.77%,184
+35,"Sacramento-Arden-Arcade-Roseville, CA MSA",0.63%,198,44.5%,0.57%,137
+36,"Santa Barbara-Santa Maria-Goleta, CA MSA",0.59%,186,16.3%,0.67%,160
+37,"Jacksonville, FL MSA",0.54%,170,22.3%,0.58%,139
+38,"Minneapolis-St. Paul-Bloomington, MN-WI MSA",0.53%,167,36.9%,0.51%,122
+39,"Palm Bay-Melbourne-Titusville, FL MSA",0.52%,164,-6.3%,0.73%,175
+40,"Charlotte-Gastonia-Rock Hill, NC-SC MSA",0.51%,160,45.5%,0.46%,110
+41,"San Antonio-New Braunfels, TX MSA",0.48%,151,39.8%,0.45%,108
+41,"St. George, UT MSA",0.48%,151,14.4%,0.55%,132
+43,"Salt Lake City, UT MSA",0.46%,145,12.4%,0.54%,129
+44,"Baltimore-Towson, MD MSA",0.45%,142,7.6%,0.55%,132
+45,"North Port-Bradenton-Sarasota, FL MSA",0.44%,138,40.8%,0.41%,98
+45,"Oakland-Fremont-Hayward, CA MD",0.44%,138,27.8%,0.45%,108
+45,"Portland-Vancouver-Hillsboro, OR-WA MSA",0.44%,138,25.5%,0.46%,110
+48,"Cape Coral-Fort Myers, FL MSA",0.42%,132,14.8%,0.48%,115
+49,"Cleveland-Elyria-Mentor, OH MSA",0.39%,123,78.3%,0.29%,69
+49,"Hilo (Big Island), HI MICRO",0.39%,123,13.9%,0.45%,108
+49,"Nassau-Suffolk, NY MD",0.39%,123,89.2%,0.27%,65
+52,"Memphis, TN-AR-MS MSA",0.35%,110,31.0%,0.35%,84
+52,"San Luis Obispo-Paso Robles, CA MSA, CA",0.35%,110,-6.0%,0.49%,117
+54,"Pittsburgh, PA MSA",0.34%,107,17.6%,0.38%,91
+55,"Kahului-Wailuku (Maui), HI MICRO",0.33%,104,-13.3%,0.50%,120
+55,"San Juan-Caguas-Guaynabo, PR MSA",0.33%,104,141.9%,0.18%,43
+57,"Edison-New Brunswick, NJ MD",0.32%,101,13.5%,0.37%,89
+57,"Virginia Beach-Norfolk-Newport News, VA-NC MSA",0.32%,101,20.2%,0.35%,84
+59,"Visalia-Porterville, CA MSA",0.31%,98,36.1%,0.30%,72
+60,"Charleston-North Charleston-Summerville, SC MSA",0.30%,94,30.6%,0.30%,72
+61,"Hartford-West Hartford-East Hartford, CT MSA",0.29%,91,213.8%,0.12%,29
+61,"Indianapolis-Carmel, IN MSA",0.29%,91,5.8%,0.36%,86
+61,"Savannah, GA MSA",0.29%,91,51.7%,0.25%,60
+64,"Fort Worth-Arlington, TX MD",0.28%,88,46.7%,0.25%,60
+65,"Providence-New Bedford-Fall River, RI-MA MSA",0.27%,85,54.5%,0.23%,55
+65,"Raleigh-Cary, NC MSA",0.27%,85,14.9%,0.31%,74
+67,"Deltona-Daytona Beach-Ormond Beach, FL MSA",0.26%,82,49.1%,0.23%,55
+67,"St. Louis, MO-IL MSA",0.26%,82,-21.9%,0.44%,105
+69,"Bridgeport-Stamford-Norwalk, CT MSA",0.25%,79,0.0%,0.33%,79
+70,"Columbus, OH MSA",0.24%,76,43.4%,0.22%,53
+70,"Richmond, VA MSA",0.24%,76,-16.5%,0.38%,91
+72,"Kansas City, MO-KS MSA",0.23%,72,89.5%,0.16%,38
+73,"Albany-Schenectady-Troy, NY MSA",0.21%,66,-4.3%,0.29%,69
+73,"Barnstable Town (Cape Cod), MA MSA",0.21%,66,43.5%,0.19%,46
+73,"Cincinnati-Middletown, OH-KY-IN MSA",0.21%,66,-18.5%,0.34%,81
+73,"Milwaukee-Waukesha-West Allis, WI MSA",0.21%,66,43.5%,0.19%,46
+77,"Santa Cruz-Watsonville, CA MSA",0.19%,60,25.0%,0.20%,48
+78,"Madison, WI MSA",0.18%,57,23.9%,0.19%,46
+78,"New Haven-Milford, CT MSA",0.18%,57,50.0%,0.16%,38
+78,"Portland-South Portland-Biddeford, ME MSA",0.18%,57,32.6%,0.18%,43
+78,"Tucson, AZ MSA",0.18%,57,7.5%,0.22%,53
+82,"Louisville-Jefferson County, KY-IN MSA",0.17%,53,47.2%,0.15%,36
+83,"Bethesda-Rockville-Frederick, MD MD",0.16%,50,16.3%,0.18%,43
+83,"Port St. Lucie, FL MSA",0.16%,50,na,na,0
+85,"Atlantic City-Hammonton, NJ MSA",0.14%,44,83.3%,0.10%,24
+85,"Boulder, CO MSA",0.14%,44,51.7%,0.12%,29
+85,"Kapaa (Kauai), HI MICRO",0.14%,44,15.8%,0.16%,38
+85,"Napa, CA MSA",0.14%,44,22.2%,0.15%,36
+85,"Poughkeepsie-Newburgh-Middletown, NY MSA",0.14%,44,29.4%,0.14%,34
+85,"Rochester, NY MSA",0.14%,44,51.7%,0.12%,29
+91,"Durham-Chapel Hill, NC MSA",0.13%,41,13.9%,0.15%,36
+91,"Fresno, CA MSA",0.13%,41,-14.6%,0.20%,48
+91,"Santa Rosa-Petaluma, CA MSA",0.13%,41,13.9%,0.15%,36
+91,"Santa Fe, NM MSA",0.13%,41,86.4%,0.09%,22
+95,"Cambridge-Newton-Framingham, MA MD",0.12%,38,-17.4%,0.19%,46
+95,"Lakeland-Winter Haven, FL MSA",0.12%,38,-17.4%,0.19%,46
+95,"Oklahoma City, OK MSA",0.12%,38,-11.6%,0.18%,43
+95,"Oxnard-Thousand Oaks-Ventura, CA MSA",0.12%,38,-17.4%,0.19%,46
+95,"Syracuse, NY MSA",0.12%,38,46.2%,0.11%,26
+100,"Asheville, NC",0.11%,35,12.9%,0.13%,31
+100,"Colorado Springs, CO MSA",0.11%,35,34.6%,0.11%,26
+100,"Trenton-Ewing, NJ MSA",0.11%,35,34.6%,0.11%,26
+100,"Anchorage, AK MSA",0.11%,35,na,na,0
+104,"Columbia, SC MSA",0.10%,31,na,na,0
+105,"Bakersfield-Delano, CA MSA",0.09%,28,-26.3%,0.16%,38
+105,"Greenville-Mauldin-Easley, SC",0.09%,28,16.7%,0.10%,24
+105,"Lancaster, PA MSA",0.09%,28,100.0%,0.06%,14
+108,"Albuquerque, NM MSA",0.08%,25,-19.4%,0.13%,31
+108,"Reno-Sparks, NV MSA",0.08%,25,-34.2%,0.16%,38
+110,"Pensacola-Ferry Pass-Brent, FL MSA",0.07%,22,-24.1%,0.12%,29

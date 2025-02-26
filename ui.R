@@ -7,12 +7,6 @@
 #    https://shiny.posit.co/
 #
 
-library(shiny)
-library(magrittr) # data import
-library(rvest) # data import
-library(leaflet)
-library(bslib)
-
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
 # Widget 1: Interactive World map: Users will see a world map with microplastic data for different spots in the oceans near coastal cities. 
@@ -45,10 +39,6 @@ library(bslib)
 ### User inputs location & time range
 ### Graph: Line graph, x-axis = time, y-axis = plastic debris
 
-
-library(shiny)
-library(leaflet)
-
 ui = fluidPage(
   
   # Title
@@ -60,13 +50,12 @@ ui = fluidPage(
       h3("Toggle Data"),
       checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
       checkboxInput("show_population","Show Population Data", value=TRUE),
-      checkboxInput("show_tourism","Show Tourism Data", value=TRUE),
+      # 
+      # checkboxInput("show_tourism","Show Tourism Data", value=TRUE),
       h3("Filters"),
       selectInput("year", "Select Year:", choices = 2000:2025, selected = 2023),
       selectInput("season", "Select Season:", choices = c("Spring", "Summer", "Fall", "Winter")),
       selectInput("plastic_type", "Type of Plastic:", choices = c("All", "Microplastic", "Macroplastic")),
-      selectInput("city_data", "City Data Display:", choices = c("Tourism", "Population")),
-      actionButton("update_map", "Update Map"),
       hr(),
       h3("Plastic Debris Estimator"),
       textInput("user_city", "Enter Coastal City Name:"),
