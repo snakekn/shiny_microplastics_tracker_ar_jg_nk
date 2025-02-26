@@ -31,7 +31,7 @@ library(bslib)
 # NCEI Marine Microplastics database provides aggregated microplastic data in marine settings. (noaa_microplastics.csv): https://www.ncei.noaa.gov/products/microplastics
 ### File Identifier: gov.noaa.ncei:MicroplasticsDatabase (no DOI avaiable)
 ### Metadata (XML): https://data.noaa.gov/onestop/api/registry/metadata/collection/unknown/b1586022-998a-461e-b969-9d17dde6476c/raw/xml
-
+### Metadata (HTML): https://data.noaa.gov/onestop/api/registry/metadata/collection/unknown/b1586022-998a-461e-b969-9d17dde6476c/raw/html
 # UN Population Division Dataset (): https://population.un.org/dataportal/home?df=1214c450-7094-471b-9b36-f0a228414cd5
 ### - What info do we want to consider? https://population.un.org/wpp/downloads?folder=Standard%20Projections&group=CSV%20format
 
@@ -57,7 +57,10 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
            month(date) %in% 9:11 ~ "Fall",
            TRUE ~ "Winter"
          ),
-         year = year(date))
+         year = year(date),
+         density_class=factor(density_class,ordered=TRUE,levels=c("Very Low","Low","Medium","High","Very High")),
+         density_range=as.factor(density_range),
+         unit=as.factor(unit))
 
 # 3. Tourism data - skipping (this data source sucks)
 # tourism = read.csv(here::here("data","tourism.csv"), na.string = c("","NA","na")) |> # data needs to be reformatted
@@ -103,9 +106,9 @@ server = function(input, output, session) {
     # if (input$show_tourism) {
     #   data_list$tourism = tourism
     # }
-    city_data %>%
-      select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
-    
+    # city_data %>%
+    #   select(city, lat, lon, variable = all_of(input$map_variable))  # Dynamically select column
+    # 
     return(data_list)
   })
 
@@ -135,13 +138,16 @@ server = function(input, output, session) {
     
     # Add Microplastics data
     if (input$show_microplastics) {
-      pal_microplastics <- colorNumeric("YlOrRd", domain = microplastics$density_class, na.color = "gray")
-      
+      pal_microplastics <- colorFactor(
+        palette = c("blue", "green", "yellow", "orange", "red"),  # Define colors for each class
+        domain = microplastics$density_class  # The categorical variable
+      )
+
       leafletProxy("us_map", data = microplastics) %>%
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
           radius = ~sqrt(measurement) * 3,
-          color = ~pal_microplastics(density),  # Color by density
+          color = ~pal_microplastics(density_class),  # Color by density
           fillOpacity = 0.7,
           popup = ~paste(
             "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
