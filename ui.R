@@ -64,6 +64,8 @@ ui = fluidPage(
                   multiple = TRUE), # allows for multiple density types
       
       hr(),
+      
+      # Estimate plastic debris based on local population
       h3("Plastic Debris Estimator"),
       textInput("user_city", "Enter Coastal City Name:"),
       numericInput("user_population", "City Population:", value = 100000),
@@ -71,6 +73,8 @@ ui = fluidPage(
       br(),
       actionButton("clear_calculations","Clear Density Estimates"),
       hr(),
+      
+      # Analyze trend in debris based on year
       h3("Trend Analysis"),
       selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically
       sliderInput("time_range", "Select Time Range:", min = 2000, max = 2025, value = c(2010, 2025)),
