@@ -1,33 +1,3 @@
-#
-# This is the server logic of a Shiny web application. You can run the
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    https://shiny.posit.co/
-#
-
-# loading all libraries in the server for clarity
-# let's try lazy loading if possible, we have a slow start time!
-library(shiny)
-library(tidyverse)
-library(sf)
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(bslib)
-library(magrittr) # data import
-library(rvest) # data import
-library(leaflet)
-library(scales)
-library(leaflet.extras)
-library(terra)
-library(tidyterra)
-
-# source(here::here("helper","krigging.R"))
-# source(here::here("helper","coastal_buffer.R"))
-# source(here::here("helper","tourism.R"))
-
-
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
 
 
@@ -44,43 +14,6 @@ library(tidyterra)
 ### Metadata inside the data folder (unwto_tourism_meta.pdf) -- huge pdf so get searching!
 
 # - We may still need to look for more plastic data or if we want to pivot from plastic carbon emission data.
-
-### PREP DATA SOURCES
-# 1. World Map
-world_sf <- ne_countries(scale = "medium", returnclass = "sf")
-
-# 2. Microplastics Data
-microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still needs to have non-USA data removed
-  janitor::clean_names() |>
-  select(-c("doi","organization","keywords","x","y"),-starts_with("accession"),-ends_with(c("reference", "id"))) |>
-  rename(lat=latitude, lon=longitude) |>
-  mutate(date = as.Date(date, format = "%m/%d/%Y %I:%M:%S %p"),
-         season = case_when(
-           month(date) %in% 3:5 ~ "Spring",
-           month(date) %in% 6:8 ~ "Summer",
-           month(date) %in% 9:11 ~ "Fall",
-           TRUE ~ "Winter"
-         ),
-         year = year(date),
-         density_class=factor(density_class,ordered=TRUE,levels=c("Very Low","Low","Medium","High","Very High")),
-         density_range=as.factor(density_range),
-         unit=as.factor(unit),
-         oceans=as.factor(oceans),
-         density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
-       )
-
-pal_microplastics <- colorFactor(
-  palette = c("blue", "green", "yellow", "orange", "red"),  # Define colors for each class
-  domain = microplastics$density_class  # The categorical variable
-)
-
-# 3. City Population data
-population = read.csv(here::here("data","population.csv"))  |> # do we have the metadata on this?
-  janitor::clean_names() |>
-  pivot_longer(cols=starts_with("x"),names_to = "year",values_to="pop") |>
-  mutate(year = as.numeric(gsub("^x","",year))) |> # remove the x that janitor included for the numeric column names 
-  select(-c("id","stplfips_2010"),-ends_with(c("_bing","_source"))) |>
-  filter(pop!=0)
 
 
 # Define server logic required to draw a histogram
@@ -123,7 +56,7 @@ server = function(input, output, session) {
     tagList(
       textInput("city", "City"),
       numericInput("year", "Year", value = 2021),
-      selectInput("season", "Season", choices = c("Spring", "Summer", "Fall", "Winter")),
+      selectInput("season", "Season", choices = season_choices),
       actionButton("calculate", "Calculate")
     )
   })

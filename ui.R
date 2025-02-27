@@ -1,12 +1,3 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    https://shiny.posit.co/
-#
-
 # Goal: Understand how microplastics in our oceans are related to coastal city populations
 
 # Widget 1: Interactive World map: Users will see a world map with microplastic data for different spots in the oceans near coastal cities. 
@@ -62,8 +53,8 @@ ui = fluidPage(
       
       # Season Checkbox Filter
       checkboxGroupInput("season_filter", "Select Seasons:", 
-                         choices = c("Spring", "Summer", "Fall", "Winter"),
-                         selected = c("Spring", "Summer", "Fall", "Winter")),  # Default: All selected
+                         choices = season_choices,
+                         selected = season_choices),  # Default: All selected
         
       
       # Density Class Filter (Dropdown)
@@ -77,6 +68,7 @@ ui = fluidPage(
       textInput("user_city", "Enter Coastal City Name:"),
       numericInput("user_population", "City Population:", value = 100000),
       actionButton("calculate_plastic", "Estimate Plastic Debris"),
+      br(),
       actionButton("clear_calculations","Clear Density Estimates"),
       hr(),
       h3("Trend Analysis"),
@@ -91,23 +83,10 @@ ui = fluidPage(
         
         # Overview Tab (First) - this explains the point of the app, and how to use it
         tabPanel("Overview", 
-                 fluidPage(
-                   h2("Overview of the Shiny App"),
-                   p("The goal of this project is to understand how plastic pollution in our oceans is related to coastal city populations. The app provides the following features:"),
-                   tags$ul(
-                     tags$li("Interactive U.S. map showing plastic data near coastal cities. The map also shows city population data."),
-                     tags$li("A plastic debris estimator that calculates plastic debris based on city population."),
-                     tags$li("Trend analysis of pollution data over time."),
-                   ),
-                   h3("How to Use the App"),
-                   p("1. Select the year and season to view relevant data."),
-                   p("2. Choose the type of plastic you wish to explore (microplastic or macroplastic)."),
-                   p("3. View city population data and see its correlation with plastic debris."),
-                   p("4. Use the plastic debris estimator to calculate plastic pollution in your city."),
-                   p("5. Analyze pollution trends over time to observe changes."),
-                   h3("Data Sources"),
-                   p("This app uses data from global and local pollution reports and population statistics.")
-                 )),
+                 column(1),
+                 column(10,includeMarkdown("text/about.md")),
+                 column(1)
+                 ), # end the overview page
         
         # World Map Tab (2nd)
         tabPanel("U.S. Map", leafletOutput("us_map", height = "600px"))
