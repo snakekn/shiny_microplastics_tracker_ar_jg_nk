@@ -77,6 +77,7 @@ ui = fluidPage(
       textInput("user_city", "Enter Coastal City Name:"),
       numericInput("user_population", "City Population:", value = 100000),
       actionButton("calculate_plastic", "Estimate Plastic Debris"),
+      actionButton("clear_calculations","Clear Density Estimates"),
       hr(),
       h3("Trend Analysis"),
       selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically

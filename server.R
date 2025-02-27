@@ -204,6 +204,42 @@ server = function(input, output, session) {
         )
     }
   })
+  
+  # calculate density based on population
+  observeEvent(input$calculate_plastic, {
+    
+    # Get the center of the current map view
+    map_center <- isolate(input$us_map_center)
+    
+    # If the map center is available, use it; otherwise, set a default location
+    lat <- if (!is.null(map_center$lat)) map_center$lat else 39.5
+    lon <- if (!is.null(map_center$lng)) map_center$lng else -98.35
+    
+    # Estimate density_class based on population (simple logic example)
+    ## this will require a LM based on a krig!
+    estimated_density = "Placeholder Value"
+    
+    # Add the new marker to the map
+    leafletProxy("us_map") %>%
+      addCircleMarkers(
+        lng = lon, lat = lat,
+        color = "purple", fillColor = "purple",
+        radius = 8,
+        fillOpacity = 0.7,
+        popup = paste(
+          "<strong>Estimated City:</strong>", input$user_city, "<br>",
+          "<strong>Population:</strong>", formatC(input$user_population, format = "d", big.mark = ","), "<br>",
+          "<strong>Estimated Density Class:</strong>", estimated_density
+        ),
+        group = "temporary_marker"
+      )
+  })
+  
+  # clear out all the temporary markers we've created
+  observeEvent(input$clear_calculations, {
+    
+    leafletProxy("us_map") %>% clearGroup("temporary_marker")
+  })
 }
 
 
