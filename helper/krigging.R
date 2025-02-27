@@ -1,4 +1,5 @@
 #Krigging 
+library(gstat)
 
 # Split the data into Pacific and Atlantic
 microplastics_data_sf <- st_as_sf(microplastics, coords = c("lon", "lat"), crs = 4326)|>

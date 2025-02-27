@@ -8,14 +8,13 @@
 #
 
 # loading all libraries in the server for clarity
+# let's try lazy loading if possible, we have a slow start time!
 library(shiny)
 library(tidyverse)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
-# library(readxl)
 library(bslib)
-# let's try lazy loading if possible, we have a slow start time!
 library(magrittr) # data import
 library(rvest) # data import
 library(leaflet)
@@ -25,7 +24,8 @@ library(terra)
 library(tidyterra)
 
 # source(here::here("helper","krigging.R"))
-source(here::here("helper","coastal_buffer.R"))
+# source(here::here("helper","coastal_buffer.R"))
+# source(here::here("helper","tourism.R"))
 
 
 # Goal: Understand how microplastics in our oceans are related to coastal city populations and tourism
@@ -68,6 +68,11 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
          oceans=as.factor(oceans),
          density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
        )
+
+pal_microplastics <- colorFactor(
+  palette = c("blue", "green", "yellow", "orange", "red"),  # Define colors for each class
+  domain = microplastics$density_class  # The categorical variable
+)
 
 # 3. City Population data
 population = read.csv(here::here("data","population.csv"))  |> # do we have the metadata on this?
@@ -130,11 +135,6 @@ server = function(input, output, session) {
     
     # Add Microplastics data
     if (input$show_microplastics) {
-      pal_microplastics <- colorFactor(
-        palette = c("blue", "green", "yellow", "orange", "red"),  # Define colors for each class
-        domain = microplastics$density_class  # The categorical variable
-      )
-
       leafletProxy("us_map", data = filtered_microplastics()) %>%
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
@@ -162,7 +162,48 @@ server = function(input, output, session) {
                          "<strong>Population:</strong>", formatC(pop*1000, format = "d", big.mark = ","))
         )
     }
-  }, once = TRUE)
+  })
+  
+  # 🔄 Update when toggles change
+  observeEvent(input$show_microplastics, {
+    leafletProxy("us_map") %>%
+      clearGroup("microplastics")  # Clears only microplastics markers
+    
+    if (input$show_microplastics) {
+      leafletProxy("us_map", data = filtered_microplastics()) %>%
+        addCircleMarkers(
+          lng = ~lon, lat = ~lat,
+          radius = ~density_marker_size,
+          color = ~pal_microplastics(density_class),
+          fillOpacity = 0.7,
+          popup = ~paste(
+            "<strong>Microplastic Count:</strong>", measurement, " (", unit,")<br>",
+            "<strong>Density Class:</strong>", density_class, "<br>",
+            "<strong>Date Collected:</strong>", date
+          ),
+          group = "microplastics"
+        )
+    }
+  })
+  
+  observeEvent(input$show_population, {
+    leafletProxy("us_map") %>%
+      clearGroup("population")  # Clears only population markers
+    
+    if (input$show_population) {
+      leafletProxy("us_map", data = population) %>%
+        addCircleMarkers(
+          lng = ~lon, lat = ~lat,
+          color = "green", radius = 5,
+          fillOpacity = 0.7,
+          popup = ~paste(
+            "<strong>City:</strong>", city, "<br>",
+            "<strong>Population:</strong>", formatC(pop * 1000, format = "d", big.mark = ",")
+          ),
+          group = "population"
+        )
+    }
+  })
 }
 
 
