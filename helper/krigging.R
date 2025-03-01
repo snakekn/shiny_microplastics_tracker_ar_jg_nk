@@ -13,7 +13,9 @@ microplastics_data_sf <- st_as_sf(microplastics, coords = c("lon", "lat"), crs =
     density_class == "Very High" ~ 5))
 
 #Split Pacific and Atlantic 
-pacific_data <- microplastics_data_sf %>% filter(oceans == "Pacific Ocean")
+pacific_data <- microplastics_data_sf %>% filter(oceans == "Pacific Ocean")|>
+  st_transform(crs = 32611)
+
 atlantic_data <- microplastics_data_sf %>% filter(oceans == "Atlantic Ocean")
 arctic_data = microplastics_data_sf %>% filter(oceans == "Arctic Ocean")
 southern_data = microplastics_data_sf %>% filter(oceans == "Southern Ocean")
@@ -28,17 +30,23 @@ other_atlantic_data <- atlantic_data %>% filter(regions != "Gulf of Mexico")
 #   geom_sf(data=world_sf,fill=NA,color="black")+
 #   geom_sf(data=_data)
 
-
 # Variogram for Pacific Ocean
 pacific_vgm <- variogram(density_numeric ~ 1, data = pacific_data)
-pacific_vgm_fit <- fit.variogram(pacific_vgm, model = vgm(1, "Sph", 300, 1))
+pacific_vgm_fit <- fit.variogram(pacific_vgm, model = vgm(0.5, "Sph", 10000, 2))
+
+# Plot the variogram for Pacific Ocean data to inspect its structure
+ggplot() + 
+  geom_point(data = pacific_vgm, aes(x = dist, y = gamma)) + 
+  labs(title = "Variogram for Pacific Ocean", x = "Distance", y = "Semivariance")
 
 # Create a grid for kriging
 grid_pacific <- st_bbox(pacific_data) %>%
-  stars::st_as_stars(dx = 1000, dy = 1000)
+  stars::st_as_stars(dx = 5000, dy = 5000)
+
 
 # Kriging for Pacific Ocean
 krige_pacific <- krige(density_numeric ~ 1, pacific_data, grid_pacific, model = pacific_vgm_fit)
+
 
 # Visualize Kriging Result for Pacific
 ggplot() + 
@@ -46,9 +54,22 @@ ggplot() +
   scale_fill_viridis_c() +
   ggtitle("Kriging of Microplastic Density in Pacific Ocean")
 
+
+
+###################################
+
+
+
+
 # Variogram for Other Atlantic
 atlantic_vgm <- variogram(density_numeric ~ 1, data = other_atlantic_data)
 atlantic_vgm_fit <- fit.variogram(atlantic_vgm, model = vgm(1, "Sph", 300, 1))
+
+
+ggplot() + 
+  geom_point(data = atlantic_vgm, aes(x = dist, y = gamma)) + 
+  labs(title = "Variogram for Pacific Ocean", x = "Distance", y = "Semivariance")
+
 
 # Create a grid for kriging
 grid_atlantic <- st_bbox(other_atlantic_data) %>%
@@ -66,6 +87,10 @@ ggplot() +
 # Variogram for Gulf of Mexico
 gulf_vgm <- variogram(density_numeric ~ 1, data = gulf_of_mexico_data)
 gulf_vgm_fit <- fit.variogram(gulf_vgm, model = vgm(1, "Sph", 300, 1))
+
+ggplot() + 
+  geom_point(data = gulf_vgm, aes(x = dist, y = gamma)) + 
+  labs(title = "Variogram for Pacific Ocean", x = "Distance", y = "Semivariance")
 
 # Create a grid for kriging
 grid_gulf <- st_bbox(gulf_of_mexico_data) %>%
