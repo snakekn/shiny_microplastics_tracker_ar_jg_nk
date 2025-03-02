@@ -42,17 +42,12 @@ microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still nee
          density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
   )
 
-# 3. City Population data
-population = read.csv(here::here("data","population.csv"))  |> # do we have the metadata on this?
-  janitor::clean_names() |>
-  pivot_longer(cols=starts_with("x"),names_to = "year",values_to="pop") |>
-  mutate(year = as.numeric(gsub("^x","",year))) |> # remove the x that janitor included for the numeric column names 
-  select(-c("id","stplfips_2010"),-ends_with(c("_bing","_source"))) |>
-  filter(pop!=0)
+# 3. City Population data - can do a lot of selecting out here...
+population = read.csv(here::here("data","population_coastal.csv")) # Post-buffer population data, 1704 cities!
 
 ## Advanced data methods
 # source(here::here("helper","krigging.R")) # pulls krig info
-# source(here::here("helper","coastal_buffer.R")) # pulls coastal limits
+# source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
 
 ## Outdated :)
 # source(here::here("helper","tourism.R")) # pulls tourism data

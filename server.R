@@ -24,7 +24,7 @@ server = function(input, output, session) {
       filter(
         season %in% input$season_filter,  # Filter by season
         year >= input$year_range[1] & year <= input$year_range[2],  # Filter by year range
-        density_class == input$density_class_filter  # Filter by density class
+        density_class %in% input$density_class_filter  # Filter by density class
       )
   })
   
