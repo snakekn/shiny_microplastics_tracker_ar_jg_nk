@@ -53,7 +53,7 @@ server = function(input, output, session) {
         clearGroup("microplastics") |>
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
-          # was hoping to cluster & show via a cool icon with density info within, but ran out of time :(
+          # was hoping to cluster & show via a cool icon with density info within, but needed to reprioritize my time :(
           radius = ~sqrt(density_marker_size),
           color = ~pal_microplastics(density_class),  # Color by density
           fillOpacity = 0.7,
@@ -97,30 +97,58 @@ server = function(input, output, session) {
   })
   
   observeEvent(input$us_map_marker_click, { # generic name format for marker clicks: "MAPID_marker_click"
-    
+
     # Get clicked city
-    clicked_city <- input$city_marker_click
+    clicked_city <- input$us_map_marker_click
+    print(clicked_city)
     
     # Ensure a valid city is clicked
     if (is.null(clicked_city)) return()
     
     # Extract city name
-    city_name <- clicked_city$city_st  # Ensure your markers have IDs matching city names
+    city_name <- clicked_city$id  # Ensure your markers have IDs matching city names
     
     # Subset the population data for the clicked city
-    city_data <- population %>% filter(city == city_name)
+    city_data <- population %>% filter(city_st == city_name) |>
+      select(year,pop)
     print(city_data)
+    print(min(city_data$year))
+    print(max(city_data$year))
+
+    # get datapoints to discuss 
+    total = count(city_data)
+    range = max(city_data$year) - min(city_data$year) + 1
     
     # Generate sparkline dynamically
-    output$sparkline <- renderPlot({
-      ggplot(city_data, aes(x = year, y = pop)) +
-        geom_line(color = "blue") +
-        theme_minimal() +
-        labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
-    })
+    output$sparkline <- {
+      if (total == 1) {
+        plotly::renderPlotly({
+          plotly::ggplotly(
+            ggplot(city_data, aes(y = pop)) +
+              geom_bar(color = "blue") +
+              theme_bw() +
+              scale_fill_viridis_d()+
+              labs(title = paste("Population Size in", city_data$year), y = "Population")
+          )}
+        )
+      } else {
+        plotly::renderPlotly({
+        plotly::ggplotly(
+          ggplot(city_data, aes(x = year, y = pop)) +
+          geom_line(color = "blue") +
+          theme_bw() +
+          scale_fill_viridis_d()+
+          labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
+          )}
+        )
+      }
+    }
     
     showModal(modalDialog(
-      title=paste("City: ",city_name),plotOutput(("sparkline"),easyClose=TRUE)
+      title=paste("City: ",city_name),
+      paste0("Showing population data across ", range, " year(s) [", total, " data point(s)]\n"),
+      plotly::plotlyOutput("sparkline"),
+      easyClose=TRUE
     ))
   })
   
