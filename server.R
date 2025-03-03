@@ -101,6 +101,8 @@ server = function(input, output, session) {
             showCoverageOnHover = TRUE,   zoomToBoundsOnClick = TRUE
           ),
           radius = ~pop_rescaled,
+          color = "black",      # Outline color
+          fillColor = "hotpink", 
           fillOpacity = 0.7,
           group="population",
           options = markerOptions(count = 1),
