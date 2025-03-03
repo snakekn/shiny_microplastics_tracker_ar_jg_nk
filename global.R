@@ -5,7 +5,8 @@
 # - filter cities by distance to coast?
 # - speed up load?
 # - remove all the columns that are created when creating population_coastal (coastal_buffer)
-
+# - get time series finished
+# - fix popups & get time series of pop size vs time to show
 
 # loading all libraries centrally for clarity
 # let's try lazy loading if possible, we have a slow start time!

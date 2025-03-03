@@ -47,7 +47,6 @@ server = function(input, output, session) {
   })
   
   observe({ # on an edit, re-print data
-
     # Add microplastics data
     if (input$show_microplastics) {
       leafletProxy("us_map", data = filtered_microplastics()) %>%
@@ -88,7 +87,8 @@ server = function(input, output, session) {
           radius = 3,
           fillOpacity = 0.7,
           group="population",
-          options = markerOptions(count = 1)
+          options = markerOptions(count = 1),
+          layerId = ~city_st
         )
     } else {
       leafletProxy("us_map") %>%
@@ -96,7 +96,7 @@ server = function(input, output, session) {
     }
   })
   
-  observeEvent(input$city_marker_click, {
+  observeEvent(input$us_map_marker_click, { # generic name format for marker clicks: "MAPID_marker_click"
     
     # Get clicked city
     clicked_city <- input$city_marker_click
@@ -105,10 +105,11 @@ server = function(input, output, session) {
     if (is.null(clicked_city)) return()
     
     # Extract city name
-    city_name <- clicked_city$city  # Ensure your markers have IDs matching city names
+    city_name <- clicked_city$city_st  # Ensure your markers have IDs matching city names
     
     # Subset the population data for the clicked city
     city_data <- population %>% filter(city == city_name)
+    print(city_data)
     
     # Generate sparkline dynamically
     output$sparkline <- renderPlot({
