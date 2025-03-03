@@ -41,31 +41,40 @@ ui = fluidPage(
       accordion(id="select_data",
                 open=TRUE,
                 accordion_panel("📊 Data Selection",
-                                checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
-                                checkboxInput("show_population","Show Population Data", value=TRUE),
+                                checkboxInput("show_microplastics","Show Microplastics Data", value=FALSE),
+                                checkboxInput("show_population","Show Population Data", value=FALSE),
                 )),
       accordion(id="filter_data",
                 open=FALSE,
                 accordion_panel("🔍 Filters",
-                                # Year Slider (1972-2022)
-                                sliderInput("year_range", "Select Year Range:", 
+                                accordion_panel("Plastic Pollution Filters",
+                                  # Year Slider (1972-2022)
+                                  sliderInput("plastic_year_range", "Year Range:", 
+                                              min = min(microplastics$year, na.rm = TRUE),
+                                              max = max(microplastics$year, na.rm = TRUE),
+                                              value = c(1972, 2022),  # Default to entire population
+                                              step = 1, sep = ""),
+                                  
+                                  # Season Checkbox Filter
+                                  selectInput("season_filter", "Collection Season:", 
+                                              choices = season_choices,
+                                              selected = season_choices,
+                                              multiple = TRUE), # allows for multiple density types
+                                  
+                                  # Density Class Filter
+                                  selectInput("density_class_filter", "Density Class:", 
+                                              choices = unique(microplastics$density_class),
+                                              selected = unique(microplastics$density_class), 
+                                              multiple = TRUE), # allows for multiple density types
+                                ),
+                                accordion_panel("Population Filters",
+                                sliderInput("pop_year_range", "Year Range:", 
                                             min = min(microplastics$year, na.rm = TRUE),
                                             max = max(microplastics$year, na.rm = TRUE),
                                             value = c(1972, 2022),  # Default to entire population
-                                            step = 1, sep = ""),
+                                            step = 1, sep = "")
                                 
-                                # Season Checkbox Filter
-                                selectInput("season_filter", "Select Seasons:", 
-                                            choices = season_choices,
-                                            selected = season_choices,
-                                            multiple = TRUE), # allows for multiple density types
-                                
-                                # Density Class Filter
-                                selectInput("density_class_filter", "Density Class:", 
-                                            choices = unique(microplastics$density_class),
-                                            selected = unique(microplastics$density_class), 
-                                            multiple = TRUE), # allows for multiple density types
-                                )),
+                                ))),
       accordion(id="calculate_data",
                 open=FALSE,
                 accordion_panel("🧮 Calculator",
@@ -82,7 +91,11 @@ ui = fluidPage(
                                 h3("Trend Analysis"),
                                 p("Using the current filters above, create a time series plot"),
                                 selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically
-                                sliderInput("time_range", "Select Time Range:", min = 2000, max = 2025, value = c(2010, 2025)),
+                                sliderInput("pop_year_range", "Year Range:", 
+                                            min = min(microplastics$year, na.rm = TRUE),
+                                            max = max(microplastics$year, na.rm = TRUE),
+                                            value = c(1972, 2022),  # Default to entire population
+                                            step = 1, sep = ""),
                                 actionButton("time_series_plot", "Get Time Series Plot")
                 ))
     ),

@@ -23,27 +23,12 @@ server = function(input, output, session) {
     microplastics %>%
       filter(
         season %in% input$season_filter,  # Filter by season
-        year >= input$year_range[1] & year <= input$year_range[2],  # Filter by year range
+        year >= input$plastic_year_range[1] & year <= input$plastic_year_range[2],  # Filter by year range
         density_class %in% input$density_class_filter  # Filter by density class
       )
   })
   
-  reactive_data <- reactive({
-    
-    data_list = list()
-    
-    if (input$show_microplastics) {
-      data_list$microplastics = microplastics
-    }
-    if (input$show_population) {
-      data_list$population = population
-    }
-    
-    return(data_list)
-  })
-
-  
-  output$us_map <- renderLeaflet({
+  output$us_map <- renderLeaflet({ # create the initial map
     # Create the base map
     leaflet() |>
       addTiles() |>  # Default tile layer (OpenStreetMap)
@@ -61,16 +46,15 @@ server = function(input, output, session) {
     )
   })
   
-  observe({
-    leafletProxy("us_map") %>%
-      clearMarkers() |>
-      clearControls()
-    
-    # Add Microplastics data
+  observe({ # on an edit, re-print data
+
+    # Add microplastics data
     if (input$show_microplastics) {
       leafletProxy("us_map", data = filtered_microplastics()) %>%
+        clearGroup("microplastics") |>
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
+          # was hoping to cluster & show via a cool icon with density info within, but ran out of time :(
           radius = ~sqrt(density_marker_size),
           color = ~pal_microplastics(density_class),  # Color by density
           fillOpacity = 0.7,
@@ -80,65 +64,63 @@ server = function(input, output, session) {
             "<strong>Sampling Method: </strong",sampling_method, "<br>",
             "<strong>Date Collected: </strong>",date,
             "<strong>Ocean: </strong>", oceans
-          )
+          ),
+          group="microplastics"
         ) |>
         addLegend("bottomright", pal = pal_microplastics, values = ~density_class,
-                  title = "Microplastic Density", opacity = 1)
+                  title = "Microplastic Density", opacity = 1, layerId = "microplastic_legend")
+    } else {
+      leafletProxy("us_map") %>%
+        clearGroup("microplastics") |>
+        removeControl("microplastic_legend")
     }
     
     # Add Population data
     if (input$show_population) {
-      leafletProxy("us_map", data = population) %>%
+      leafletProxy("us_map", data = population_unique) |>
+        clearGroup("population") |>
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
-          color = "green", radius = 1, # would be cool to get this to scale by city size
+          clusterOptions = markerClusterOptions(
+            spiderfyOnMaxZoom = FALSE, removeOutsideVisibleBounds = FALSE, disableClusteringAtZoom = 14,
+            showCoverageOnHover = TRUE,   zoomToBoundsOnClick = TRUE
+          ),
+          radius = 3,
           fillOpacity = 0.7,
-          popup = ~paste("<strong>City:</strong>", city, "<br>",
-                         "<strong>Population:</strong>", formatC(pop*1000, format = "d", big.mark = ","))
+          group="population",
+          options = markerOptions(count = 1)
         )
+    } else {
+      leafletProxy("us_map") %>%
+        clearGroup("population")
     }
   })
   
-  # 🔄 Update when toggles change
-  observeEvent(input$show_microplastics, {
-    leafletProxy("us_map") %>%
-      clearGroup("microplastics")  # Clears only microplastics markers
+  observeEvent(input$city_marker_click, {
     
-    if (input$show_microplastics) {
-      leafletProxy("us_map", data = filtered_microplastics()) %>%
-        addCircleMarkers(
-          lng = ~lon, lat = ~lat,
-          radius = ~density_marker_size,
-          color = ~pal_microplastics(density_class),
-          fillOpacity = 0.7,
-          popup = ~paste(
-            "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
-            "<strong>Density Class: </strong>", density_class, "<br>",
-            "<strong>Date Collected: </strong>", date,
-            "<strong>Ocean: </strong>", oceans
-          ),
-          group = "microplastics"
-        )
-    }
-  })
-  
-  observeEvent(input$show_population, {
-    leafletProxy("us_map") %>%
-      clearGroup("population")  # Clears only population markers
+    # Get clicked city
+    clicked_city <- input$city_marker_click
     
-    if (input$show_population) {
-      leafletProxy("us_map", data = population) %>%
-        addCircleMarkers(
-          lng = ~lon, lat = ~lat,
-          color = "green", radius = 5,
-          fillOpacity = 0.7,
-          popup = ~paste(
-            "<strong>City:</strong>", city, "<br>",
-            "<strong>Population:</strong>", formatC(pop * 1000, format = "d", big.mark = ",")
-          ),
-          group = "population"
-        )
-    }
+    # Ensure a valid city is clicked
+    if (is.null(clicked_city)) return()
+    
+    # Extract city name
+    city_name <- clicked_city$city  # Ensure your markers have IDs matching city names
+    
+    # Subset the population data for the clicked city
+    city_data <- population %>% filter(city == city_name)
+    
+    # Generate sparkline dynamically
+    output$sparkline <- renderPlot({
+      ggplot(city_data, aes(x = year, y = pop)) +
+        geom_line(color = "blue") +
+        theme_minimal() +
+        labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
+    })
+    
+    showModal(modalDialog(
+      title=paste("City: ",city_name),plotOutput(("sparkline"),easyClose=TRUE)
+    ))
   })
   
   # calculate density based on population
@@ -178,13 +160,13 @@ server = function(input, output, session) {
   })
   
   output$time_series_plot <- renderPlot({
-    req(input$map_bounds, input$season_filter, input$year_range, input$density_class_filter)
+    req(input$map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
     
     ts_plot = time_series_plot(
       data = microplastics,  
       bbox = input$map_bounds,  
       season = input$season_filter,  
-      year_range = input$year_range,  
+      plastic_year_range = input$plastic_year_range,  
       density_class = input$density_class_filter
     )
     
