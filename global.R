@@ -23,8 +23,11 @@ library(leaflet.extras)
 library(terra)
 library(tidyterra)
 library(markdown)
+<<<<<<< HEAD
 library(plotly)
+=======
 library(scales)
+>>>>>>> 1f93869c1d4d73580f0a91f4ceb51d699b7dfd97
 
 ## Prepare data 
 
