@@ -115,7 +115,11 @@ server = function(input, output, session) {
   observeEvent(input$us_map_marker_click, { # generic name format for marker clicks: "MAPID_marker_click"
 
     click = input$us_map_marker_click # for ease
-    if (!is.null(click$group) && click$group == "population") {
+    print(click)
+    if (is.null(click$id)) return()
+    
+    clicked_city = click$id
+    if (clicked_city %in% population_unique$city_st) {
     
       # Get clicked city
       clicked_city <- input$us_map_marker_click
