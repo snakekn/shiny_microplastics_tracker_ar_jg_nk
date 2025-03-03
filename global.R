@@ -50,8 +50,11 @@ source(here::here("helper","pop_trend.R"))
 # source(here::here("helper","tourism.R")) # pulls tourism data
 
 ## Load constant data types
+microplastics$density_class <- factor(microplastics$density_class, 
+                                      levels = c("Very Low", "Low", "Medium", "High", "Very High"))
+
 pal_microplastics <- colorFactor(
-  palette = c("red", "orange", "yellow", "lightgreen", "darkgreen"),  # Define colors for each class
+  palette = c("darkgreen", "lightgreen", "yellow", "orange", "red"),  # Define colors for each class
   domain = microplastics$density_class  # The categorical variable
 )
 season_choices = c("Spring", "Summer", "Fall", "Winter") # create static seasonal options
