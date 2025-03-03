@@ -1,9 +1,6 @@
 # Goal: Conduct time series analysis on microplastics data
 # Output: A time series plot for microplastics data
 
-library(lubridate)
-library(tsibble)
-
 print("time_analysis.R properly called")
 
 bbox_null = list(
