@@ -65,7 +65,7 @@ print(exists("build_time_series"))
 microplastics$density_class <- factor(microplastics$density_class, 
                                       levels = c("Very Low", "Low", "Medium", "High", "Very High"))
 
-density_palette = c("darkgreen", "lightgreen", "gray", "orange", "red")
+density_palette = c("darkgreen", "lightgreen", "orange", "red", "darkred")
 pal_microplastics <- colorFactor(
   palette = density_palette,  # Define colors for each class
   domain = microplastics$density_class  # The categorical variable

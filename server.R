@@ -97,7 +97,7 @@ server = function(input, output, session) {
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
           clusterOptions = markerClusterOptions(
-            spiderfyOnMaxZoom = FALSE, removeOutsideVisibleBounds = FALSE, disableClusteringAtZoom = 14,
+            spiderfyOnMaxZoom = FALSE, removeOutsideVisibleBounds = FALSE, disableClusteringAtZoom = 10,
             showCoverageOnHover = TRUE,   zoomToBoundsOnClick = TRUE
           ),
           radius = ~pop_rescaled,
