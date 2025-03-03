@@ -1,6 +1,16 @@
 # Purpose: run data 
 
-# loading all libraries in the server for clarity
+### TO DO TRACKER:
+# - reduce size of city points
+# - filter cities by size
+# - filter cities by distance to coast?
+# - fix population count (-x1000)
+# - speed up load?
+# - fix datapoints from loading at the right time (not having to reselect them)
+# - remove all the columns that are created when creating population_coastal (coastal_buffer)
+
+
+# loading all libraries centrally for clarity
 # let's try lazy loading if possible, we have a slow start time!
 library(shiny)
 library(tidyverse)
@@ -19,35 +29,20 @@ library(markdown)
 
 ## Prepare data 
 
-# 1. World Map
+## 1. World Map
 world_sf <- ne_countries(scale = "medium", returnclass = "sf")
 
-# 2. Microplastics Data
-microplastics <- read_csv(here::here("data","microplastics.csv")) |> # still needs to have non-USA data removed
-  janitor::clean_names() |>
-  select(-c("doi","organization","keywords","x","y"),-starts_with("accession"),-ends_with(c("reference", "id"))) |>
-  rename(lat=latitude, lon=longitude) |>
-  mutate(date = as.Date(date, format = "%m/%d/%Y %I:%M:%S %p"),
-         season = case_when(
-           month(date) %in% 3:5 ~ "Spring",
-           month(date) %in% 6:8 ~ "Summer",
-           month(date) %in% 9:11 ~ "Fall",
-           TRUE ~ "Winter"
-         ),
-         year = year(date),
-         density_class=factor(density_class,ordered=TRUE,levels=c("Very Low","Low","Medium","High","Very High")),
-         density_range=as.factor(density_range),
-         unit=as.factor(unit),
-         oceans=as.factor(oceans),
-         density_marker_size = scales::rescale(as.numeric(density_class), to = c(3, 10))
-  )
+## 2. Microplastics Data
+# source(here::here("helper","microplastic_prep.R")) # builds microplastics.csv
+microplastics = read_csv(here::here("data","microplastics.csv"))
 
-# 3. City Population data - can do a lot of selecting out here...
+## 3. City Population data - can do a lot of selecting out here...
+# source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
 population = read.csv(here::here("data","population_coastal.csv")) # Post-buffer population data, 1704 cities!
 
-## Advanced data methods
-# source(here::here("helper","krigging.R")) # pulls krig info
-# source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
+## 4. Krig Map
+# source(here::here("helper","kriging.R")) # pulls krig info
+# krig_raster = ...
 
 ## Outdated :)
 # source(here::here("helper","tourism.R")) # pulls tourism data

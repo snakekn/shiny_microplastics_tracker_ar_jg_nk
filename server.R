@@ -78,7 +78,9 @@ server = function(input, output, session) {
             "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
             "<strong>Density Class: </strong>",density_class, "<br>",
             "<strong>Sampling Method: </strong",sampling_method, "<br>",
-            "<strong>Date Collected: </strong>",date)
+            "<strong>Date Collected: </strong>",date,
+            "<strong>Ocean: </strong>", oceans
+          )
         ) |>
         addLegend("bottomright", pal = pal_microplastics, values = ~density_class,
                   title = "Microplastic Density", opacity = 1)
@@ -89,7 +91,7 @@ server = function(input, output, session) {
       leafletProxy("us_map", data = population) %>%
         addCircleMarkers(
           lng = ~lon, lat = ~lat,
-          color = "green", radius = 5,
+          color = "green", radius = 1, # would be cool to get this to scale by city size
           fillOpacity = 0.7,
           popup = ~paste("<strong>City:</strong>", city, "<br>",
                          "<strong>Population:</strong>", formatC(pop*1000, format = "d", big.mark = ","))
@@ -110,9 +112,10 @@ server = function(input, output, session) {
           color = ~pal_microplastics(density_class),
           fillOpacity = 0.7,
           popup = ~paste(
-            "<strong>Microplastic Count:</strong>", measurement, " (", unit,")<br>",
-            "<strong>Density Class:</strong>", density_class, "<br>",
-            "<strong>Date Collected:</strong>", date
+            "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
+            "<strong>Density Class: </strong>", density_class, "<br>",
+            "<strong>Date Collected: </strong>", date,
+            "<strong>Ocean: </strong>", oceans
           ),
           group = "microplastics"
         )
@@ -172,6 +175,21 @@ server = function(input, output, session) {
   observeEvent(input$clear_calculations, {
     
     leafletProxy("us_map") %>% clearGroup("temporary_marker")
+  })
+  
+  output$time_series_plot <- renderPlot({
+    req(input$map_bounds, input$season_filter, input$year_range, input$density_class_filter)
+    
+    ts_plot = time_series_plot(
+      data = microplastics,  
+      bbox = input$map_bounds,  
+      season = input$season_filter,  
+      year_range = input$year_range,  
+      density_class = input$density_class_filter
+    )
+    
+    print(ts_plot)
+    print(head(data))
   })
 }
 

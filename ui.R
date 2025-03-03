@@ -38,47 +38,53 @@ ui = fluidPage(
   # Sidebar with filters
   sidebarLayout(
     sidebarPanel(
-      h3("Toggle Data"),
-      checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
-      checkboxInput("show_population","Show Population Data", value=TRUE),
-
-      h3("Filters"),
-      
-      # Year Slider (1972-2022)
-      sliderInput("year_range", "Select Year Range:", 
-                  min = min(microplastics$year, na.rm = TRUE),
-                  max = max(microplastics$year, na.rm = TRUE),
-                  value = c(1972, 2022),  # Default to entire population
-                  step = 1, sep = ""),
-      
-      # Season Checkbox Filter
-      checkboxGroupInput("season_filter", "Select Seasons:", 
-                         choices = season_choices,
-                         selected = season_choices),  # Default: All selected
-        
-      
-      # Density Class Filter (Dropdown)
-      selectInput("density_class_filter", "Density Class:", 
-                  choices = unique(microplastics$density_class),
-                  selected = unique(microplastics$density_class), 
-                  multiple = TRUE), # allows for multiple density types
-      
-      hr(),
-      
-      # Estimate plastic debris based on local population
-      h3("Plastic Debris Estimator"),
-      textInput("user_city", "Enter Coastal City Name:"),
-      numericInput("user_population", "City Population:", value = 100000),
-      actionButton("calculate_plastic", "Estimate Plastic Debris"),
-      br(),
-      actionButton("clear_calculations","Clear Density Estimates"),
-      hr(),
-      
-      # Analyze trend in debris based on year
-      h3("Trend Analysis"),
-      selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically
-      sliderInput("time_range", "Select Time Range:", min = 2000, max = 2025, value = c(2010, 2025)),
-      actionButton("update_trend", "Update Graph")
+      accordion(id="select_data",
+                open=TRUE,
+                accordion_panel("📊 Data Selection",
+                                checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
+                                checkboxInput("show_population","Show Population Data", value=TRUE),
+                )),
+      accordion(id="filter_data",
+                open=FALSE,
+                accordion_panel("🔍 Filters",
+                                # Year Slider (1972-2022)
+                                sliderInput("year_range", "Select Year Range:", 
+                                            min = min(microplastics$year, na.rm = TRUE),
+                                            max = max(microplastics$year, na.rm = TRUE),
+                                            value = c(1972, 2022),  # Default to entire population
+                                            step = 1, sep = ""),
+                                
+                                # Season Checkbox Filter
+                                selectInput("season_filter", "Select Seasons:", 
+                                            choices = season_choices,
+                                            selected = season_choices,
+                                            multiple = TRUE), # allows for multiple density types
+                                
+                                # Density Class Filter
+                                selectInput("density_class_filter", "Density Class:", 
+                                            choices = unique(microplastics$density_class),
+                                            selected = unique(microplastics$density_class), 
+                                            multiple = TRUE), # allows for multiple density types
+                                )),
+      accordion(id="calculate_data",
+                open=FALSE,
+                accordion_panel("🧮 Calculator",
+                                # Estimate plastic debris based on local population
+                                h3("Plastic Debris Estimator"),
+                                textInput("user_city", "Enter Coastal City Name:"),
+                                numericInput("user_population", "City Population:", value = 100000),
+                                actionButton("calculate_plastic", "Estimate Plastic Debris"),
+                                br(),
+                                actionButton("clear_calculations","Clear Density Estimates"),
+                                hr(),
+                                
+                                # Analyze trend in debris based on current 
+                                h3("Trend Analysis"),
+                                p("Using the current filters above, create a time series plot"),
+                                selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically
+                                sliderInput("time_range", "Select Time Range:", min = 2000, max = 2025, value = c(2010, 2025)),
+                                actionButton("time_series_plot", "Get Time Series Plot")
+                ))
     ),
     
     # Main Panel for displaying maps and plots

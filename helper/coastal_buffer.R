@@ -1,4 +1,5 @@
 # Purpose: Get coastal boundaries to reduce city loads
+# Output: Cities (1704) within 30mi of US coastal boundaries
 
 # get US country boundary
 us_boundary <- ne_countries(scale = "medium", returnclass = "sf") |>
@@ -46,7 +47,7 @@ population_sf = population_raw |>
   st_as_sf(coords = c("lon", "lat"), crs = 4326)
 
 population_coastal <- population_sf |>
-  st_join(coastline_buffer_wgs, left = FALSE)
+  st_join(coastline_buffer_wgs, left = FALSE) # this adds so many columns that we can reduce!
 
 ggplot()+
   geom_sf(data = coastline_buffer_wgs, fill = "lightblue", color = "blue", alpha = 0.4) +
