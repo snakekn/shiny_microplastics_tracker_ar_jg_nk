@@ -23,18 +23,27 @@ build_time_series <- function( bbox=list(
   } else {
     bbox_val = bbox
   }
+  
   print(bbox_val) # confirm our bbox works
   print(summary(data))
   print(seasons)
   print(year_range)
   print(density_class)
   
-  ts_plot = data %>%
+  ts_data = data %>%
     filter(lat >= bbox_val$south & lat <= bbox_val$north,  
            lon >= bbox_val$west & lon <= bbox_val$east,  
            season %in% seasons,  
            year >= year_range[1] & year <= year_range[2],  
-           density_class %in% density_class) |>
+           density_class %in% density_class)
+  
+  # check that microplastic data is in the area
+  if(nrow(ts_data) == 0) {
+    print("No microplastic data in the selected area")
+    return(NULL)
+  }
+  
+  ts_plot = ts_data |>
     group_by(date, density_class, season) %>%  
     summarise(count = n(), .groups = "drop") |>  # Count occurrences per date/class  
     ggplot(aes(x = date, y = count, color = density_class)) +
