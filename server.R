@@ -74,6 +74,8 @@ server = function(input, output, session) {
         removeControl("microplastic_legend")
     }
     
+    # Function for Marker Size 
+ 
     # Add Population data
     if (input$show_population) {
       leafletProxy("us_map", data = population_unique) |>
@@ -84,7 +86,7 @@ server = function(input, output, session) {
             spiderfyOnMaxZoom = FALSE, removeOutsideVisibleBounds = FALSE, disableClusteringAtZoom = 14,
             showCoverageOnHover = TRUE,   zoomToBoundsOnClick = TRUE
           ),
-          radius = 3,
+          radius = ~pop_rescaled,
           fillOpacity = 0.7,
           group="population",
           options = markerOptions(count = 1),

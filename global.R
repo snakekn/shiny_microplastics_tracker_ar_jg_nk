@@ -24,12 +24,12 @@ library(leaflet.extras)
 library(terra)
 library(tidyterra)
 library(markdown)
+library(scales)
 
 ## Prepare data 
 
 ## 1. World Map
 world_sf <- ne_countries(scale = "medium", returnclass = "sf")
-
 ## 2. Microplastics Data
 # source(here::here("helper","microplastic_prep.R")) # builds microplastics.csv
 microplastics = read_csv(here::here("data","microplastics.csv"))
@@ -38,7 +38,12 @@ microplastics = read_csv(here::here("data","microplastics.csv"))
 # source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
 population = read.csv(here::here("data","population_coastal.csv")) # Post-buffer population data, 1704 cities!
 population_unique = population |>
-  distinct(city_st, lat, lon) # for making the map counts show up properly
+  filter(year==2010)|>
+  distinct(city_st, lat, lon,pop) # for making the map counts show up properly
+population_unique$pop <- as.numeric(population_unique$pop)
+
+population_unique$pop_rescaled <- (population_unique$pop - min(population_unique$pop)) / 
+  (max(population_unique$pop) - min(population_unique$pop)) * 100
 
 ## 4. Krig Map
 # source(here::here("helper","kriging.R")) # pulls krig info
