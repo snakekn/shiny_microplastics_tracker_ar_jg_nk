@@ -19,6 +19,38 @@
 # Define server logic required to draw a histogram
 server = function(input, output, session) {
   
+  # Reactive value to store map bounds
+  map_bounds <- reactiveVal(NULL)
+  print(map_bounds)
+  
+  # Update map bounds when it changes
+  observe({
+    if (is.null(input$us_map_bounds)) {
+      print("No bounds detected yet, setting default.")
+      
+      # Default bounding box (approximate US bounds)
+      leafletProxy("us_map") %>%
+        fitBounds(-125, 24, -66, 49)
+      map_bounds(input$us_map_bounds)
+      print(map_bounds)
+    }
+  })
+  
+  observeEvent(input$us_map_bounds, {
+    print("Updated map bounds detected:")
+    print(input$us_map_bounds)
+    map_bounds(input$us_map_bounds)  # Store bounds safely
+  })
+  
+  # Ensure the map triggers bounds updates
+  observeEvent(input$us_map_zoom, { 
+    print("Zoom event detected")
+  })
+  observeEvent(input$us_map_center, { 
+    print("Center event detected")
+  })
+  
+  
   filtered_microplastics <- reactive({
     microplastics %>%
       filter(
@@ -98,110 +130,133 @@ server = function(input, output, session) {
   
   observeEvent(input$us_map_marker_click, { # generic name format for marker clicks: "MAPID_marker_click"
 
-    # Get clicked city
-    clicked_city <- input$us_map_marker_click
-    print(clicked_city)
+    click = input$us_map_marker_click # for ease
+    if (!is.null(click$group) && click$group == "population") {
     
-    # Ensure a valid city is clicked
-    if (is.null(clicked_city)) return()
-    
-    # Extract city name
-    city_name <- clicked_city$id  # Ensure your markers have IDs matching city names
-    
-    # Subset the population data for the clicked city
-    city_data <- population %>% filter(city_st == city_name) |>
-      select(year,pop)
-    print(city_data)
-    print(min(city_data$year))
-    print(max(city_data$year))
-
-    # get datapoints to discuss 
-    total = count(city_data)
-    range = max(city_data$year) - min(city_data$year) + 1
-    
-    # Generate sparkline dynamically
-    output$sparkline <- {
-      if (total == 1) {
-        plotly::renderPlotly({
+      # Get clicked city
+      clicked_city <- input$us_map_marker_click
+      print(clicked_city)
+      
+      # Ensure a valid city is clicked
+      if (is.null(clicked_city)) return()
+      
+      # Extract city name
+      city_name <- clicked_city$id  # Ensure your markers have IDs matching city names
+      
+      # Subset the population data for the clicked city
+      city_data <- population %>% filter(city_st == city_name) |>
+        select(year,pop)
+      print(city_data)
+      print(min(city_data$year))
+      print(max(city_data$year))
+  
+      # get datapoints to discuss 
+      total = count(city_data)
+      range = max(city_data$year) - min(city_data$year) + 1
+      
+      # Generate sparkline dynamically
+      output$sparkline <- {
+        if (total == 1) {
+          plotly::renderPlotly({
+            plotly::ggplotly(
+              ggplot(city_data, aes(y = pop)) +
+                geom_bar(color = "blue") +
+                theme_bw() +
+                scale_fill_viridis_d()+
+                labs(title = paste("Population Size in", city_data$year), y = "Population")
+            )}
+          )
+        } else {
+          plotly::renderPlotly({
           plotly::ggplotly(
-            ggplot(city_data, aes(y = pop)) +
-              geom_bar(color = "blue") +
-              theme_bw() +
-              scale_fill_viridis_d()+
-              labs(title = paste("Population Size in", city_data$year), y = "Population")
-          )}
-        )
-      } else {
-        plotly::renderPlotly({
-        plotly::ggplotly(
-          ggplot(city_data, aes(x = year, y = pop)) +
-          geom_line(color = "blue") +
-          theme_bw() +
-          scale_fill_viridis_d()+
-          labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
-          )}
-        )
+            ggplot(city_data, aes(x = year, y = pop)) +
+            geom_line(color = "blue") +
+            theme_bw() +
+            scale_fill_viridis_d()+
+            labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
+            )}
+          )
+        }
       }
+      
+      showModal(modalDialog(
+        title=paste("City: ",city_name),
+        paste0("Showing population data across ", range, " year(s) [", total, " data point(s)]\n"),
+        plotly::plotlyOutput("sparkline"),
+        easyClose=TRUE
+      ))
     }
-    
-    showModal(modalDialog(
-      title=paste("City: ",city_name),
-      paste0("Showing population data across ", range, " year(s) [", total, " data point(s)]\n"),
-      plotly::plotlyOutput("sparkline"),
-      easyClose=TRUE
-    ))
   })
   
+  ## removed as we recently got rid of this functionality 
   # calculate density based on population
-  observeEvent(input$calculate_plastic, {
-    
-    # Get the center of the current map view
-    map_center <- isolate(input$us_map_center)
-    
-    # If the map center is available, use it; otherwise, set a default location
-    lat <- if (!is.null(map_center$lat)) map_center$lat else 39.5
-    lon <- if (!is.null(map_center$lng)) map_center$lng else -98.35
-    
-    # Estimate density_class based on population (simple logic example)
-    ## this will require a LM based on a krig!
-    estimated_density = "Placeholder Value"
-    
-    # Add the new marker to the map
-    leafletProxy("us_map") %>%
-      addCircleMarkers(
-        lng = lon, lat = lat,
-        color = "purple", fillColor = "purple",
-        radius = 8,
-        fillOpacity = 0.7,
-        popup = paste(
-          "<strong>Estimated City:</strong>", input$user_city, "<br>",
-          "<strong>Population:</strong>", formatC(input$user_population, format = "d", big.mark = ","), "<br>",
-          "<strong>Estimated Density Class:</strong>", estimated_density
-        ),
-        group = "temporary_marker"
-      )
-  })
+  # observeEvent(input$calculate_plastic, {
+  #   
+  #   # Get the center of the current map view
+  #   map_center <- isolate(input$us_map_center)
+  #   
+  #   # If the map center is available, use it; otherwise, set a default location
+  #   lat <- if (!is.null(map_center$lat)) map_center$lat else 39.5
+  #   lon <- if (!is.null(map_center$lng)) map_center$lng else -98.35
+  #   
+  #   # Estimate density_class based on population (simple logic example)
+  #   ## this will require a LM based on a krig!
+  #   estimated_density = "Placeholder Value"
+  #   
+  #   # Add the new marker to the map
+  #   leafletProxy("us_map") %>%
+  #     addCircleMarkers(
+  #       lng = lon, lat = lat,
+  #       color = "purple", fillColor = "purple",
+  #       radius = 8,
+  #       fillOpacity = 0.7,
+  #       popup = paste(
+  #         "<strong>Estimated City:</strong>", input$user_city, "<br>",
+  #         "<strong>Population:</strong>", formatC(input$user_population, format = "d", big.mark = ","), "<br>",
+  #         "<strong>Estimated Density Class:</strong>", estimated_density
+  #       ),
+  #       group = "temporary_marker"
+  #     )
+  # })
   
   # clear out all the temporary markers we've created
-  observeEvent(input$clear_calculations, {
-    
-    leafletProxy("us_map") %>% clearGroup("temporary_marker")
-  })
+  # observeEvent(input$clear_calculations, {
+  #   
+  #   leafletProxy("us_map") %>% clearGroup("temporary_marker")
+  # })
   
-  output$time_series_plot <- renderPlot({
-    req(input$map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
+  ts_plot_data <- reactive({
+    req(map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
     
-    ts_plot = time_series_plot(
-      data = microplastics,  
-      bbox = input$map_bounds,  
-      season = input$season_filter,  
-      plastic_year_range = input$plastic_year_range,  
+    build_time_series(
+      data = microplastics,
+      bbox = map_bounds,
+      season = input$season_filter,
+      year_range = input$plastic_year_range,
       density_class = input$density_class_filter
     )
-    
-    print(ts_plot)
-    print(head(data))
   })
+  
+  # create time series plot
+  observeEvent(input$time_series_plot, {
+    print(map_bounds)
+    print(input$season_filter)
+    print(input$plastic_year_range)
+    print(input$density_class_filter)
+    
+    req(ts_plot_data)
+    
+    print("after req")
+    
+    output$time_series_trend <- renderPlotly({
+      print("inside plot function")
+
+      ggplotly(ts_plot_data()) |> 
+        layout(title="Microplastic Density Trends", hovermode = "x")
+    })
+  })
+  
+  
 }
 
 

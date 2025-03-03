@@ -1,56 +1,55 @@
 # Goal: Conduct time series analysis on microplastics data
-# Output: ?
+# Output: A time series plot for microplastics data
 
 library(lubridate)
 library(tsibble)
 
-# pull microplastics data
-microplastics = read_csv(here::here("data","microplastics.csv"))
+print("time_analysis.R properly called")
 
-# convert into time data
-micro_ts = microplastics |>
-  mutate(date=lubridate::ymd(date),lat=round(lat,5),lon=round(lon,5),sample_id = row_number(),
-         density_class=as.factor(density_class)) |>
-  as_tsibble(key = c(lat,lon,sample_id), index=date,regular=FALSE,.drop=TRUE)
-
-# plot to see how it looks!
-ggplot(data = micro_ts, aes(x = date, y = density_class)) +
-  geom_() +
-  labs(x = "Date",
-       y = "Mean daily air temperature (Celsius)\n at Toolik Station")
-
-microplastics_clean <- microplastics |>
-  group_by(year, season, density_class, oceans) |>
-  summarise(count = n(), .groups = "drop")
-
-# all data
-ggplot(microplastics_clean, aes(x = year, y = count, color = density_class)) +
-  geom_line(size = 1.2) +
-  facet_wrap(~oceans~season) +  # Split by region
-  labs(title = "Trends in Microplastic Density Over Time",
-       x = "Year",
-       y = "Count of Observations",
-       color = "Density Class") +
-  theme_minimal() +
-  theme(legend.position = "bottom")
+bbox_null = list(
+  south = -16.46,
+  west = -123,
+  north = 56,
+  east = -73.7
+)
 
 # create a function that creates a time series analysis plot based on UI selections for viewed map area, season, year, density class
-time_series_plot <- function(data, bbox, season, year_range, density_class) {
-  data %>%
-    filter(lat >= bbox$south & lat <= bbox$north,  
-           lon >= bbox$west & lon <= bbox$east,  
-           season %in% season,  
+build_time_series <- function( bbox=list(
+                                south = -16.46,
+                                west = -123,
+                                north = 56,
+                                east = -73.7
+                              ), data, seasons, year_range, density_class) {
+  # fix in case we're getting reactive data
+  if(length(class(bbox)) > 1) { 
+    bbox_val = bbox()
+  } else {
+    bbox_val = bbox
+  }
+  print(bbox_val) # confirm our bbox works
+  print(summary(data))
+  print(seasons)
+  print(year_range)
+  print(density_class)
+  
+  ts_plot = data %>%
+    filter(lat >= bbox_val$south & lat <= bbox_val$north,  
+           lon >= bbox_val$west & lon <= bbox_val$east,  
+           season %in% seasons,  
            year >= year_range[1] & year <= year_range[2],  
-           density_class %in% density_class) %>%
-    group_by(date, density_class) %>%  
-    summarise(count = n(), .groups = "drop") %>%  # Count occurrences per date/class  
+           density_class %in% density_class) |>
+    group_by(date, density_class, season) %>%  
+    summarise(count = n(), .groups = "drop") |>  # Count occurrences per date/class  
     ggplot(aes(x = date, y = count, color = density_class)) +
     geom_line(size = 1.2) +
+    facet_wrap(~season)+
     labs(title = "Trends in Microplastic Density Over Time",
          x = "Date",
          y = "Count of Observations",
          color = "Density Class") +
-    theme_minimal() +
+    theme_bw() +
+    scale_color_manual(values=density_palette)+
     theme(legend.position = "bottom")
+  print(ts_plot)
+  return(ts_plot)
 }
-

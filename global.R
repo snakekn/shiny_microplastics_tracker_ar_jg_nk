@@ -6,7 +6,6 @@
 # - speed up load?
 # - remove all the columns that are created when creating population_coastal (coastal_buffer)
 # - get time series finished
-# - fix popups & get time series of pop size vs time to show
 
 # loading all libraries centrally for clarity
 # let's try lazy loading if possible, we have a slow start time!
@@ -24,6 +23,7 @@ library(leaflet.extras)
 library(terra)
 library(tidyterra)
 library(markdown)
+library(plotly)
 
 ## Prepare data 
 
@@ -47,6 +47,10 @@ population_unique = population |>
 ## for building sparkline population trends
 source(here::here("helper","pop_trend.R"))
 
+## for creating microplastic time analysis
+source(here::here("helper","time_analysis.R"))
+print(exists("build_time_series"))
+
 ## Outdated :)
 # source(here::here("helper","tourism.R")) # pulls tourism data
 
@@ -54,8 +58,9 @@ source(here::here("helper","pop_trend.R"))
 microplastics$density_class <- factor(microplastics$density_class, 
                                       levels = c("Very Low", "Low", "Medium", "High", "Very High"))
 
+density_palette = c("darkgreen", "lightgreen", "gray", "orange", "red")
 pal_microplastics <- colorFactor(
-  palette = c("darkgreen", "lightgreen", "yellow", "orange", "red"),  # Define colors for each class
+  palette = density_palette,  # Define colors for each class
   domain = microplastics$density_class  # The categorical variable
 )
 season_choices = c("Spring", "Summer", "Fall", "Winter") # create static seasonal options

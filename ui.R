@@ -78,19 +78,20 @@ ui = fluidPage(
       accordion(id="calculate_data",
                 open=FALSE,
                 accordion_panel("🧮 Calculator",
+                                
+                                ### we don't have this ready :( krig failure
                                 # Estimate plastic debris based on local population
-                                h3("Plastic Debris Estimator"),
-                                textInput("user_city", "Enter Coastal City Name:"),
-                                numericInput("user_population", "City Population:", value = 100000),
-                                actionButton("calculate_plastic", "Estimate Plastic Debris"),
-                                br(),
-                                actionButton("clear_calculations","Clear Density Estimates"),
-                                hr(),
+                                # h3("Plastic Debris Estimator"),
+                                # textInput("user_city", "Enter Coastal City Name:"),
+                                # numericInput("user_population", "City Population:", value = 100000),
+                                # actionButton("calculate_plastic", "Estimate Plastic Debris"),
+                                # br(),
+                                # actionButton("clear_calculations","Clear Density Estimates"),
+                                # hr(),
                                 
                                 # Analyze trend in debris based on current 
                                 h3("Trend Analysis"),
                                 p("Using the current filters above, create a time series plot"),
-                                selectInput("trend_location", "Select Location:", choices = NULL),  # To be updated dynamically
                                 sliderInput("pop_year_range", "Year Range:", 
                                             min = min(microplastics$year, na.rm = TRUE),
                                             max = max(microplastics$year, na.rm = TRUE),
@@ -112,7 +113,11 @@ ui = fluidPage(
                  ), # end the overview page
         
         # World Map Tab (2nd)
-        tabPanel("U.S. Map", leafletOutput("us_map", height = "600px"))
+        tabPanel("U.S. Map", 
+                 leafletOutput("us_map", height = "600px"),
+                 br(),
+                 plotlyOutput("time_series_trend", height="400px")
+        )
       )
     )
   ),
@@ -125,7 +130,7 @@ ui = fluidPage(
     font_scale = 1.1,  # Slightly larger font size
     bg = "#F5F5F5",  # Background color
     fg = "#333333"  # Foreground text color
-  ),
+  )
 )
 
 
