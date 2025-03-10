@@ -104,9 +104,9 @@ server = function(input, output, session) {
           color = "black",      # Outline color
           fillColor = "hotpink", 
           fillOpacity = 0.7,
-          group="population",
           options = markerOptions(count = 1),
-          layerId = ~city_st
+          layerId = ~city_st,
+          group="population"
         )
     } else {
       leafletProxy("us_map") %>%
@@ -240,7 +240,7 @@ server = function(input, output, session) {
     
     output$time_series_trend <- renderPlotly({
       print("inside plot function")
-
+      print(ts_plot_data())
       ggplotly(ts_plot_data()) |> 
         layout(title="Microplastic Density Trends", hovermode = "x")
     })

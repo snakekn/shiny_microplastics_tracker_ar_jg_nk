@@ -43,7 +43,20 @@ build_time_series <- function( bbox=list(
     return(NULL)
   }
   
-  ts_plot = ts_data |>
+  ts_whole = ts_data |>
+    group_by(date, density_class, season) %>%  
+    summarise(count = n(), .groups = "drop") |>  # Count occurrences per date/class  
+    ggplot(aes(x = date, y = count, color = density_class)) +
+    geom_line(size = 1.2) +
+    labs(title = "Trends in Microplastic Density Over Time",
+         x = "Date",
+         y = "Count of Observations",
+         color = "Density Class") +
+    theme_bw() +
+    scale_color_manual(values=density_palette)+
+    theme(legend.position = "bottom")
+
+  ts_facet = ts_data |>
     group_by(date, density_class, season) %>%  
     summarise(count = n(), .groups = "drop") |>  # Count occurrences per date/class  
     ggplot(aes(x = date, y = count, color = density_class)) +
@@ -55,7 +68,15 @@ build_time_series <- function( bbox=list(
          color = "Density Class") +
     theme_bw() +
     scale_color_manual(values=density_palette)+
-    theme(legend.position = "bottom")
-  print(ts_plot)
-  return(ts_plot)
+    theme(legend.position = "none")
+
+  ts_whole_ly = ggplotly(ts_whole) |> layout(showlegend = FALSE)
+  ts_facet_ly = ggplotly(ts_facet)
+  ts_complete = subplot(ts_whole_ly,ts_facet_ly,nrows=2,shareX = FALSE, margin=c(0,0,1,1)) |>
+    layout(
+      showlegend = TRUE,
+      margin = list(t=50,b=100)
+    )
+  print(ts_complete)
+  return(ts_complete)
 }

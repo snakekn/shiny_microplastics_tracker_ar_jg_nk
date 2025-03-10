@@ -27,6 +27,7 @@ library(lubridate)
 library(tsibble)
 library(plotly)
 library(scales)
+library(patchwork)
 
 ## Prepare data 
 

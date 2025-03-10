@@ -60,11 +60,6 @@ ui = fluidPage(
                                 # Analyze trend in debris based on current 
                                 h3("Trend Analysis"),
                                 p("Using the current filters above, create a time series plot"),
-                                sliderInput("pop_year_range", "Year Range:", 
-                                            min = min(microplastics$year, na.rm = TRUE),
-                                            max = max(microplastics$year, na.rm = TRUE),
-                                            value = c(1972, 2022),  # Default to entire population
-                                            step = 1, sep = ""),
                                 actionButton("time_series_plot", "Get Time Series Plot")
                 ))
     ),
