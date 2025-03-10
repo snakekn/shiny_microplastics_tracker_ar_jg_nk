@@ -76,10 +76,16 @@ ui = fluidPage(
                  ), # end the overview page
         
         # World Map Tab (2nd)
-        tabPanel("U.S. Map", 
-                 leafletOutput("us_map", height = "600px"),
-                 br(),
+        tabPanel("US Map of all Populations & Microplastics", 
+                 leafletOutput("us_map", height = "600px")
+        ),
+        # Microplastic Density Trends
+        tabPanel("Calculated Microplastic Density Trends", 
                  plotlyOutput("time_series_trend", height="400px")
+        ),
+        # LR Map
+        tabPanel("US Map of Analyzed Populations & Microplastics", 
+                 leafletOutput("trend_map", height = "600px")
         )
       )
     )
