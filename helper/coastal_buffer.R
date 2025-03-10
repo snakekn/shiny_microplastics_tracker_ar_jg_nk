@@ -58,8 +58,9 @@ population_coastal <- population_sf |>
 #        subtitle = "Buffered coastline (20 miles) and population centers",
 #        caption = "Data: US boundaries, Natural Earth, and Population dataset")
 #   
+
 # save the population df so we don't have to run this each time the app loads
-coords = st_coordinates(population_coastal)
+# coords = st_coordinates(population_coastal)
 
 population_df <- population_coastal %>%
   mutate(lon = st_coordinates(population_coastal)[, 1],

@@ -60,7 +60,10 @@ cities_map = cities_data |>
   mutate(pop = max(pop), year=max(year)) |>
   distinct(city_st, lat, lon, marker, pop, year) # for making the map counts show up properly
 
-      
+## 5. Microplastics data specifically near our 19 cities
+# source(here::here("helper","cities_analysis.R")) # builds population_coastal.csv
+city_microplastics = read.csv(here::here("data", "city_microplastic.csv"))
+
 ## 4. Krig Map
 # source(here::here("helper","kriging.R")) # pulls krig info
 # krig_raster = ...

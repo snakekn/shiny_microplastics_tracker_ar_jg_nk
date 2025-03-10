@@ -41,3 +41,24 @@ population_map = population_ts |>
 
 
 write_csv(population_map, here::here("data", "city_analysis.csv"))
+
+## get microplastics for those 19 cities
+
+# Convert city coordinates to sf object
+cities_sf <- population_unique %>%
+  filter(city_st %in% cities) %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326)
+
+# Create a 10-mile buffer around each city (10 miles = 16093.4 meters)
+city_buffers <- st_buffer(cities_sf, dist = 16093.4)  # 10 miles in meters
+
+# Convert microplastics data to sf object
+microplastics_sf <- microplastics %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326)
+
+# Find microplastic points within the city buffers
+microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers) |>
+  mutate(lon = st_coordinates(microplastics_in_buffers)[,1],
+         lat = st_coordinates(microplastics_in_buffers)[,2])
+
+write_csv(microplastics_in_buffers, here::here("data", "city_microplastic.csv"))

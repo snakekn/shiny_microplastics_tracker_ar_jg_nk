@@ -1,0 +1,649 @@
+oceans,regions,sub_regions,sampling_method,measurement,unit,density_range,density_class,date,season,year,density_marker_size,city_st,pop,pop_rescaled,geometry,lon,lat
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-10-10,Fall,2021,3,"Los Angeles, CA",3792621,46.37575096685511,"c(-118.5202, 34.0269)",-118.5202,34.0269
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-08,Winter,2020,6.5,"Los Angeles, CA",3792621,46.37575096685511,"c(-118.5368, 34.0351)",-118.5368,34.03509999999999
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-10-16,Fall,2021,3,"Los Angeles, CA",3792621,46.37575096685511,"c(-118.569, 34.0416)",-118.56899999999999,34.041599999999995
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-02-08,Winter,2020,4.75,"Los Angeles, CA",3792621,46.37575096685511,"c(-118.5371, 34.0351)",-118.5371,34.0351
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2022-04-19,Spring,2022,4.75,"Los Angeles, CA",3792621,46.37575096685511,"c(-118.4698, 33.9818)",-118.4698,33.98180000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-14,Winter,2022,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.253, 32.7479)",-117.25300000000001,32.7479
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2022-01-21,Winter,2022,4.75,"San Diego, CA",1307402,15.966706437620884,"c(-117.2527, 32.753)",-117.2527,32.753
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-19,Spring,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.1836, 32.6813)",-117.1836,32.6813
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-07-27,Summer,2021,3,"San Diego, CA",1307402,15.966706437620884,"c(-117.2577, 32.7978)",-117.2577,32.7978
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-07-26,Summer,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.255, 32.8653)",-117.25500000000001,32.8653
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-05-18,Spring,2021,3,"San Diego, CA",1307402,15.966706437620884,"c(-117.2525, 32.7547)",-117.2525,32.7547
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-21,Spring,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2581, 32.798)",-117.2581,32.798
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-19,Winter,2022,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2536, 32.7597)",-117.25360000000002,32.759699999999995
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-26,Spring,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2554, 32.8623)",-117.2554,32.8623
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-08,Winter,2020,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2563, 32.8615)",-117.25630000000001,32.8615
+Pacific Ocean,NA,NA,Grab sample,0.003,pieces/m3,0.0005-0.005,Low,2014-03-17,Spring,2014,4.75,"San Diego, CA",1307402,15.966706437620884,"c(-117.2476, 32.7566)",-117.2476,32.7566
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-09,Winter,2020,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.1828, 32.6811)",-117.18279999999999,32.6811
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2021-07-27,Summer,2021,4.75,"San Diego, CA",1307402,15.966706437620884,"c(-117.2526, 32.7535)",-117.25260000000002,32.7535
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-17,Winter,2022,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2531, 32.7599)",-117.2531,32.7599
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-05-02,Spring,2020,3,"San Diego, CA",1307402,15.966706437620884,"c(-117.2596, 32.7995)",-117.2596,32.7995
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-26,Spring,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2558, 32.8612)",-117.2558,32.8612
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-07-27,Summer,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2571, 32.7966)",-117.2571,32.79659999999999
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-12-08,Winter,2020,4.75,"San Diego, CA",1307402,15.966706437620884,"c(-117.26, 32.8547)",-117.26,32.8547
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-05-18,Spring,2021,3,"San Diego, CA",1307402,15.966706437620884,"c(-117.2534, 32.7671)",-117.2534,32.7671
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-12-10,Winter,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2534, 32.763)",-117.2534,32.763
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-05-02,Spring,2020,3,"San Diego, CA",1307402,15.966706437620884,"c(-117.214, 32.7797)",-117.214,32.7797
+Pacific Ocean,NA,NA,Grab sample,0.041,pieces/m3,0.005-1,Medium,2014-03-17,Spring,2014,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.1701, 32.7643)",-117.1701,32.7643
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-26,Spring,2021,6.5,"San Diego, CA",1307402,15.966706437620884,"c(-117.2558, 32.8612)",-117.2558,32.8612
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3155, 37.862)",-122.31549999999999,37.862
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-07,Spring,2021,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.465, 37.8048)",-122.46500000000002,37.80480000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3098, 37.8778)",-122.3098,37.8778
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3158, 37.8617)",-122.31580000000001,37.8617
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-01-31,Winter,2021,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5109, 37.758)",-122.5109,37.757999999999996
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-05-03,Spring,2020,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5111, 37.7605)",-122.51110000000001,37.7605
+Pacific Ocean,NA,NA,Grab sample,0.018,pieces/m3,0.005-1,Medium,2015-06-29,Summer,2015,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.4024, 37.8531)",-122.4024,37.8531
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3003, 37.8509)",-122.3003,37.85090000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3097, 37.8777)",-122.3097,37.8777
+Pacific Ocean,NA,NA,Grab sample,0.021,pieces/m3,0.005-1,Medium,2015-07-14,Summer,2015,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.4545, 37.9134)",-122.4545,37.9134
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-02-26,Winter,2021,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5112, 37.7582)",-122.5112,37.7582
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3003, 37.8508)",-122.3003,37.85080000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-14,Summer,2020,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5091, 37.7471)",-122.50910000000002,37.74710000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3154, 37.8622)",-122.3154,37.8622
+Pacific Ocean,NA,NA,Grab sample,0.003,pieces/m3,0.0005-0.005,Low,2016-03-14,Spring,2016,4.75,"San Francisco, CA",805235,9.822210252732566,"c(-122.4913, 37.7882)",-122.4913,37.7882
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-11-16,Fall,2020,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5042, 37.7145)",-122.50420000000001,37.7145
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-14,Summer,2020,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5074, 37.7397)",-122.50740000000002,37.739700000000006
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3158, 37.8617)",-122.31580000000001,37.8617
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-02,Spring,2021,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5115, 37.7612)",-122.51149999999998,37.7612
+Pacific Ocean,NA,NA,Grab sample,0,pieces/m3,0-0.0005,Very Low,2016-10-18,Fall,2016,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.4726, 37.8604)",-122.47259999999999,37.860400000000006
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-28,Summer,2020,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5077, 37.7396)",-122.5077,37.73960000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3098, 37.8777)",-122.3098,37.8777
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-14,Summer,2020,6.5,"San Francisco, CA",805235,9.822210252732566,"c(-122.5089, 37.7478)",-122.50889999999998,37.7478
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-06-18,Summer,2020,4.75,"San Francisco, CA",805235,9.822210252732566,"c(-122.3003, 37.851)",-122.3003,37.851
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3156, 37.8619)",-122.3156,37.8619
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-18,Summer,2020,3,"San Francisco, CA",805235,9.822210252732566,"c(-122.3154, 37.8621)",-122.3154,37.86209999999999
+Pacific Ocean,NA,NA,Grab sample,0.002,pieces/m3,0.0005-0.005,Low,2016-03-14,Spring,2016,4.75,"San Francisco, CA",805235,9.822210252732566,"c(-122.4913, 37.7882)",-122.4913,37.7882
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2022-01-30,Winter,2022,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.8435, 34.406)",-119.84349999999999,34.40599999999999
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-11-01,Fall,2020,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.8323, 34.4166)",-119.83230000000002,34.416599999999995
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-12-05,Winter,2020,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.6714, 34.4161)",-119.6714,34.4161
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-12-13,Winter,2020,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.6979, 34.4016)",-119.6979,34.4016
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-03-28,Spring,2021,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.6644, 34.4173)",-119.6644,34.4173
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-11-08,Fall,2020,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.844, 34.4056)",-119.844,34.40560000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-06-27,Summer,2021,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.7037, 34.3972)",-119.70370000000001,34.3972
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-06-05,Summer,2021,3,"Santa Barbara, CA",88410,1.0511669987302743,"c(-119.6871, 34.412)",-119.68709999999999,34.412
+Atlantic Ocean,Coastal Waters of Florida,NA,Grab sample,0.003,pieces/m3,0.0005-0.005,Low,2015-06-15,Summer,2015,4.75,"Miami, FL",399457,4.857126181275039,"c(-80.0865, 25.7429)",-80.08650000000002,25.7429
+Atlantic Ocean,Coastal Waters of Florida,NA,Grab sample,0.005,pieces/m3,0.005-1,Medium,2015-02-07,Winter,2015,6.5,"Miami, FL",399457,4.857126181275039,"c(-80.1519, 25.7071)",-80.1519,25.7071
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-16,Spring,2020,6.5,"Miami, FL",399457,4.857126181275039,"c(-80.1558, 25.6671)",-80.1558,25.6671
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-04-17,Spring,2021,3,"Panama City, FL",36484,0.4158024508876028,"c(-85.7874, 30.1638)",-85.7874,30.163800000000002
+Atlantic Ocean,Gulf of Mexico,Coastal Waters of Florida,Grab sample,0.019,pieces/m3,0.005-1,Medium,2014-04-02,Spring,2014,6.5,"Panama City, FL",36484,0.4158024508876028,"c(-85.7308, 30.187)",-85.7308,30.187
+Atlantic Ocean,Gulf of Mexico,Coastal Waters of Florida,Grab sample,0.008,pieces/m3,0.005-1,Medium,2014-04-02,Spring,2014,6.5,"Panama City, FL",36484,0.4158024508876028,"c(-85.7392, 30.1863)",-85.7392,30.1863
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2021-09-01,Fall,2021,4.75,"Panama City, FL",36484,0.4158024508876028,"c(-85.7461, 30.1335)",-85.7461,30.133499999999998
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-08-07,Summer,2021,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0194, 29.9538)",-90.0194,29.9538
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.044, 29.9607)",-90.044,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-01-06,Winter,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0192, 29.9537)",-90.0192,29.9537
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-05-04,Spring,2022,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0075, 29.9477)",-90.0075,29.947700000000005
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-07,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9947, 29.9401)",-89.9947,29.9401
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-08-07,Summer,2021,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9953, 29.9405)",-89.9953,29.940499999999993
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0439, 29.9607)",-90.0439,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-04-30,Spring,2022,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0077, 29.9478)",-90.0077,29.94780000000001
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-09-10,Fall,2021,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9941, 29.9399)",-89.9941,29.9399
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-09-05,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0449, 29.9611)",-90.0449,29.9611
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-04-16,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0224, 29.9555)",-90.0224,29.9555
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-08-07,Summer,2021,6.5,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0263, 29.957)",-90.0263,29.957
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.044, 29.9607)",-90.044,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-07,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9947, 29.9401)",-89.9947,29.9401
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-06,Winter,2022,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9938, 29.9396)",-89.99380000000001,29.9396
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-18,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9971, 29.9324)",-89.9971,29.93240000000001
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-08-07,Summer,2021,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.019, 29.9537)",-90.019,29.9537
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-05-04,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0224, 29.9555)",-90.0224,29.9555
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0439, 29.9607)",-90.0439,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-17,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0121, 29.9501)",-90.0121,29.950099999999996
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-05-04,Spring,2022,6.5,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9951, 29.9403)",-89.99510000000001,29.940299999999997
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-04-05,Spring,2022,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0228, 29.9557)",-90.0228,29.9557
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.044, 29.9607)",-90.044,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-08-07,Summer,2021,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9955, 29.9405)",-89.9955,29.9405
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-15,Fall,2021,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9939, 29.9397)",-89.9939,29.9397
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-10,Summer,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9948, 29.9397)",-89.9948,29.9397
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0439, 29.9607)",-90.0439,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-09-10,Fall,2021,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9939, 29.9397)",-89.9939,29.9397
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-05-04,Spring,2022,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0232, 29.9559)",-90.0232,29.955900000000003
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-05-04,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0232, 29.9558)",-90.0232,29.955800000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-01-22,Winter,2021,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0218, 29.9551)",-90.0218,29.9551
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0442, 29.9607)",-90.0442,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.044, 29.9607)",-90.044,29.9607
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-08-07,Summer,2021,6.5,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0244, 29.9563)",-90.0244,29.956300000000002
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-07,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0193, 29.9539)",-90.0193,29.9539
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-19,Spring,2022,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0197, 29.9543)",-90.01970000000001,29.9543
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-05-04,Spring,2022,6.5,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0078, 29.9479)",-90.0078,29.947899999999997
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-03-25,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0078, 29.9478)",-90.0078,29.94780000000001
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-05-22,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0581, 29.9857)",-90.0581,29.985699999999998
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-08-07,Summer,2021,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0266, 29.9577)",-90.0266,29.95770000000001
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-03-21,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0209, 29.9548)",-90.0209,29.9548
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-01-06,Winter,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0195, 29.9538)",-90.0195,29.9538
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2022-05-04,Spring,2022,10,"New Orleans, LA",343829,4.1764641031755865,"c(-90.0039, 29.9456)",-90.0039,29.945600000000002
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-08-10,Summer,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9948, 29.9397)",-89.9948,29.9397
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-31,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9954, 29.9401)",-89.9954,29.9401
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-10-14,Fall,2020,10,"New Orleans, LA",343829,4.1764641031755865,"c(-89.9969, 29.9325)",-89.9969,29.9325
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-24,Fall,2020,8.25,"New Orleans, LA",343829,4.1764641031755865,"c(-90.044, 29.9607)",-90.044,29.9607
+Atlantic Ocean,NA,NA,Grab sample,0.017,pieces/m3,0.005-1,Medium,2013-09-23,Fall,2013,6.5,"Portland, ME",66194,0.779332873342746,"c(-70.2389, 43.6612)",-70.2389,43.6612
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-27,Spring,2022,6.5,"Portland, ME",66194,0.779332873342746,"c(-70.2738, 43.6426)",-70.2738,43.6426
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-05-21,Spring,2021,3,"Bandon, OR",3066,0.006901082405408981,"c(-124.4196, 43.1375)",-124.41960000000002,43.1375
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-14,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4328, 43.1021)",-124.4328,43.1021
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-01-19,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3907, 43.2397)",-124.3907,43.2397
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-01-29,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.435, 43.1131)",-124.43499999999999,43.1131
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-05-24,Spring,2022,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4336, 43.103)",-124.43360000000001,43.103
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-25,Winter,2022,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3907, 43.239)",-124.3907,43.239
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-09-22,Fall,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4355, 43.0807)",-124.43550000000002,43.0807
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-08-27,Summer,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4345, 43.0906)",-124.4345,43.09060000000001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-01-29,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3955, 43.2107)",-124.39549999999998,43.2107
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-23,Winter,2022,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4358, 43.0787)",-124.4358,43.0787
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-09-20,Fall,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4375, 43.0737)",-124.43750000000001,43.073699999999995
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-07-29,Summer,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4339, 43.1113)",-124.4339,43.1113
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-06-21,Summer,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4327, 43.0943)",-124.43270000000001,43.0943
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-02-27,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3876, 43.2508)",-124.38759999999999,43.2508
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-03-29,Spring,2021,10,"Bandon, OR",3066,0.006901082405408981,"c(-124.4326, 43.1023)",-124.4326,43.1023
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-02-06,Winter,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4161, 43.1465)",-124.4161,43.1465
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-07-23,Summer,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4324, 43.0942)",-124.4324,43.0942
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-05-21,Spring,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.434, 43.1113)",-124.43400000000001,43.1113
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-14,Winter,2022,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4322, 43.0994)",-124.4322,43.0994
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-04-11,Spring,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.391, 43.2371)",-124.391,43.2371
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-05-24,Spring,2022,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4327, 43.1)",-124.43270000000001,43.1
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-02-23,Winter,2021,10,"Bandon, OR",3066,0.006901082405408981,"c(-124.4329, 43.1014)",-124.43290000000002,43.1014
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-01-19,Winter,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4362, 43.1063)",-124.43620000000001,43.1063
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-07-30,Summer,2021,10,"Bandon, OR",3066,0.006901082405408981,"c(-124.4353, 43.0792)",-124.43530000000001,43.0792
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-04-12,Spring,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4324, 43.0981)",-124.4324,43.0981
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-02-07,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3924, 43.2331)",-124.3924,43.2331
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-01-08,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4331, 43.1019)",-124.43309999999998,43.1019
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-24,Winter,2022,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4381, 43.0622)",-124.43810000000002,43.06219999999999
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-07-06,Summer,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4342, 43.1117)",-124.43420000000002,43.1117
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-01-22,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4358, 43.0777)",-124.4358,43.0777
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2022-02-25,Winter,2022,4.75,"Bandon, OR",3066,0.006901082405408981,"c(-124.4326, 43.0979)",-124.4326,43.0979
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-01-19,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.434, 43.0965)",-124.43400000000001,43.096500000000006
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-05-02,Spring,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4352, 43.0817)",-124.4352,43.0817
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-03-16,Spring,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4317, 43.0986)",-124.4317,43.0986
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-03-06,Spring,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4339, 43.1038)",-124.4339,43.1038
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-12,Winter,2020,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4331, 43.102)",-124.43309999999998,43.102000000000004
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-02-07,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3907, 43.2389)",-124.3907,43.2389
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-07-10,Summer,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4357, 43.0747)",-124.43569999999998,43.07469999999999
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-04-01,Spring,2022,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.4326, 43.1001)",-124.4326,43.1001
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-02-17,Winter,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.3904, 43.2402)",-124.3904,43.2402
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-08-28,Summer,2021,10,"Bandon, OR",3066,0.006901082405408981,"c(-124.4353, 43.0789)",-124.43530000000001,43.0789
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-02-16,Winter,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4324, 43.0971)",-124.4324,43.0971
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-08-26,Summer,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4338, 43.1112)",-124.4338,43.1112
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-02-27,Winter,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4373, 43.0689)",-124.43730000000001,43.0689
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-11-16,Fall,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4321, 43.0992)",-124.4321,43.0992
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-09-29,Fall,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4344, 43.1113)",-124.43439999999998,43.1113
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-02,Fall,2021,8.25,"Bandon, OR",3066,0.006901082405408981,"c(-124.434, 43.104)",-124.43400000000001,43.104
+Pacific Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-02-05,Winter,2021,6.5,"Bandon, OR",3066,0.006901082405408981,"c(-124.4373, 43.0699)",-124.43730000000001,43.069900000000004
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-11,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8779, 32.7933)",-79.8779,32.7933
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-23,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9656, 32.8695)",-79.9656,32.8695
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-11-16,Fall,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9716, 32.8921)",-79.9716,32.892100000000006
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-21,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9261, 32.7872)",-79.9261,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-07-31,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9396, 32.8315)",-79.9396,32.8315
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-22,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8028)",-79.93530000000001,32.802800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2022-03-19,Spring,2022,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9621, 32.7885)",-79.9621,32.7885
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-10,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9262, 32.7872)",-79.9262,32.78719999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-19,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-24,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9155, 32.753)",-79.9155,32.753
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-09-18,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8028)",-79.93530000000001,32.802800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-05-28,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7763)",-79.9253,32.77629999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-10,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9322, 32.8028)",-79.9322,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-06,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8028)",-79.93530000000001,32.802800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-10-23,Fall,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9619, 32.7883)",-79.96190000000001,32.7883
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-09-18,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9254, 32.776)",-79.9254,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-19,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-06-11,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8546, 32.7549)",-79.8546,32.7549
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-18,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7758)",-79.9252,32.7758
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2022-04-08,Spring,2022,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9251, 32.7758)",-79.9251,32.7758
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-12-14,Winter,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.971, 32.891)",-79.971,32.891
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-29,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8569, 32.7565)",-79.8569,32.7565
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-04-11,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8737, 32.783)",-79.8737,32.783
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-30,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9165, 32.7541)",-79.9165,32.7541
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-09,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9708, 32.8913)",-79.9708,32.8913
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-03-13,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7761)",-79.9252,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-11-19,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9324, 32.8027)",-79.9324,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-04,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9343, 32.8024)",-79.9343,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-12-05,Winter,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8418, 32.7558)",-79.84180000000002,32.7558
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-23,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.856, 32.7557)",-79.856,32.7557
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-04,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9684, 32.8712)",-79.9684,32.8712
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-01,Winter,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9255, 32.7759)",-79.9255,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-13,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9164, 32.754)",-79.9164,32.754
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-03-03,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9335, 32.8021)",-79.9335,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-21,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.933, 32.8027)",-79.933,32.8027
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-09,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9044, 32.751)",-79.9044,32.751
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-14,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9343, 32.8024)",-79.9343,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-21,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.98, 32.8894)",-79.98,32.8894
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-27,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-01,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9052, 32.8016)",-79.9052,32.8016
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-17,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-20,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9339, 32.8021)",-79.9339,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-09-06,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.84, 32.757)",-79.84,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-02,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8507, 32.754)",-79.8507,32.754
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-27,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-08,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8573, 32.7572)",-79.8573,32.7572
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-17,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9037, 32.7508)",-79.9037,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-11,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9665, 32.8696)",-79.9665,32.869600000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-21,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9029, 32.7507)",-79.9029,32.75070000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-09-26,Fall,2020,10,"Charleston, SC",120083,1.43871661402552,"c(-79.8555, 32.7554)",-79.8555,32.7554
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-28,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9254, 32.7759)",-79.9254,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-13,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8534, 32.754)",-79.8534,32.754
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-13,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9338, 32.8021)",-79.9338,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-10,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7902)",-79.9252,32.7902
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-05-28,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9264, 32.7872)",-79.9264,32.78719999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-19,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8591, 32.7591)",-79.8591,32.75909999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-07-09,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8624, 32.7736)",-79.8624,32.7736
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-12,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9059, 32.8023)",-79.9059,32.8023
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-16,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9351, 32.8027)",-79.9351,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-17,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9622, 32.7885)",-79.9622,32.7885
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-24,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.857, 32.757)",-79.857,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-10-26,Fall,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9715, 32.8921)",-79.9715,32.8921
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-12-06,Winter,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9596, 32.7867)",-79.9596,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-11,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9262, 32.7873)",-79.9262,32.787299999999995
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-04,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8683, 32.7772)",-79.8683,32.7772
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-20,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9665, 32.8693)",-79.9665,32.8693
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-16,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9254, 32.7761)",-79.9254,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-27,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8027)",-79.93530000000001,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-11-21,Fall,2021,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9622, 32.7886)",-79.9622,32.788599999999995
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-30,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-11,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8569, 32.7567)",-79.8569,32.7567
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-15,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9728, 32.892)",-79.9728,32.892
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-09-18,Fall,2020,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9729, 32.7673)",-79.9729,32.7673
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-16,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8507, 32.754)",-79.8507,32.754
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-28,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9338, 32.8021)",-79.9338,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-26,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7759)",-79.9252,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-09,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9056, 32.8022)",-79.9056,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-30,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.971, 32.8912)",-79.971,32.8912
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-22,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.971, 32.8914)",-79.971,32.8914
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-22,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9596, 32.7867)",-79.9596,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-28,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8104, 32.7751)",-79.8104,32.7751
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-13,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8539, 32.7543)",-79.8539,32.7543
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-15,Winter,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-23,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9039, 32.8022)",-79.9039,32.80219999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-08,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9349, 32.8026)",-79.9349,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-11-13,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9612, 32.7879)",-79.96120000000002,32.7879
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-07-02,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8573, 32.7572)",-79.8573,32.7572
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-11,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9354, 32.8028)",-79.9354,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-02-04,Winter,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9594, 32.7865)",-79.9594,32.78649999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-08-28,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9037, 32.7507)",-79.9037,32.75070000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-30,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.928, 32.7866)",-79.928,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-03,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9598, 32.7869)",-79.9598,32.7869
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-10-09,Fall,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-27,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9663, 32.87)",-79.9663,32.87
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-21,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9346, 32.8023)",-79.93460000000002,32.8023
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-08-28,Summer,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9156, 32.7794)",-79.9156,32.77940000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-27,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8452, 32.7554)",-79.8452,32.7554
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-10-02,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-27,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9036, 32.7508)",-79.9036,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-22,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9059, 32.8021)",-79.9059,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-30,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9048, 32.7509)",-79.90480000000001,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-17,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9597, 32.7868)",-79.9597,32.7868
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-10-26,Fall,2021,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-24,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-04,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7758)",-79.9252,32.7758
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-10,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9249, 32.7879)",-79.9249,32.78789999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-28,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9254, 32.7759)",-79.9254,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-07-09,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9056, 32.7985)",-79.9056,32.79849999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-22,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9038, 32.7509)",-79.9038,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-18,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9708, 32.8698)",-79.9708,32.8698
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-11-02,Fall,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9715, 32.8921)",-79.9715,32.8921
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-11-23,Fall,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9711, 32.8916)",-79.9711,32.8916
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-27,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9056, 32.8023)",-79.9056,32.8023
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-11,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8569, 32.7566)",-79.8569,32.7566
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-17,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9668, 32.8695)",-79.9668,32.8695
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-27,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-24,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.894, 32.6914)",-79.894,32.6914
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-13,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9057, 32.8022)",-79.9057,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-23,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-30,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9337, 32.802)",-79.9337,32.802
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-14,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9662, 32.8701)",-79.9662,32.8701
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-10-17,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-30,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9659, 32.8701)",-79.9659,32.870099999999994
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-31,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9002, 32.8429)",-79.9002,32.8429
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-08,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.935, 32.8027)",-79.935,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-13,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8514, 32.7538)",-79.8514,32.7538
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-09-22,Fall,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-80.043, 32.8378)",-80.043,32.83780000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-08,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8703)",-79.966,32.8703
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-07,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9621, 32.7884)",-79.9621,32.7884
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-26,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9261, 32.7872)",-79.9261,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-06-21,Summer,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.855, 32.755)",-79.855,32.75500000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-24,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8408, 32.7563)",-79.8408,32.7563
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-10-29,Fall,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-80.043, 32.8378)",-80.043,32.83780000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-12-01,Winter,2021,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9635, 32.7899)",-79.9635,32.7899
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-03-13,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9337, 32.8021)",-79.9337,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-08-28,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9597, 32.7868)",-79.9597,32.7868
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-11,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9056, 32.8022)",-79.9056,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-27,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9017, 32.7509)",-79.9017,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-01,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9055, 32.8022)",-79.9055,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-09,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-03,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9251, 32.7767)",-79.9251,32.7767
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-04,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.902, 32.7508)",-79.902,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-17,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9338, 32.8021)",-79.9338,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-18,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9043, 32.7509)",-79.9043,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-01,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9059, 32.8021)",-79.9059,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-21,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9905, 32.9109)",-79.9905,32.9109
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-14,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.926, 32.7873)",-79.926,32.7873
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-28,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8569, 32.7567)",-79.8569,32.7567
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-28,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8573, 32.7571)",-79.8573,32.7571
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-27,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9338, 32.8021)",-79.9338,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-05,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9337, 32.8021)",-79.9337,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-02,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9321, 32.8026)",-79.9321,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-10-04,Fall,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8472, 32.7545)",-79.8472,32.7545
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-07-02,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8591, 32.7587)",-79.8591,32.758700000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-21,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9336, 32.8019)",-79.9336,32.8019
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-19,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8028)",-79.93530000000001,32.802800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-29,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.857, 32.757)",-79.857,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2021-11-30,Fall,2021,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9656, 32.8695)",-79.9656,32.8695
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-08-31,Summer,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9493, 32.7787)",-79.9493,32.7787
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-22,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.858, 32.7575)",-79.858,32.75749999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-12,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8977, 32.7518)",-79.8977,32.7518
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-24,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9056, 32.8022)",-79.9056,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-20,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9322, 32.8028)",-79.9322,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-24,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8684, 32.7772)",-79.8684,32.7772
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-10,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.935, 32.8026)",-79.935,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-31,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7763)",-79.9253,32.77629999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-15,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9384, 32.831)",-79.9384,32.831
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-04,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9249, 32.7778)",-79.9249,32.7778
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-27,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8572, 32.7571)",-79.8572,32.7571
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-09-18,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-15,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9715, 32.8921)",-79.9715,32.8921
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-09-18,Fall,2020,4.75,"Charleston, SC",120083,1.43871661402552,"c(-80.1064, 32.7851)",-80.1064,32.78510000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-31,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8631, 32.7736)",-79.8631,32.7736
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-19,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9255, 32.7871)",-79.9255,32.7871
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-06-11,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8546, 32.7549)",-79.8546,32.7549
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-10-23,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9727, 32.7674)",-79.9727,32.767399999999995
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-25,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8702)",-79.966,32.8702
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-14,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9659, 32.8702)",-79.9659,32.8702
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-04-11,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8737, 32.783)",-79.8737,32.783
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-10-11,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8554, 32.7553)",-79.8554,32.7553
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-19,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9661, 32.8705)",-79.9661,32.8705
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-08,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9047, 32.7509)",-79.9047,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-02-10,Winter,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-80.0432, 32.8379)",-80.0432,32.8379
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-08,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-06,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.857, 32.757)",-79.857,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-03-13,Spring,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9598, 32.7869)",-79.9598,32.7869
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-11,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-13,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-18,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9261, 32.7872)",-79.9261,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-09,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9164, 32.7539)",-79.9164,32.7539
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-13,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8411, 32.7564)",-79.8411,32.7564
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-07,Winter,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9659, 32.8703)",-79.9659,32.8703
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-23,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9321, 32.8028)",-79.9321,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-04,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7867)",-79.9281,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-08,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9706, 32.8912)",-79.9706,32.8912
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-07-21,Summer,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.8537, 32.7541)",-79.8537,32.7541
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-21,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9261, 32.7873)",-79.9261,32.7873
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-29,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.971, 32.8912)",-79.971,32.8912
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-22,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8631, 32.7736)",-79.8631,32.7736
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-27,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-02-22,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8701)",-79.966,32.8701
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-12-25,Winter,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9859, 32.8351)",-79.98590000000002,32.8351
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-26,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9254, 32.7762)",-79.9254,32.7762
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-27,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9255, 32.7762)",-79.9255,32.7762
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-11-20,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9334, 32.7695)",-79.9334,32.7695
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-10,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7759)",-79.9252,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-05-28,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9342, 32.8024)",-79.9342,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-17,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9251, 32.7767)",-79.9251,32.7767
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-10,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.935, 32.8028)",-79.935,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-21,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7759)",-79.9252,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-27,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8971, 32.7508)",-79.8971,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-27,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9727, 32.892)",-79.9727,32.892
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-16,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9042, 32.7509)",-79.9042,32.750899999999994
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-26,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9656, 32.8942)",-79.9656,32.894200000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-28,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7767)",-79.9252,32.7767
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-19,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8344, 32.7586)",-79.8344,32.7586
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-05-28,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9263, 32.7872)",-79.9263,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-14,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9346, 32.8025)",-79.93460000000002,32.802499999999995
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-07-31,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9266, 32.8139)",-79.9266,32.8139
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-22,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8995, 32.752)",-79.8995,32.752
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-23,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8027)",-79.93530000000001,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-24,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.935, 32.8027)",-79.935,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2021-11-10,Fall,2021,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-10,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.962, 32.7883)",-79.962,32.7883
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-21,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-08-20,Summer,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9864, 32.835)",-79.9864,32.835
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-30,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.903, 32.7509)",-79.903,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-17,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9323, 32.8027)",-79.9323,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-09-18,Fall,2020,4.75,"Charleston, SC",120083,1.43871661402552,"c(-80.013, 32.7525)",-80.013,32.752500000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-11-08,Fall,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9616, 32.7882)",-79.9616,32.7882
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-31,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9074, 32.8133)",-79.90740000000001,32.8133
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-19,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9715, 32.8921)",-79.9715,32.8921
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-07,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9665, 32.8693)",-79.9665,32.8693
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-06,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7759)",-79.9253,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-11,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9035, 32.7507)",-79.90350000000001,32.75070000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-28,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8606, 32.7602)",-79.8606,32.7602
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-11-19,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9321, 32.8026)",-79.9321,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-31,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9714, 32.891)",-79.9714,32.891000000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-04,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7762)",-79.9253,32.7762
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-11,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9251, 32.7758)",-79.9251,32.7758
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2021-12-15,Winter,2021,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9603, 32.7872)",-79.9603,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-09,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.857, 32.7567)",-79.857,32.7567
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-26,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8704)",-79.966,32.8704
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-11,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8551, 32.755)",-79.8551,32.755
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-04,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-11,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-09,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9727, 32.7675)",-79.9727,32.767500000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-23,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8576, 32.7574)",-79.8576,32.757400000000004
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-26,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9661, 32.8704)",-79.9661,32.8704
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-13,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.935, 32.8026)",-79.935,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-11-23,Fall,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-09-18,Fall,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-80.0083, 32.772)",-80.0083,32.772
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-19,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-07-21,Summer,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8519, 32.7538)",-79.8519,32.7538
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-09,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8507, 32.754)",-79.8507,32.754
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-09-25,Fall,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-27,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.962, 32.7884)",-79.962,32.7884
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-04,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9707, 32.8911)",-79.9707,32.8911
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-10,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-06,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8569, 32.7568)",-79.8569,32.756800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-20,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.946, 32.7758)",-79.946,32.7758
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-02-27,Winter,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9598, 32.787)",-79.9598,32.787
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-04,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9032, 32.7508)",-79.9032,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-26,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9505, 32.9096)",-79.9505,32.9096
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-23,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9047, 32.7509)",-79.9047,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-21,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7759)",-79.9253,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-25,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8028)",-79.93530000000001,32.802800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-24,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7867)",-79.9281,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-27,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7767)",-79.9252,32.7767
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-31,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9348, 32.8026)",-79.9348,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-24,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8874, 32.6862)",-79.8874,32.6862
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2020-07-31,Summer,2020,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9547, 32.8623)",-79.9547,32.8623
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-05-28,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-12-19,Winter,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.959, 32.7861)",-79.959,32.7861
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-21,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9338, 32.802)",-79.9338,32.802
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-07,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9327, 32.8029)",-79.93270000000001,32.8029
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-06,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.905, 32.8011)",-79.905,32.8011
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-16,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8704)",-79.966,32.8704
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-30,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9602, 32.7872)",-79.9602,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-04-08,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.7879)",-79.9613,32.7879
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-04,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9322, 32.8028)",-79.9322,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-11-13,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9014, 32.751)",-79.9014,32.751
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-24,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8507, 32.754)",-79.8507,32.754
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-31,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9029, 32.7507)",-79.9029,32.75070000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-13,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8479, 32.7546)",-79.8479,32.75460000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-14,Winter,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8702)",-79.966,32.8702
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-14,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9344, 32.8024)",-79.9344,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-29,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8541, 32.7544)",-79.8541,32.7544
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-31,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8409, 32.757)",-79.8409,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-14,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8572, 32.7571)",-79.8572,32.7571
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-29,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9323, 32.8027)",-79.9323,32.80270000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-09-04,Fall,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9074, 32.8132)",-79.90740000000001,32.8132
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-13,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7867)",-79.9281,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-10-02,Fall,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-02-25,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-31,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8998, 32.7517)",-79.8998,32.7517
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-08-28,Summer,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8798, 32.7503)",-79.8798,32.750299999999996
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-09,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9349, 32.8026)",-79.9349,32.8026
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-11-27,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9597, 32.7869)",-79.9597,32.7869
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-07-21,Summer,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8571, 32.757)",-79.8571,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-01,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9051, 32.8021)",-79.9051,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-25,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9044, 32.7509)",-79.9044,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-14,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.776)",-79.9252,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-27,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7759)",-79.9252,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-06,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.902, 32.7508)",-79.902,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-09-18,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9619, 32.7884)",-79.96190000000001,32.7884
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-07,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8568, 32.7565)",-79.8568,32.75650000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-10-04,Fall,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.834, 32.7583)",-79.834,32.758300000000006
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-02-21,Winter,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9612, 32.7878)",-79.96120000000002,32.7878
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-27,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-22,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9708, 32.891)",-79.9708,32.891000000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-23,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9254, 32.776)",-79.9254,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-11-21,Fall,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9321, 32.8028)",-79.9321,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-15,Winter,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9338, 32.8021)",-79.9338,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-09-11,Fall,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.8331, 32.7699)",-79.8331,32.7699
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-10-02,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9261, 32.7872)",-79.9261,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-17,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.858, 32.7572)",-79.858,32.7572
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-07-12,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9248, 32.7781)",-79.9248,32.77810000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-12-31,Winter,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9612, 32.7879)",-79.96120000000002,32.7879
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-10-23,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9166, 32.7541)",-79.9166,32.7541
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-06,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7867)",-79.9281,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-27,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9027, 32.751)",-79.9027,32.751
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-01-24,Winter,2020,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9624, 32.7887)",-79.9624,32.7887
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-27,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9709, 32.891)",-79.9709,32.891
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-17,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9166, 32.7541)",-79.9166,32.7541
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-06,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9054, 32.8017)",-79.9054,32.8017
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-07-09,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8571, 32.757)",-79.8571,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-12-10,Winter,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9721, 32.8917)",-79.9721,32.89169999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-11-20,Fall,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9271, 32.7729)",-79.9271,32.7729
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-01,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8572, 32.757)",-79.8572,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-12-01,Winter,2021,3,"Charleston, SC",120083,1.43871661402552,"c(-79.962, 32.7884)",-79.962,32.7884
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-19,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8571, 32.7571)",-79.8571,32.7571
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-26,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9337, 32.8021)",-79.9337,32.8021
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-14,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7867)",-79.9281,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-18,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7759)",-79.9252,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-10-23,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9262, 32.7872)",-79.9262,32.78719999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-19,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9057, 32.8022)",-79.9057,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-08,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9056, 32.802)",-79.9056,32.802
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-10,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.932, 32.8024)",-79.932,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-02,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9354, 32.8029)",-79.9354,32.8029
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-24,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8572, 32.7572)",-79.8572,32.7572
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-06,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9042, 32.7508)",-79.9042,32.75079999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-08-28,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.906, 32.8018)",-79.906,32.8018
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-14,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9046, 32.7509)",-79.9046,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-07-21,Summer,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8553, 32.755)",-79.8553,32.755
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-12-07,Winter,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9709, 32.8912)",-79.9709,32.8912
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-09-11,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-01,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9509, 32.7508)",-79.9509,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-04,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9252, 32.7759)",-79.9252,32.7759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-02,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7761)",-79.9253,32.7761
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-08,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9716, 32.8921)",-79.9716,32.892100000000006
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2021-11-30,Fall,2021,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9711, 32.8914)",-79.9711,32.8914
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-28,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-03-08,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9671, 32.8698)",-79.9671,32.8698
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-11-19,Fall,2019,10,"Charleston, SC",120083,1.43871661402552,"c(-79.9711, 32.8913)",-79.9711,32.8913
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-21,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7762)",-79.9253,32.7762
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-07,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9327, 32.8028)",-79.93270000000001,32.802800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-01-27,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9708, 32.8911)",-79.9708,32.8911
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-13,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9259, 32.7873)",-79.9259,32.7873
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-03,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9709, 32.8911)",-79.9709,32.8911
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-12-01,Winter,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9318, 32.8019)",-79.9318,32.8019
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-06-20,Summer,2021,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.859, 32.759)",-79.859,32.759
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-17,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9055, 32.8022)",-79.9055,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-08,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.925, 32.776)",-79.925,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-05-28,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9339, 32.8022)",-79.9339,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-19,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-21,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-26,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9322, 32.8028)",-79.9322,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-09-25,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9711, 32.8915)",-79.9711,32.89150000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-04-20,Spring,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.934, 32.8023)",-79.93400000000001,32.8023
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-03-14,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9342, 32.8024)",-79.9342,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-20,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9709, 32.8913)",-79.9709,32.8913
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-17,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9261, 32.7872)",-79.9261,32.7872
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-06,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8683, 32.7772)",-79.8683,32.7772
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-01-13,Winter,2022,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7762)",-79.9253,32.7762
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-08-20,Summer,2020,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9856, 32.8347)",-79.9856,32.834700000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-11-04,Fall,2021,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9613, 32.788)",-79.9613,32.788
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-26,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8683, 32.7772)",-79.8683,32.7772
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-03,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-03,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9037, 32.7508)",-79.9037,32.7508
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-12-11,Winter,2019,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9597, 32.7867)",-79.9597,32.7867
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-31,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8998, 32.7517)",-79.8998,32.7517
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-04-07,Spring,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9709, 32.8912)",-79.9709,32.8912
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-31,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-02-01,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8572, 32.7571)",-79.8572,32.7571
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-02,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.966, 32.8703)",-79.966,32.8703
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-10-15,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9661, 32.8705)",-79.9661,32.8705
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-05,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8685, 32.7772)",-79.8685,32.7772
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-20,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8681, 32.7774)",-79.8681,32.77739999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-07-19,Summer,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8217, 32.764)",-79.8217,32.76400000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-08,Fall,2021,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.925, 32.7756)",-79.925,32.7756
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-18,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.857, 32.757)",-79.857,32.757
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-09-10,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.776)",-79.9253,32.77600000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-01-22,Winter,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8768, 32.7931)",-79.8768,32.793099999999995
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-02-01,Winter,2022,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9666, 32.8708)",-79.9666,32.8708
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-27,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9058, 32.8022)",-79.9058,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-11-19,Fall,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9708, 32.8911)",-79.9708,32.8911
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-07-31,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9017, 32.829)",-79.9017,32.82900000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-01-24,Winter,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9264, 32.7871)",-79.9264,32.7871
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-05-28,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9281, 32.7866)",-79.9281,32.7866
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-01-10,Winter,2020,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.9035, 32.7508)",-79.90350000000001,32.75079999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-12,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8572, 32.7568)",-79.8572,32.756800000000005
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-03-13,Spring,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9045, 32.7509)",-79.9045,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-19,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9044, 32.7509)",-79.9044,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-12-31,Winter,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9023, 32.8558)",-79.9023,32.85580000000001
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-10-30,Fall,2019,4.75,"Charleston, SC",120083,1.43871661402552,"c(-79.962, 32.7885)",-79.962,32.7885
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-30,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9354, 32.8028)",-79.9354,32.8028
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-08-04,Summer,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9353, 32.8022)",-79.93530000000001,32.8022
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-02,Fall,2019,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.9045, 32.7509)",-79.9045,32.7509
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-11-23,Fall,2021,3,"Charleston, SC",120083,1.43871661402552,"c(-79.9611, 32.7882)",-79.9611,32.7882
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-05-28,Spring,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9253, 32.7763)",-79.9253,32.77629999999999
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-12-27,Winter,2019,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.9344, 32.8024)",-79.9344,32.8024
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,40-200,High,2020-10-04,Fall,2020,8.25,"Charleston, SC",120083,1.43871661402552,"c(-79.8556, 32.7554)",-79.8556,32.7554
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-08-26,Summer,2020,6.5,"Charleston, SC",120083,1.43871661402552,"c(-79.8914, 32.8244)",-79.8914,32.8244
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-11-08,Fall,2019,3,"Myrtle Beach, SC",27109,0.3010903098402461,"c(-78.8936, 33.6778)",-78.8936,33.6778
+Atlantic Ocean,NA,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2022-03-19,Spring,2022,3,"Myrtle Beach, SC",27109,0.3010903098402461,"c(-78.7716, 33.7698)",-78.7716,33.7698
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-06-30,Summer,2020,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3093, 27.8739)",-97.3093,27.873900000000003
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-08-25,Summer,2021,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3117, 27.8716)",-97.3117,27.8716
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-07,Winter,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3202, 27.7146)",-97.3202,27.7146
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-06-20,Summer,2020,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3579, 27.8521)",-97.3579,27.8521
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-14,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3262, 27.8675)",-97.3262,27.8675
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-03-19,Spring,2021,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3762, 27.7534)",-97.3762,27.7534
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2018-12-15,Winter,2018,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3795, 27.8311)",-97.3795,27.831100000000003
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-04-09,Spring,2021,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3793, 27.8322)",-97.3793,27.832200000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2021-03-06,Spring,2021,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3357, 27.705)",-97.3357,27.70499999999999
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-14,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3938, 27.7833)",-97.3938,27.7833
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-06-30,Summer,2020,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3543, 27.8512)",-97.3543,27.851200000000002
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-03-17,Spring,2021,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.4878, 27.8328)",-97.4878,27.8328
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-11-20,Fall,2021,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.338, 27.7211)",-97.338,27.721100000000003
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-01-29,Winter,2019,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3346, 27.7044)",-97.3346,27.7044
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2019-01-18,Winter,2019,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3432, 27.7238)",-97.3432,27.7238
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-08-17,Summer,2019,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3551, 27.8509)",-97.35510000000001,27.8509
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-14,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3884, 27.8198)",-97.3884,27.819800000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-09-14,Fall,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.32, 27.7147)",-97.32,27.7147
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-22,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3195, 27.7145)",-97.3195,27.7145
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-14,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3915, 27.7763)",-97.3915,27.776300000000003
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-30,Summer,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3544, 27.8511)",-97.3544,27.8511
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-14,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3189, 27.8702)",-97.3189,27.870199999999997
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-03-19,Spring,2021,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3195, 27.7142)",-97.3195,27.7142
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2018-12-16,Winter,2018,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3306, 27.8653)",-97.3306,27.865300000000005
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-22,Summer,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3722, 27.7454)",-97.3722,27.7454
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-02-04,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3761, 27.7532)",-97.3761,27.753200000000003
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-04-28,Spring,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3854, 27.8233)",-97.3854,27.8233
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-04-09,Spring,2021,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3276, 27.8667)",-97.3276,27.866699999999998
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-14,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3551, 27.8509)",-97.35510000000001,27.8509
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-01-14,Winter,2019,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.4133, 27.6677)",-97.4133,27.6677
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2019-08-17,Summer,2019,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3548, 27.8504)",-97.3548,27.8504
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-06-30,Summer,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3542, 27.8513)",-97.3542,27.8513
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2018-11-28,Fall,2018,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3784, 27.8322)",-97.3784,27.832200000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-10-11,Fall,2020,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3914, 27.7764)",-97.39140000000002,27.7764
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-01-14,Winter,2019,8.25,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3761, 27.7541)",-97.3761,27.7541
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-02-16,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3819, 27.7649)",-97.3819,27.7649
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-03-19,Spring,2021,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3915, 27.7764)",-97.3915,27.7764
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-06-30,Summer,2020,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3094, 27.8738)",-97.3094,27.8738
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-07,Winter,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3208, 27.7148)",-97.3208,27.714800000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-07,Winter,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3928, 27.7857)",-97.3928,27.7857
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2022-05-15,Spring,2022,3,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3889, 27.8186)",-97.3889,27.8186
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-02-10,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3902, 27.8165)",-97.3902,27.816499999999998
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-02-25,Winter,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.376, 27.7539)",-97.376,27.7539
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2020-12-05,Winter,2020,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3885, 27.7713)",-97.3885,27.7713
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-06-02,Summer,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3914, 27.7763)",-97.39140000000002,27.776299999999996
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-01-22,Winter,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3726, 27.746)",-97.37260000000002,27.746
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,1-2,Low,2020-07-26,Summer,2020,4.75,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.3089, 27.8741)",-97.3089,27.874100000000002
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-09,Fall,2019,6.5,"Corpus Christi, TX",305215,3.703984677639306,"c(-97.4878, 27.833)",-97.4878,27.833
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-04-22,Spring,2021,8.25,"Houston, TX",2099451,25.658187675425452,"c(-95.2799, 29.727)",-95.2799,29.727000000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2022-05-12,Spring,2022,8.25,"Houston, TX",2099451,25.658187675425452,"c(-95.3655, 29.7645)",-95.3655,29.764499999999995
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2021-11-15,Fall,2021,3,"Houston, TX",2099451,25.658187675425452,"c(-95.3309, 29.7588)",-95.3309,29.758800000000008
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-04,Fall,2019,6.5,"Houston, TX",2099451,25.658187675425452,"c(-95.3065, 29.7483)",-95.3065,29.748300000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-10-04,Fall,2019,10,"Houston, TX",2099451,25.658187675425452,"c(-95.2789, 29.7279)",-95.2789,29.727899999999998
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,>200,Very High,2019-08-24,Summer,2019,10,"Houston, TX",2099451,25.658187675425452,"c(-95.2948, 29.7468)",-95.2948,29.7468
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-05-18,Spring,2022,6.5,"Houston, TX",2099451,25.658187675425452,"c(-95.3655, 29.7645)",-95.3655,29.764499999999995
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2021-11-15,Fall,2021,8.25,"Houston, TX",2099451,25.658187675425452,"c(-95.2787, 29.7279)",-95.2787,29.727899999999998
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-05-11,Spring,2022,6.5,"Houston, TX",2099451,25.658187675425452,"c(-95.3654, 29.7646)",-95.3654,29.7646
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2019-10-04,Fall,2019,6.5,"Houston, TX",2099451,25.658187675425452,"c(-95.2937, 29.7464)",-95.2937,29.7464
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2021-04-22,Spring,2021,6.5,"Houston, TX",2099451,25.658187675425452,"c(-95.28, 29.727)",-95.28,29.727000000000004
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,40-200,High,2019-10-04,Fall,2019,8.25,"Houston, TX",2099451,25.658187675425452,"c(-95.3308, 29.7587)",-95.3308,29.7587
+Atlantic Ocean,Gulf of Mexico,NA,Hand picking,NA,pieces/10 mins,2-40,Medium,2022-05-10,Spring,2022,6.5,"Houston, TX",2099451,25.658187675425452,"c(-95.3645, 29.7639)",-95.3645,29.7639
+Pacific Ocean,The Coastal Waters of Southeast Alaska and British Columbia,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-10-25,Fall,2020,3,"Seattle, WA",608660,7.41692607925159,"c(-122.3858, 47.7632)",-122.3858,47.7632
+Pacific Ocean,The Coastal Waters of Southeast Alaska and British Columbia,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-10-24,Fall,2020,3,"Seattle, WA",608660,7.41692607925159,"c(-122.4032, 47.6889)",-122.4032,47.6889
+Pacific Ocean,The Coastal Waters of Southeast Alaska and British Columbia,NA,Hand picking,NA,pieces/10 mins,0,Very Low,2020-07-15,Summer,2020,3,"Seattle, WA",608660,7.41692607925159,"c(-122.3974, 47.5278)",-122.39740000000002,47.5278
+Pacific Ocean,Coastal Waters of Southeast Alaska and British Columbia,NA,Grab sample,0,pieces/m3,0-0.0005,Very Low,2015-03-01,Spring,2015,3,"Seattle, WA",608660,7.41692607925159,"c(-122.4722, 47.5365)",-122.47220000000002,47.5365

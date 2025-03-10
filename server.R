@@ -69,18 +69,24 @@ server = function(input, output, session) {
           "<strong>City Name: </strong>", city_st, "<br>",
           "<strong>Population: </strong>", format(pop,big.mark = ','), " (",as.character(year),")<br>"
         )
+      ) |>
+      addCircleMarkers( # show microplastic data
+        data = city_microplastics,
+        lng = ~lon, lat = ~lat,
+        radius = ~pop_rescaled/100,
+        color = "black",      # Outline color
+        fillColor = "black", 
+        fillOpacity = 0.7,
+        options = markerOptions(count = 1),
+        group = "plastics",
+        popup = ~paste0(
+          "<strong>Microplastic Count: </strong>", measurement, " (", unit,")<br>",
+          "<strong>Density Class: </strong>",density_class, "<br>",
+          "<strong>Sampling Method: </strong>",sampling_method, "<br>",
+          "<strong>Date Collected: </strong>",date,"<br>",
+          "<strong>Ocean: </strong>", oceans
+        )
       )
-  #     addCircleMarkers( # show plastics
-  #       data = city_19_unique,
-  #       lng = ~lon, lat = ~lat,
-  #       radius = marker_radius,
-  #       color = "black",      # Outline color
-  #       fillColor = "hotpink", 
-  #       fillOpacity = 0.7,
-  #       options = markerOptions(count = 1),
-  #       layerId = ~city_st,
-  #       group = "plastics"
-  #     )
    })
   
   # Create a reactive expression for the calculator
@@ -291,47 +297,6 @@ server = function(input, output, session) {
 ######## Workshopping Areas #########
 
 ## Alon's Workspace ##
-
-# List of city names to filter
-cities_of_interest <- c("Seattle, WA", "Bandon, OR", "Eureka, CA", "San Francisco, CA", 
-                        "Santa Barbara, CA", "Los Angeles, CA", "San Diego, CA", "Corpus Christi, TX", 
-                        "Houston, TX", "New Orleans, LA", "Panama City, FL", "Miami, FL", 
-                        "Jacksonville, FL", "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", 
-                        "Virginia Beach, VA", "New York City, NY", "Boston, MA", "Portland, ME")
-
-# Convert city coordinates to sf object
-cities_sf <- population_unique %>%
-  filter(city_st %in% cities_of_interest) %>%
-  st_as_sf(coords = c("lon", "lat"), crs = 4326)
-
-# Create a 10-mile buffer around each city (10 miles = 16093.4 meters)
-city_buffers <- st_buffer(cities_sf, dist = 16093.4)  # 10 miles in meters
-
-# Convert microplastics data to sf object
-microplastics_sf <- microplastics %>%
-  st_as_sf(coords = c("lon", "lat"), crs = 4326)
-
-# Find microplastic points within the city buffers
-microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers)
-
-# You can view the filtered data
-head(microplastics_in_buffers)
-
-output$us_map <- renderLeaflet({
-  leaflet() %>%
-    addTiles() %>%
-    # Add city buffers as polygons
-    addPolygons(data = city_buffers, color = "blue", fillOpacity = 0.2, weight = 2, 
-                label = ~city_st) %>%
-    # Add microplastic points within the buffers
-    addCircleMarkers(data = microplastics_in_buffers, 
-                     color = ~pal_microplastics(density_class), 
-                     fillOpacity = 0.7, radius = 5, 
-                     popup = ~paste("Density Class: ", density_class, "<br>", 
-                                    "Measurement: ", measurement)) %>%
-    setView(lng = -98.35, lat = 39.50, zoom = 4)
-})
-
 
 
 ## End Alon's Workspace ##
