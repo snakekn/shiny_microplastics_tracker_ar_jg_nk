@@ -22,6 +22,13 @@ create_pop_chart = function(city) {
   return(sparkline_plot)
 }
 
+# 20 selected cities
+cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA", "Santa Barbara, CA", 
+            "Los Angeles, CA", "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
+            "New Orleans, LA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
+            "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", "Virginia Beach, VA", 
+            "New York City, NY", "Boston, MA", "Portland, ME")
+
 ## get population data without any time gaps
 population_no_gaps = population |>
   arrange(year) |>
@@ -35,7 +42,8 @@ gaps = has_gaps(population_no_gaps)
 # filter out the gaps
 population_ts = population_no_gaps |>
   inner_join(gaps, by="city_st") |>
-  filter(.gaps==FALSE) |>
+  filter(.gaps==FALSE,
+         city_st %in% cities) |>
   select(-.gaps)
 
 get_city_trend = function(city) {
@@ -55,5 +63,3 @@ get_city_trend = function(city) {
     geom_line(data=as.data.frame(fitted_pop),color="blue",aes(x=year,y=pop))+
     geom_line(data=as.data.frame(city_ts),color="red",aes(x=year,y=pop))
 }
-
-city_options = distinct(.data=population_ts, city_st)

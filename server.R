@@ -258,14 +258,6 @@ server = function(input, output, session) {
 
 ## Alon's Workspace ##
 
-cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA", "Santa Barbara, CA", 
-            "Los Angeles, CA", "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
-            "New Orleans, LA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
-            "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", "Virginia Beach, VA", 
-            "New York City, NY", "Boston, MA", "Portland, ME")
-
-city_df <- data.frame(City = cities)
-
 ## End Alon's Workspace ##
 
 ## Justin's Workspace ##
