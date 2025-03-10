@@ -1,0 +1,43 @@
+## Goal: Get data for 20 cities ready for analysis
+# Note: "Kailua, HI", has differing population sizes for the same year
+
+# 19 selected cities
+cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA", "Santa Barbara, CA", 
+            "Los Angeles, CA", "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
+            "New Orleans, LA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
+            "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", "Virginia Beach, VA", 
+            "New York City, NY", "Boston, MA", "Portland, ME")
+
+## get population data without any time gaps
+population_no_gaps = population |> # main population dataframe
+  arrange(year) |>
+  distinct(city_st, year, pop) |>
+  filter(city_st %in% cities) |>  
+  as_tsibble(key=city_st, index=year)
+
+## check for gaps - was helpful before, 19 cities were all chosen without gaps
+# get where there are time gaps -- let's skip these areas
+gaps = has_gaps(population_no_gaps)
+
+# filter out the gaps
+population_ts = population_no_gaps |>
+  inner_join(gaps, by="city_st") |>
+  filter(.gaps==FALSE) |> # shouldn't have any
+  select(-.gaps)
+
+# get city geo data
+pop_map_helper = population |>
+  select(city_st, geometry, marker_radius) |>
+  group_by(city_st, geometry) |>
+  summarize(marker = max(marker_radius), .groups="drop")
+
+# merge cities with geolocation data
+population_map = population_ts |>
+  inner_join(pop_map_helper, by="city_st") |>
+  as_tsibble(key=city_st, index=year) |>
+  mutate(geometry = str_remove_all(geometry, "c\\(|\\)"),  # remove 'c(' and ')'
+         lat = as.numeric(str_split_fixed(geometry, ",",2)[,2]),
+         lon = as.numeric(str_split_fixed(geometry, ",",2)[,1]))
+
+
+write_csv(population_map, here::here("data", "city_analysis.csv"))

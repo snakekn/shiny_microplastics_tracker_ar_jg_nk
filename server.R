@@ -49,6 +49,40 @@ server = function(input, output, session) {
       setView(lng = -98.35, lat = 39.50, zoom = 4)  # Centered on the US
   })
   
+  # map for city analysis
+  output$trend_map <- renderLeaflet({ # create the initial map
+    # Create the base map
+    leaflet() |>
+      addTiles() |>  # Default tile layer (OpenStreetMap)
+      setView(lng = -98.35, lat = 39.50, zoom = 4) |> # Centered on the US
+      addCircleMarkers( # show cities
+        data = cities_map,
+        lng = ~lon, lat = ~lat,
+        radius = ~marker,
+        color = "black",      # Outline color
+        fillColor = "hotpink", 
+        fillOpacity = 0.7,
+        options = markerOptions(count = 1),
+        layerId = ~city_st,
+        group = "cities",
+        popup = ~paste0(
+          "<strong>City Name: </strong>", city_st, "<br>",
+          "<strong>Population: </strong>", format(pop,big.mark = ','), " (",as.character(year),")<br>"
+        )
+      )
+  #     addCircleMarkers( # show plastics
+  #       data = city_19_unique,
+  #       lng = ~lon, lat = ~lat,
+  #       radius = marker_radius,
+  #       color = "black",      # Outline color
+  #       fillColor = "hotpink", 
+  #       fillOpacity = 0.7,
+  #       options = markerOptions(count = 1),
+  #       layerId = ~city_st,
+  #       group = "plastics"
+  #     )
+   })
+  
   # Create a reactive expression for the calculator
   output$calculator <- renderUI({
     # Create a form for the user to input data

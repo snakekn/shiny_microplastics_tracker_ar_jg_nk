@@ -42,14 +42,25 @@ microplastics = read_csv(here::here("data","microplastics.csv"))
 ## 3. City Population data - can do a lot of selecting out here...
 # source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
 population = read.csv(here::here("data","population_coastal.csv")) # Post-buffer population data, 1704 cities!
+
+# fix the data to only show one data point per city
 population_unique = population |>
   filter(year==2010)|>
-  distinct(city_st, lat, lon,pop) # for making the map counts show up properly
+  distinct(city_st, lat, lon, pop) # for making the map counts show up properly
 population_unique$pop <- as.numeric(population_unique$pop)
 
 population_unique$pop_rescaled <- (population_unique$pop - min(population_unique$pop)) / 
   (max(population_unique$pop) - min(population_unique$pop)) * 100
 
+## 4. City Population data for our specific 19 cities 
+# source(here::here("helper","cities_analysis.R")) # builds population_coastal.csv
+cities_data = read.csv(here::here("data","city_analysis.csv"))
+cities_map = cities_data |>
+  group_by(city_st) |>
+  mutate(pop = max(pop), year=max(year)) |>
+  distinct(city_st, lat, lon, marker, pop, year) # for making the map counts show up properly
+
+      
 ## 4. Krig Map
 # source(here::here("helper","kriging.R")) # pulls krig info
 # krig_raster = ...
@@ -57,7 +68,7 @@ population_unique$pop_rescaled <- (population_unique$pop - min(population_unique
 ## for building sparkline population trends
 source(here::here("helper","pop_trend.R"))
 
-## for creating microplastic time analysis
+## for creating , lat, lon, marker)croplastic time analysis
 source(here::here("helper","time_analysis.R"))
 print(exists("build_time_series"))
 

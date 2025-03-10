@@ -22,30 +22,6 @@ create_pop_chart = function(city) {
   return(sparkline_plot)
 }
 
-# 20 selected cities
-cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA", "Santa Barbara, CA", 
-            "Los Angeles, CA", "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
-            "New Orleans, LA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
-            "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", "Virginia Beach, VA", 
-            "New York City, NY", "Boston, MA", "Portland, ME")
-
-## get population data without any time gaps
-population_no_gaps = population |>
-  arrange(year) |>
-  distinct(city_st, year, pop) |>
-  filter(city_st != "Kailua, HI") |> # has differing population sizes for the same year 
-  as_tsibble(key=city_st, index=year)
-
-# get where there are time gaps -- let's skip these areas
-gaps = has_gaps(population_no_gaps)
-
-# filter out the gaps
-population_ts = population_no_gaps |>
-  inner_join(gaps, by="city_st") |>
-  filter(.gaps==FALSE,
-         city_st %in% cities) |>
-  select(-.gaps)
-
 get_city_trend = function(city) {
   # convert the population into a ts
   
