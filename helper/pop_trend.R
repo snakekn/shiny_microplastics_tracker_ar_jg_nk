@@ -30,7 +30,7 @@ population_no_gaps = population |>
   as_tsibble(key=city_st, index=year)
 
 # get where there are time gaps -- let's skip these areas
-gaps = has_gaps(population_gaps)
+gaps = has_gaps(population_no_gaps)
 
 # filter out the gaps
 population_ts = population_no_gaps |>
