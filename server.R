@@ -73,7 +73,7 @@ server = function(input, output, session) {
       addCircleMarkers( # show microplastic data
         data = city_microplastics,
         lng = ~lon, lat = ~lat,
-        radius = ~pop_rescaled/100,
+        radius = ~5,
         color = "black",      # Outline color
         fillColor = "black", 
         fillOpacity = 0.7,

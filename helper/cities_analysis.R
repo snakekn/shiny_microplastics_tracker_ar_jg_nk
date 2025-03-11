@@ -54,13 +54,16 @@ city_buffers <- st_buffer(cities_sf, dist = 160934)  # 100 miles in meters
 
 # Convert microplastics data to sf object
 microplastics_sf <- microplastics %>%
+  filter(unit=="pieces/m3") |> # let's only focus on our quantitative measurement data
   st_as_sf(coords = c("lon", "lat"), crs = 4326)
 
 # Find microplastic points within the city buffers
-microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers) |>
-  mutate(lon = st_coordinates(microplastics_in_buffers)[,1],
-         lat = st_coordinates(microplastics_in_buffers)[,2])
+microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers)
+
+microplastics_in_buffers = microplastics_sf |>
+  mutate(lon = st_coordinates(microplastics_sf)[,1],
+         lat = st_coordinates(microplastics_sf)[,2])
 
 write_csv(microplastics_in_buffers, here::here("data", "city_microplastic.csv"))
 
-
+## combine microplastics and population data to get a match of 
