@@ -3,10 +3,11 @@
 
 # 19 selected cities
 cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA",
-            "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
-            "New Orleans, LA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
+            "San Diego, CA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
             "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", "Virginia Beach, VA", 
             "Boston, MA", "Portland, ME")
+
+city_unknown = c("Corpus Christi, TX", "Houston, TX","New Orleans, LA")
 
 ## get population data without any time gaps
 population_no_gaps = population |> # main population dataframe

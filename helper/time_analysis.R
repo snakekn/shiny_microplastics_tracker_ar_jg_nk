@@ -1,7 +1,7 @@
 # Goal: Conduct time series analysis on microplastics data
 # Output: A time series plot for microplastics data
 
-print("time_analysis.R properly called")
+# print("time_analysis.R properly called")
 
 bbox_null = list(
   south = -16.46,
@@ -24,18 +24,25 @@ build_time_series <- function( bbox=list(
     bbox_val = bbox
   }
   
-  print(bbox_val) # confirm our bbox works
-  print(summary(data))
-  print(seasons)
-  print(year_range)
-  print(density_class)
-  
+  # print(bbox_val) # confirm our bbox works
+  # print(summary(data))
+  # print(seasons)
+  # print(year_range)
+  # print(density_class)
+
   ts_data = data %>%
     filter(lat >= bbox_val$south & lat <= bbox_val$north,  
            lon >= bbox_val$west & lon <= bbox_val$east,  
            season %in% seasons,  
            year >= year_range[1] & year <= year_range[2],  
            density_class %in% density_class)
+
+  ts_data = ts_data |>
+    filter(unit=="pieces/m3") |>
+    mutate(yearmonth = yearmonth(date), year=year(date)) |>
+    group_by(density_class, yearmonth, year, season) |>
+    summarise(count = n(), avg = mean(measurement), .groups = "drop") 
+    View(ts_data)
   
   # check that microplastic data is in the area
   if(nrow(ts_data) == 0) {
@@ -44,24 +51,20 @@ build_time_series <- function( bbox=list(
   }
   
   ts_whole = ts_data |>
-    group_by(date, density_class, season) %>%  
-    summarise(count = n(), .groups = "drop") |>  # Count occurrences per date/class  
-    ggplot(aes(x = date, y = count, color = density_class)) +
-    geom_line(size = 1.2) +
+    ggplot(aes(x = yearmonth, y = avg, color = density_class)) +
+    geom_point(size = 1.2) +
     labs(title = "Trends in Microplastic Density Over Time",
          x = "Date",
-         y = "Count of Observations",
+         y = "Mean Plastics Observation per Day (pieces/m^3)",
          color = "Density Class") +
     theme_bw() +
     scale_color_manual(values=density_palette)+
     theme(legend.position = "bottom")
 
   ts_facet = ts_data |>
-    group_by(date, density_class, season) %>%  
-    summarise(count = n(), .groups = "drop") |>  # Count occurrences per date/class  
-    ggplot(aes(x = date, y = count, color = density_class)) +
-    geom_line(size = 1.2) +
-    facet_wrap(~season)+
+    ggplot(aes(x = yearmonth, y = avg, color = density_class)) +
+    geom_point(size = 1.2) +
+    facet_wrap(~season, scales = "free")+
     labs(title = "Trends in Microplastic Density Over Time",
          x = "Date",
          y = "Count of Observations",
@@ -70,13 +73,27 @@ build_time_series <- function( bbox=list(
     scale_color_manual(values=density_palette)+
     theme(legend.position = "none")
 
-  ts_whole_ly = ggplotly(ts_whole) |> layout(showlegend = FALSE)
-  ts_facet_ly = ggplotly(ts_facet)
-  ts_complete = subplot(ts_whole_ly,ts_facet_ly,nrows=2,shareX = FALSE, margin=c(0,0,1,1)) |>
-    layout(
-      showlegend = TRUE,
-      margin = list(t=50,b=100)
-    )
+  ts_complete = ts_whole / ts_facet
   print(ts_complete)
+  
+  ## now, let's try creating and decomposing the model to check for time series activity
+  ts_data_ts = ts_data |>
+    as_tsibble(key = c("season", "density_class"), index = yearmonth) |>
+    fill_gaps() |>
+    tidyr::fill(avg, .direction="down") |>
+    mutate(year = yearmonth(yearmonth))
+  View(ts_data_ts)
+  
+  ts_model = ts_data_ts |>
+    model(ARIMA(avg ~ season(method="A")+trend(method="A")))
+  ts_predict = broom::augment(ts_model)
+  # 
+  # components(ts_model) %>%
+  #   autoplot() +
+  #   theme_minimal()
+
   return(ts_complete)
 }
+
+## for testing!
+build_time_series(data=microplastics, seasons=season_choices, year_range=c(1900,2010),density_class=unique(microplastics$density_class))

@@ -62,7 +62,8 @@ server = function(input, output, session) {
       ) %>%
       addLegend(
         position = "bottomright",
-        pal = pal_microplastics, values = ~density_class,
+        pal = pal_microplastics, 
+        values = ~density_class,
         title = "Microplastic Density", opacity = 1,
         layerId = "microplastic_legend"
       ) %>%
@@ -108,9 +109,8 @@ server = function(input, output, session) {
         data = city_microplastics,
         lng = ~lon, lat = ~lat,
         radius = ~5,
-        color = "black",      # Outline color
-        fillColor = "black", 
-        fillOpacity = 0.7,
+        color = ~pal_microplastics(density_class),
+        fill = ~pal_microplastics(density_class),
         options = markerOptions(count = 1),
         group = "plastics",
         popup = ~paste0(
@@ -289,12 +289,12 @@ server = function(input, output, session) {
   #   leafletProxy("us_map") %>% clearGroup("temporary_marker")
   # })
   
-  ts_plot_data <- reactive({
+  ts_plot_data <- eventReactive(input$time_series_plot, {
     req(map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
     
     build_time_series(
       data = microplastics,
-      bbox = map_bounds,
+      bbox = isolate(map_bounds()),
       season = input$season_filter,
       year_range = input$plastic_year_range,
       density_class = input$density_class_filter
@@ -314,15 +314,17 @@ server = function(input, output, session) {
     
     output$time_series_trend <- renderPlot({
       print("inside plot function")
-      print(ts_plot_data())
+      ts_plot_data()
     })
+    updateTabsetPanel(session, "tabs", selected = "trend_plastics")
   })
   
-  
+
+  # Let users easily go back to the map  
+  observeEvent(input$return_to_map, {
+    updateTabsetPanel(session, "tabs", selected = "all_data")
+  })
 }
-
-
-
 
 
 

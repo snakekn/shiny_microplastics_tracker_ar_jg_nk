@@ -7,14 +7,14 @@ ui = fluidPage(
   tabsetPanel(id = "tabs",
               
               # Overview Tab (First) - this explains the point of the app, and how to use it
-              tabPanel("Overview", 
+              tabPanel("Overview", value = "overview",
                        column(1),
                        column(10,includeMarkdown("text/about.md")),
                        column(1)
               ), # end the overview page
               
               # World Map Tab (2nd)
-              tabPanel("US Map of all Populations & Microplastics", 
+              tabPanel("US Map of all Populations & Microplastics", value = "all_data",
                        fluidRow(
                          column(12,
                                 wellPanel(
@@ -54,7 +54,7 @@ ui = fluidPage(
                                             open=FALSE,
                                             accordion_panel("🧮 Calculator",
                                                             h3("Trend Analysis"),
-                                                            p("Using the current filters above, create a time series plot"),
+                                                            p("Using the current filters above, create a time series plot. <br> (Note: This will send you to the \"Calculated Microplastics Density Trends\" tab)"),
                                                             actionButton("time_series_plot", "Get Time Series Plot")
                                             )
                                   )
@@ -69,11 +69,13 @@ ui = fluidPage(
                        
               ),
               #microplastic density trends
-              tabPanel("Calculated Microplastic Density Trends",
-                       plotOutput("time_series_trend",height="400px")
+              tabPanel("Calculated Microplastic Density Trends", value="trend_plastics",
+                       plotOutput("time_series_trend",height="400px"),
+                       actionButton("return_to_map", "Return to the map")
+                       
               ),
               # LR Map
-              tabPanel("US Map of Analyzed Populations & Microplastics",
+              tabPanel("US Map of Analyzed Populations & Microplastics", value="trend_cities",
                        leafletOutput("trend_map",height="600px")
               )
   ),
