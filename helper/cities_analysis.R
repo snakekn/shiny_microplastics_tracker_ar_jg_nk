@@ -2,11 +2,11 @@
 # Note: "Kailua, HI", has differing population sizes for the same year
 
 # 19 selected cities
-cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA", "Santa Barbara, CA", 
-            "Los Angeles, CA", "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
+cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA",
+            "San Diego, CA", "Corpus Christi, TX", "Houston, TX", 
             "New Orleans, LA", "Panama City, FL", "Miami, FL", "Jacksonville, FL", 
             "Savannah, GA", "Charleston, SC", "Myrtle Beach, SC", "Virginia Beach, VA", 
-            "New York City, NY", "Boston, MA", "Portland, ME")
+            "Boston, MA", "Portland, ME")
 
 ## get population data without any time gaps
 population_no_gaps = population |> # main population dataframe
@@ -60,10 +60,25 @@ microplastics_sf <- microplastics %>%
 # Find microplastic points within the city buffers
 microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers)
 
-microplastics_in_buffers = microplastics_sf |>
-  mutate(lon = st_coordinates(microplastics_sf)[,1],
-         lat = st_coordinates(microplastics_sf)[,2])
+microplastics_in_buffers = microplastics_in_buffers |> # currently skipping over the city buffer to show all data points
+  mutate(lon = st_coordinates(microplastics_in_buffers)[,1],
+         lat = st_coordinates(microplastics_in_buffers)[,2],
+         city_st = str_trim(city_st))
 
 write_csv(microplastics_in_buffers, here::here("data", "city_microplastic.csv"))
 
-## combine microplastics and population data to get a match of 
+# use the get_city_trend function to get pop data for every year
+cities_fit_pop = purrr::map_dfr(cities, get_city_trend)
+
+## combine microplastics and population data to get a match of population and plastics (by year) to LR
+# get city data
+
+cities_lr = microplastics_in_buffers |>
+  select(measurement, date, year, city_st, geometry) |>
+  mutate(year = year(date)) |>
+  left_join(cities_fit_pop, by=c("city_st", "year")) |>
+  drop_na()
+
+gg = ggplot(data=cities_lr, aes(x=pop,y=measurement,color=city_st))+
+  geom_point()
+plotly::ggplotly(gg)

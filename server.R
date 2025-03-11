@@ -42,11 +42,45 @@ server = function(input, output, session) {
       )
   })
   
-  output$us_map <- renderLeaflet({ # create the initial map
-    # Create the base map
-    leaflet() |>
-      addTiles() |>  # Default tile layer (OpenStreetMap)
-      setView(lng = -98.35, lat = 39.50, zoom = 4)  # Centered on the US
+  output$us_map <- renderLeaflet({
+    leaflet(microplastics) %>%
+      addTiles() %>%
+      setView(lng = -98.35, lat = 39.50, zoom = 4) %>%
+      addCircleMarkers(
+        lng = ~lon, lat = ~lat,
+        radius = ~sqrt(density_marker_size),
+        color = ~pal_microplastics(density_class),
+        fillOpacity = 0.7,
+        popup = ~paste(
+          "<strong>Microplastic Count: </strong>", measurement, " (", unit, ")<br>",
+          "<strong>Density Class: </strong>", density_class, "<br>",
+          "<strong>Sampling Method: </strong>", sampling_method, "<br>",
+          "<strong>Date Collected: </strong>", date, "<br>",
+          "<strong>Ocean: </strong>", oceans
+        ),
+        group = "microplastics"
+      ) %>%
+      addLegend(
+        position = "bottomright",
+        pal = pal_microplastics, values = ~density_class,
+        title = "Microplastic Density", opacity = 1,
+        layerId = "microplastic_legend"
+      ) %>%
+      addCircleMarkers(
+        data = population_unique,
+        lng = ~lon, lat = ~lat,
+        radius = ~pop_rescaled,
+        color = "black",
+        fillColor = "hotpink",
+        fillOpacity = 0.7,
+        clusterOptions = markerClusterOptions(
+          spiderfyOnMaxZoom = FALSE,
+          removeOutsideVisibleBounds = FALSE,
+          disableClusteringAtZoom = 10
+        ),
+        layerId = ~city_st,
+        group = "population"
+      )
   })
   
   # map for city analysis
@@ -87,22 +121,24 @@ server = function(input, output, session) {
           "<strong>Ocean: </strong>", oceans
         )
       )
-   })
-  
-  # Create a reactive expression for the calculator
-  output$calculator <- renderUI({
-    # Create a form for the user to input data
-    tagList(
-      textInput("city", "City"),
-      numericInput("year", "Year", value = 2021),
-      selectInput("season", "Season", choices = season_choices),
-      actionButton("calculate", "Calculate")
-    )
   })
+  
+  # Create a reactive expression for the calculator - not used
+  # output$calculator <- renderUI({
+  #   # Create a form for the user to input data
+  #   tagList(
+  #     textInput("city", "City"),
+  #     numericInput("year", "Year", value = 2021),
+  #     selectInput("season", "Season", choices = season_choices),
+  #     actionButton("calculate", "Calculate")
+  #   )
+  # })
   
   observe({ # on an edit, re-print data
     # Add microplastics data
+    print("was observed at the start")
     if (input$show_microplastics) {
+      print("also observed")
       leafletProxy("us_map", data = filtered_microplastics()) %>%
         clearGroup("microplastics") |>
         addCircleMarkers(
@@ -129,7 +165,7 @@ server = function(input, output, session) {
     }
     
     # Function for Marker Size 
- 
+    
     # Add Population data
     if (input$show_population) {
       leafletProxy("us_map", data = population_unique) |>
@@ -155,14 +191,14 @@ server = function(input, output, session) {
   })
   
   observeEvent(input$us_map_marker_click, { # generic name format for marker clicks: "MAPID_marker_click"
-
+    
     click = input$us_map_marker_click # for ease
     print(click)
     if (is.null(click$id)) return()
     
     clicked_city = click$id
     if (clicked_city %in% population_unique$city_st) {
-    
+      
       # Get clicked city
       clicked_city <- input$us_map_marker_click
       print(clicked_city)
@@ -179,7 +215,7 @@ server = function(input, output, session) {
       print(city_data)
       print(min(city_data$year))
       print(max(city_data$year))
-  
+      
       # get datapoints to discuss 
       total = count(city_data)
       range = max(city_data$year) - min(city_data$year) + 1
@@ -187,24 +223,22 @@ server = function(input, output, session) {
       # Generate sparkline dynamically
       output$sparkline <- {
         if (total == 1) {
-          plotly::renderPlotly({
-            plotly::ggplotly(
-              ggplot(city_data, aes(y = pop)) +
-                geom_bar(color = "blue") +
-                theme_bw() +
-                scale_fill_viridis_d()+
-                labs(title = paste("Population Size in", city_data$year), y = "Population")
-            )}
+          renderPlot({
+            ggplot(city_data, aes(y = pop)) +
+              geom_bar(color = "blue") +
+              theme_bw() +
+              scale_fill_viridis_d()+
+              labs(title = paste("Population Size in", city_data$year), y = "Population")
+          }
           )
         } else {
-          plotly::renderPlotly({
-          plotly::ggplotly(
+          renderPlot({
             ggplot(city_data, aes(x = year, y = pop)) +
-            geom_line(color = "blue") +
-            theme_bw() +
-            scale_fill_viridis_d()+
-            labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
-            )}
+              geom_line(color = "blue") +
+              theme_bw() +
+              scale_fill_viridis_d()+
+              labs(title = paste("Population Trend for", city_name), x = "Year", y = "Population")
+          }
           )
         }
       }
@@ -212,7 +246,7 @@ server = function(input, output, session) {
       showModal(modalDialog(
         title=paste("City: ",city_name),
         paste0("Showing population data across ", range, " year(s) [", total, " data point(s)]\n"),
-        plotly::plotlyOutput("sparkline"),
+        plotOutput("sparkline"),
         easyClose=TRUE
       ))
     }
@@ -278,11 +312,9 @@ server = function(input, output, session) {
     
     print("after req")
     
-    output$time_series_trend <- renderPlotly({
+    output$time_series_trend <- renderPlot({
       print("inside plot function")
       print(ts_plot_data())
-      ggplotly(ts_plot_data()) |> 
-        layout(title="Microplastic Density Trends", hovermode = "x")
     })
   })
   

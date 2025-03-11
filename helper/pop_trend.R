@@ -22,20 +22,44 @@ create_pop_chart = function(city) {
   return(sparkline_plot)
 }
 
+## Goal: return population estimates for each year using census data each quarter
 get_city_trend = function(city) {
   # convert the population into a ts
-  
+
   city_ts = population_ts |>
     filter(city_st == city)
   
-  # get trend
-  pop_model<-city_ts %>% 
-    model(ETS(pop~trend(method="A")))
+  # years = tibble(year=min(city_ts$year):max(city_ts$year))
+  # 
+  # years_ts = years |> 
+  #   mutate(city_st = "Boston, MA") |>
+  #   as_tsibble(key=city_st, index=year)
+  # 
+  # city_ts_complete = city_ts |>
+  #   right_join(years, by=c("year")) |>
+  #   arrange(year)
   
-  fitted_pop = fitted(pop_model) |>
-    rename(pop = .fitted) # .fitted includes additive error & trend (no seasonality included here)
+  # # get trend
+  # pop_model<-city_ts %>% 
+  #   model(ETS(pop))
+  # 
+  # fitted_pop = augment(pop_model, new_data = years_ts) |>
+  #   rename(pop_fit = .fitted) # .fitted includes additive error & trend (no seasonality included here)
   
+  
+  # just smooths for all values, no ETS or time shenanigans
+  spline = spline(x=city_ts$year, y=city_ts$pop, xout=min(city_ts$year):max(city_ts$year)) 
+  
+  fit = data.frame(
+    year = spline$x,
+    pop = spline$y,
+    city_st = city
+  )
+  
+  # check if our fit is any good
   ggplot(aes=aes(x=year,y=pop))+
-    geom_line(data=as.data.frame(fitted_pop),color="blue",aes(x=year,y=pop))+
+    geom_line(data=fit,color="blue",aes(x=year,y=pop))+
     geom_line(data=as.data.frame(city_ts),color="red",aes(x=year,y=pop))
+  
+  return(fit)
 }

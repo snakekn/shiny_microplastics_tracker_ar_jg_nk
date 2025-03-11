@@ -64,19 +64,11 @@ cities_map = cities_data |>
 # source(here::here("helper","cities_analysis.R")) # builds population_coastal.csv
 city_microplastics = read.csv(here::here("data", "city_microplastic.csv"))
 
-## 4. Krig Map
-# source(here::here("helper","kriging.R")) # pulls krig info
-# krig_raster = ...
-
-## for building sparkline population trends
+## for building sparkline population trends & getting per-year population estimates
 source(here::here("helper","pop_trend.R"))
 
-## for creating , lat, lon, marker)croplastic time analysis
+## for creating time analysis
 source(here::here("helper","time_analysis.R"))
-print(exists("build_time_series"))
-
-## Outdated :)
-# source(here::here("helper","tourism.R")) # pulls tourism data
 
 ## Load constant data types
 microplastics$density_class <- factor(microplastics$density_class, 

@@ -3,92 +3,79 @@ ui = fluidPage(
   # Title
   titlePanel("Microplastics & Coastal City Populations"),
   
-  # Sidebar with filters
-  sidebarLayout(
-    sidebarPanel(
-      accordion(id="select_data",
-                open=TRUE,
-                accordion_panel("📊 Data Selection",
-                                checkboxInput("show_microplastics","Show Microplastics Data", value=FALSE),
-                                checkboxInput("show_population","Show Population Data", value=FALSE),
-                )),
-      accordion(id="filter_data",
-                open=FALSE,
-                accordion_panel("🔍 Filters",
-                                accordion_panel("Plastic Pollution Filters",
-                                  # Year Slider (1972-2022)
-                                  sliderInput("plastic_year_range", "Year Range:", 
-                                              min = min(microplastics$year, na.rm = TRUE),
-                                              max = max(microplastics$year, na.rm = TRUE),
-                                              value = c(1972, 2022),  # Default to entire population
-                                              step = 1, sep = ""),
-                                  
-                                  # Season Checkbox Filter
-                                  selectInput("season_filter", "Collection Season:", 
-                                              choices = season_choices,
-                                              selected = season_choices,
-                                              multiple = TRUE), # allows for multiple density types
-                                  
-                                  # Density Class Filter
-                                  selectInput("density_class_filter", "Density Class:", 
-                                              choices = unique(microplastics$density_class),
-                                              selected = unique(microplastics$density_class), 
-                                              multiple = TRUE), # allows for multiple density types
-                                ),
-                                accordion_panel("Population Filters",
-                                sliderInput("pop_year_range", "Year Range:", 
-                                            min = min(microplastics$year, na.rm = TRUE),
-                                            max = max(microplastics$year, na.rm = TRUE),
-                                            value = c(1972, 2022),  # Default to entire population
-                                            step = 1, sep = "")
-                                
-                                ))),
-      accordion(id="calculate_data",
-                open=FALSE,
-                accordion_panel("🧮 Calculator",
-                                
-                                ### we don't have this ready :( krig failure
-                                # Estimate plastic debris based on local population
-                                # h3("Plastic Debris Estimator"),
-                                # textInput("user_city", "Enter Coastal City Name:"),
-                                # numericInput("user_population", "City Population:", value = 100000),
-                                # actionButton("calculate_plastic", "Estimate Plastic Debris"),
-                                # br(),
-                                # actionButton("clear_calculations","Clear Density Estimates"),
-                                # hr(),
-                                
-                                # Analyze trend in debris based on current 
-                                h3("Trend Analysis"),
-                                p("Using the current filters above, create a time series plot"),
-                                actionButton("time_series_plot", "Get Time Series Plot")
-                ))
-    ),
-    
-    # Main Panel for displaying maps and plots
-    mainPanel(
-      tabsetPanel(id = "tabs",
-        
-        # Overview Tab (First) - this explains the point of the app, and how to use it
-        tabPanel("Overview", 
-                 column(1),
-                 column(10,includeMarkdown("text/about.md")),
-                 column(1)
-                 ), # end the overview page
-        
-        # World Map Tab (2nd)
-        tabPanel("US Map of all Populations & Microplastics", 
-                 leafletOutput("us_map", height = "600px")
-        ),
-        # Microplastic Density Trends
-        tabPanel("Calculated Microplastic Density Trends", 
-                 plotlyOutput("time_series_trend", height="400px")
-        ),
-        # LR Map
-        tabPanel("US Map of Analyzed Populations & Microplastics", 
-                 leafletOutput("trend_map", height = "600px")
-        )
-      )
-    )
+  # Main Panel for displaying maps and plots
+  tabsetPanel(id = "tabs",
+              
+              # Overview Tab (First) - this explains the point of the app, and how to use it
+              tabPanel("Overview", 
+                       column(1),
+                       column(10,includeMarkdown("text/about.md")),
+                       column(1)
+              ), # end the overview page
+              
+              # World Map Tab (2nd)
+              tabPanel("US Map of all Populations & Microplastics", 
+                       fluidRow(
+                         column(12,
+                                wellPanel(
+                                  accordion(id="select_data",
+                                            open=TRUE,
+                                            accordion_panel("📊 Data Selection",
+                                                            checkboxInput("show_microplastics","Show Microplastics Data", value=TRUE),
+                                                            checkboxInput("show_population","Show Population Data", value=TRUE)
+                                            )
+                                  ),
+                                  accordion(id="filter_data",
+                                            open=FALSE,
+                                            accordion_panel("🔍 Filters",
+                                                            accordion_panel("Plastic Pollution Filters",
+                                                                            sliderInput("plastic_year_range", "Year Range:", 
+                                                                                        min = min(microplastics$year, na.rm = TRUE),
+                                                                                        max = max(microplastics$year, na.rm = TRUE),
+                                                                                        value = c(1972, 2022), step = 1, sep = ""),
+                                                                            selectInput("season_filter", "Collection Season:", 
+                                                                                        choices = season_choices,
+                                                                                        selected = season_choices,
+                                                                                        multiple = TRUE),
+                                                                            selectInput("density_class_filter", "Density Class:", 
+                                                                                        choices = unique(microplastics$density_class),
+                                                                                        selected = unique(microplastics$density_class), 
+                                                                                        multiple = TRUE)
+                                                            ),
+                                                            accordion_panel("Population Filters",
+                                                                            sliderInput("pop_year_range", "Year Range:", 
+                                                                                        min = min(microplastics$year, na.rm = TRUE),
+                                                                                        max = max(microplastics$year, na.rm = TRUE),
+                                                                                        value = c(1972, 2022), step = 1, sep = "")
+                                                            )
+                                            )
+                                  ),
+                                  accordion(id="calculate_data",
+                                            open=FALSE,
+                                            accordion_panel("🧮 Calculator",
+                                                            h3("Trend Analysis"),
+                                                            p("Using the current filters above, create a time series plot"),
+                                                            actionButton("time_series_plot", "Get Time Series Plot")
+                                            )
+                                  )
+                                )
+                         )
+                       ),
+                       fluidRow(
+                         column(12,
+                                leafletOutput("us_map", height = "600px")
+                         )
+                       )
+                       
+              ),
+              #microplastic density trends
+              tabPanel("Calculated Microplastic Density Trends",
+                       plotOutput("time_series_trend",height="400px")
+              ),
+              # LR Map
+              tabPanel("US Map of Analyzed Populations & Microplastics",
+                       leafletOutput("trend_map",height="600px")
+              )
   ),
   theme = bs_theme(
     version = 5,  # Use Bootstrap 5
