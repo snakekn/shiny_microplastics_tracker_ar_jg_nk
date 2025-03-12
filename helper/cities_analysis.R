@@ -1,5 +1,5 @@
 ## Goal: Get data for 20 cities ready for analysis
-# Note: "Kailua, HI", has differing population sizes for the same year
+# Note: "Kailua, HI", has differing population sizes for the same year, so it must be manually removed
 
 # 19 selected cities
 cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA",
@@ -8,6 +8,18 @@ cities <- c("Seattle, WA", "Bandon, OR", "San Francisco, CA",
             "Boston, MA", "Portland, ME")
 
 city_unknown = c("Corpus Christi, TX", "Houston, TX","New Orleans, LA")
+
+cities_known = data.frame(
+  city = cities,
+  known = 1
+)
+cities_unknown = data.frame(
+  city = city_unknown,
+  known = 0
+)
+# get all cities, known and unknown, into one dataframe. This helps us color them differently and call them differently on the map
+## Note that this isn't finished!
+cities_all = rbind(cities_known, cities_unknown)
 
 ## get population data without any time gaps
 population_no_gaps = population |> # main population dataframe
@@ -41,8 +53,9 @@ population_map = population_ts |>
          lat = as.numeric(str_split_fixed(geometry, ",",2)[,2]),
          lon = as.numeric(str_split_fixed(geometry, ",",2)[,1]))
 
-
+## save the current work and make it easy to get again
 write_csv(population_map, here::here("data", "city_analysis.csv"))
+population_map = read_csv(here::here("data","city_analysis.csv"))
 
 ## get microplastics for those 19 cities
 
@@ -68,10 +81,16 @@ microplastics_in_buffers = microplastics_in_buffers |> # currently skipping over
          lat = st_coordinates(microplastics_in_buffers)[,2],
          city_st = str_trim(city_st))
 
-write_csv(microplastics_in_buffers, here::here("data", "city_microplastic2.csv"))
+## save data!
+# write_csv(microplastics_in_buffers, here::here("data", "city_microplastic2.csv"))
+# microplastics_in_buffers = read_csv(here::here("data", "city_microplastic.csv"))
+microplastics_in_buffers = read_csv(here::here("data", "city_microplastic2.csv"))
 
 # use the get_city_trend function to get pop data for every year
 cities_fit_pop = purrr::map_dfr(unique(population_map$city_st), get_city_trend)
+write_csv(cities_fit_pop, here::here("data", "cities_fit_pop.csv"))
+cities_fit_pop = read_csv(here::here("data","cities_fit_pop.csv"))
+
 
 ## combine microplastics and population data to get a match of population and plastics (by year) to LR
 # get city data
@@ -80,10 +99,60 @@ cities_lr = microplastics_in_buffers |>
   select(measurement, date, year, city_st, geometry) |>
   mutate(year = year(date)) |>
   left_join(cities_fit_pop, by=c("city_st", "year")) |>
-  drop_na()
+  drop_na() |>
+  group_by(city_st, year, pop) |>
+  summarize(avg_m = mean(measurement), .groups = "drop")
+
+# get measurement estimate using lr
+cities_lr_log = cities_lr_log |>
+  mutate(measurement_est = predict(lr))
+
+# write_csv(cities_lr_log, here::here("data", "cities_lr_log.csv"))
+
+
+### exploratory work to see distribution and whether we have normal data for the linear regression
 
 gg = ggplot(data=cities_lr, aes(x=pop,y=measurement,color=city_st))+
   geom_point()
 plotly::ggplotly(gg)
 
+cities_lr_log = cities_lr |>
+  select(avg_m, pop, city_st) |>
+  mutate(log_p = log10(pop+1),
+         log_m = log10(avg_m+1)+1)
 
+gg_log_p = ggplot(data=cities_lr_log, aes(x=log_p,y=avg_m))+
+  geom_point()+
+  labs(x="Log(Population)",y="Average Yearly Plastic Measurement (units/m^3)",title="Distribution of Microplastics Based on Population")+
+  theme_bw()
+gg_log_p
+
+gg_log_all = ggplot(data=cities_lr_log, aes(x=log_p,y=log_m))+
+  geom_point()+
+  labs(x="Log(Population)",y="Log[Average Yearly Plastic Measurement (units/m^3)]")+
+  theme_bw()
+gg_all = (gg_log_p / gg_log_all)
+gg_all
+plotly::ggplotly(gg2)
+
+# check assumptions for linear regression on cities_lr_log
+# check for normality
+MASS::boxcox(data=cities_lr_log, log_m ~ log_p, lambda = seq(-2, 2, 0.1))
+
+bptest(lr)
+# bpTest: p=.513
+plot(lr,which=1)
+car::ncvTest(lr)
+# ncvTest: p = .0039
+shapiro.test(residuals(lr))
+# Shapiro: p<2.2e-16
+plot(lr, which=2)
+
+lm1 = lm(data = cities_lr_log, m_inv ~ log_p)
+lm2 = lm(data = cities_lr_log, measurement ~ log_p)
+par(mfrow = c(2,2))
+plot(lm1)
+plot(lm2)
+rlm = MASS::rlm(data = cities_lr_log, log_m ~ log_p)
+summary(rlm)
+plot(rlm)

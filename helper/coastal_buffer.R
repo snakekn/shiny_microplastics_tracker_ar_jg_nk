@@ -66,4 +66,5 @@ population_df <- population_coastal %>%
   mutate(lon = st_coordinates(population_coastal)[, 1],
          lat = st_coordinates(population_coastal)[, 2])
   
+## Save for easy access elsewhere!
 write_csv(population_df, here::here("data","population_coastal.csv"))

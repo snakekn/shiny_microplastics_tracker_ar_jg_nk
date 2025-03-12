@@ -30,11 +30,11 @@ library(scales)
 library(patchwork)
 library(feasts)
 library(fable)
+library(lmtest)
+library(car)
 
 ## Prepare data 
-
 season_choices = c("Spring", "Summer", "Fall", "Winter") # create static seasonal options
-
 
 ## 1. World Map
 world_sf <- ne_countries(scale = "medium", returnclass = "sf")
@@ -67,6 +67,7 @@ population_unique$pop_rescaled <- (population_unique$pop - min(population_unique
 
 ## 4. City Population data for our specific 19 cities 
 # source(here::here("helper","cities_analysis.R")) # builds population_coastal.csv
+source(here::here("helper", "linear_regression.R")) # stores the get_plastic_estimate function
 cities_data = read.csv(here::here("data","city_analysis.csv"))
 cities_map = cities_data |>
   group_by(city_st) |>

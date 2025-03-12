@@ -330,12 +330,14 @@ server = function(input, output, session) {
     city_pop <- input$est_pop
     
     # Estimate microplastics based on city population
-    estimated_microplastics <- city_pop * 0.0001  # Placeholder calculation
-    
+    estimated_microplastics <- get_plastic_estimate(city_pop)
+    print(estimated_microplastics)
     # Show the estimated microplastics in a modal dialog
     showModal(modalDialog(
       title = "Estimated Microplastics Measurement",
-      paste("Estimated microplastics measurement (population of", format(city_pop, big.mark = ","), "): ", format(estimated_microplastics, big.mark = ",")),
+      paste("Estimated microplastics measurement (population of", format(city_pop, big.mark = ","), "): ", format(as.numeric(estimated_microplastics$e), big.mark = ",")," units/m^3."),
+      p(),
+      paste("Density Class:", as.character(estimated_microplastics$d)),
       easyClose = TRUE
     ))
   })
