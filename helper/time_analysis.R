@@ -271,6 +271,33 @@ plastic_ts_seasonal %>%
 
 
 
+############ BY YEAR?? PLEASE ??? ############### 
+
+# Filter data to include only years from 1986 to 2020
+plastic_clean_df_filtered <- plastic_clean_df %>%
+  filter(year >= 1986 & year <= 2020)
+
+# Group by year and calculate the mean measurement for the filtered data
+plastic_yearly <- plastic_clean_df_filtered %>%
+  group_by(year) %>%
+  summarise(mean_measurement = mean(measurement, na.rm = TRUE), .groups = "drop")
+
+# Apply log1p transformation
+plastic_yearly <- plastic_yearly %>%
+  mutate(log_mean_measurement = log(mean_measurement + 1))
+
+# Create a tsibble with year as the index
+plastic_ts_yearly <- plastic_yearly %>%
+  select(year, log_mean_measurement) %>%
+  as_tsibble(index = year)
+
+# Plot the yearly data
+ggplot(data = plastic_ts_yearly, aes(x = year, y = log_mean_measurement)) +
+  geom_line() +
+  labs(x = "Year",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Yearly Microplastic Levels (Log-Transformed) 1986-2020") +
+  theme_minimal()
 
 
 
