@@ -69,9 +69,11 @@ ui = fluidPage(
                        
               ),
               #microplastic density trends
-              tabPanel("Calculated Microplastic Density Trends", value="trend_plastics",
+              tabPanel("Time Series: Microplastic Density by Season", value="trend_plastics",
                        plotOutput("time_series_trend",height="400px"),
-                       actionButton("return_to_map", "Return to the map")
+                       actionButton("return_to_map", "Return to the map"),
+                       includeMarkdown("text/plastic_time.md")) # what we tried, why it didn't work
+                       
                        
               ),
               # LR Map

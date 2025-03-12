@@ -13,7 +13,8 @@ city_unknown = c("Corpus Christi, TX", "Houston, TX","New Orleans, LA")
 population_no_gaps = population |> # main population dataframe
   arrange(year) |>
   distinct(city_st, year, pop) |>
-  filter(city_st %in% cities) |>  
+  filter(city_st != "Kailua, HI") |>
+  # filter(city_st %in% cities) |>  
   as_tsibble(key=city_st, index=year)
 
 ## check for gaps - was helpful before, 19 cities were all chosen without gaps
@@ -47,7 +48,7 @@ write_csv(population_map, here::here("data", "city_analysis.csv"))
 
 # Convert city coordinates to sf object
 cities_sf <- population_unique %>%
-  filter(city_st %in% cities) %>%
+  # filter(city_st %in% cities) %>%
   st_as_sf(coords = c("lon", "lat"), crs = 4326)
 
 # Create a 10-mile buffer around each city (10 miles = 16093.4 meters)
@@ -59,17 +60,18 @@ microplastics_sf <- microplastics %>%
   st_as_sf(coords = c("lon", "lat"), crs = 4326)
 
 # Find microplastic points within the city buffers
-microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers)
+microplastics_in_buffers <- st_intersection(microplastics_sf, city_buffers) |>
+  distinct(measurement,date,geometry)
 
 microplastics_in_buffers = microplastics_in_buffers |> # currently skipping over the city buffer to show all data points
   mutate(lon = st_coordinates(microplastics_in_buffers)[,1],
          lat = st_coordinates(microplastics_in_buffers)[,2],
          city_st = str_trim(city_st))
 
-write_csv(microplastics_in_buffers, here::here("data", "city_microplastic.csv"))
+write_csv(microplastics_in_buffers, here::here("data", "city_microplastic2.csv"))
 
 # use the get_city_trend function to get pop data for every year
-cities_fit_pop = purrr::map_dfr(cities, get_city_trend)
+cities_fit_pop = purrr::map_dfr(unique(population_map$city_st), get_city_trend)
 
 ## combine microplastics and population data to get a match of population and plastics (by year) to LR
 # get city data

@@ -42,7 +42,7 @@ build_time_series <- function( bbox=list(
     mutate(yearmonth = yearmonth(date), year=year(date)) |>
     group_by(density_class, yearmonth, year, season) |>
     summarise(count = n(), avg = mean(measurement), .groups = "drop") 
-    View(ts_data)
+    # View(ts_data)
   
   # check that microplastic data is in the area
   if(nrow(ts_data) == 0) {
@@ -82,7 +82,7 @@ build_time_series <- function( bbox=list(
     fill_gaps() |>
     tidyr::fill(avg, .direction="down") |>
     mutate(year = yearmonth(yearmonth))
-  View(ts_data_ts)
+  # View(ts_data_ts)
   
   ts_model = ts_data_ts |>
     model(ARIMA(avg ~ season(method="A")+trend(method="A")))
