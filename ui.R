@@ -52,10 +52,11 @@ ui = fluidPage(
                                   ),
                                   accordion(id="calculate_data",
                                             open=FALSE,
-                                            accordion_panel("🧮 Calculator",
-                                                            h3("Trend Analysis"),
-                                                            p("Using the current filters above, create a time series plot. <br> (Note: This will send you to the \"Calculated Microplastics Density Trends\" tab)"),
-                                                            actionButton("time_series_plot", "Get Time Series Plot")
+                                            accordion_panel("📆 Get Time Series",
+                                                            h3("View Plastics Distribution over Time"),
+                                                            p("Using the current filters above, and the current view of the map, create a time series plot of microplastics data."),
+                                                            p("(Note: This will send you to the \"Time Series: Microplastics Density by Season\" tab)"),
+                                                            actionButton("time_series_plot", "Get Microplastics Time Series Plot")
                                             )
                                   )
                                 )
@@ -72,14 +73,34 @@ ui = fluidPage(
               tabPanel("Time Series: Microplastic Density by Season", value="trend_plastics",
                        plotOutput("time_series_trend",height="400px"),
                        actionButton("return_to_map", "Return to the map"),
-                       includeMarkdown("text/plastic_time.md")) # what we tried, why it didn't work
-                       
-                       
+                       br(),
+                       includeMarkdown("text/plastic_time.md") # what we tried, why it didn't work
               ),
               # LR Map
-              tabPanel("US Map of Analyzed Populations & Microplastics", value="trend_cities",
-                       leafletOutput("trend_map",height="600px")
-              )
+              tabPanel("Linear Regression: US Map of Analyzed Populations & Microplastics", value="trend_cities",
+                       fluidRow( # result currently shows in a modal
+                         column(12,
+                                wellPanel(
+                                  p("Click on a city to view the linear regression between city population and microplastics measurements"),
+                                  accordion(id="calculate_lr",
+                                            open=FALSE,
+                                            accordion_panel("🧮 Calculate Expected Microplastics for a City Population",
+                                                            p("Input a population size, and we'll attempt to find an expected microplastics measurement."),
+                                                            numericInput("est_pop", "City Population:", value = 1e6, min = 0),
+                                                            actionButton("est_plastic", "Estimate Plastic Measurement Averages Near the City")
+                                            )
+                                  )
+                                )
+                         )
+                       ),
+                       fluidRow(
+                         column(12,
+                                leafletOutput("trend_map",height="600px")
+                         )
+                       )
+                       
+              ),
+              
   ),
   theme = bs_theme(
     version = 5,  # Use Bootstrap 5

@@ -25,7 +25,7 @@ library(tidyterra)
 library(markdown)
 library(lubridate)
 library(tsibble)
-library(plotly)
+# library(plotly)
 library(scales)
 library(patchwork)
 library(feasts)
@@ -33,11 +33,24 @@ library(fable)
 
 ## Prepare data 
 
+season_choices = c("Spring", "Summer", "Fall", "Winter") # create static seasonal options
+
+
 ## 1. World Map
 world_sf <- ne_countries(scale = "medium", returnclass = "sf")
 ## 2. Microplastics Data
 # source(here::here("helper","microplastic_prep.R")) # builds microplastics.csv
 microplastics = read_csv(here::here("data","microplastics.csv"))
+
+## Load constant data types
+microplastics$density_class <- factor(microplastics$density_class, 
+                                      levels = c("Very Low", "Low", "Medium", "High", "Very High"))
+
+density_palette = c("darkgreen", "lightgreen", "orange", "red", "darkred")
+pal_microplastics <- colorFactor(
+  palette = density_palette,  # Define colors for each class
+  domain = microplastics$density_class  # The categorical variable
+)
 
 ## 3. City Population data - can do a lot of selecting out here...
 # source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
@@ -69,17 +82,6 @@ source(here::here("helper","pop_trend.R"))
 
 ## for creating time analysis
 source(here::here("helper","time_analysis.R"))
-
-## Load constant data types
-microplastics$density_class <- factor(microplastics$density_class, 
-                                      levels = c("Very Low", "Low", "Medium", "High", "Very High"))
-
-density_palette = c("darkgreen", "lightgreen", "orange", "red", "darkred")
-pal_microplastics <- colorFactor(
-  palette = density_palette,  # Define colors for each class
-  domain = microplastics$density_class  # The categorical variable
-)
-season_choices = c("Spring", "Summer", "Fall", "Winter") # create static seasonal options
 
 
 ######## Workshopping Areas #########

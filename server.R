@@ -124,21 +124,21 @@ server = function(input, output, session) {
   })
   
   # Create a reactive expression for the calculator - not used
-  # output$calculator <- renderUI({
-  #   # Create a form for the user to input data
-  #   tagList(
-  #     textInput("city", "City"),
-  #     numericInput("year", "Year", value = 2021),
-  #     selectInput("season", "Season", choices = season_choices),
-  #     actionButton("calculate", "Calculate")
-  #   )
-  # })
+  output$calculator <- renderUI({
+    # Create a form for the user to input data
+    tagList(
+      textInput("city", "Your City Name"),
+      # numericInput("year", "Year", value = 2021),
+      # selectInput("season", "Season", choices = season_choices),
+      actionButton("calculate", "Calculate")
+    )
+  })
   
   observe({ # on an edit, re-print data
     # Add microplastics data
     print("was observed at the start")
     if (input$show_microplastics) {
-      print("also observed")
+      # print("also observed")
       leafletProxy("us_map", data = filtered_microplastics()) %>%
         clearGroup("microplastics") |>
         addCircleMarkers(
@@ -193,7 +193,7 @@ server = function(input, output, session) {
   observeEvent(input$us_map_marker_click, { # generic name format for marker clicks: "MAPID_marker_click"
     
     click = input$us_map_marker_click # for ease
-    print(click)
+    # print(click)
     if (is.null(click$id)) return()
     
     clicked_city = click$id
@@ -252,43 +252,41 @@ server = function(input, output, session) {
     }
   })
   
-  ## removed as we recently got rid of this functionality 
   # calculate density based on population
-  # observeEvent(input$calculate_plastic, {
-  #   
-  #   # Get the center of the current map view
-  #   map_center <- isolate(input$us_map_center)
-  #   
-  #   # If the map center is available, use it; otherwise, set a default location
-  #   lat <- if (!is.null(map_center$lat)) map_center$lat else 39.5
-  #   lon <- if (!is.null(map_center$lng)) map_center$lng else -98.35
-  #   
-  #   # Estimate density_class based on population (simple logic example)
-  #   ## this will require a LM based on a krig!
-  #   estimated_density = "Placeholder Value"
-  #   
-  #   # Add the new marker to the map
-  #   leafletProxy("us_map") %>%
-  #     addCircleMarkers(
-  #       lng = lon, lat = lat,
-  #       color = "purple", fillColor = "purple",
-  #       radius = 8,
-  #       fillOpacity = 0.7,
-  #       popup = paste(
-  #         "<strong>Estimated City:</strong>", input$user_city, "<br>",
-  #         "<strong>Population:</strong>", formatC(input$user_population, format = "d", big.mark = ","), "<br>",
-  #         "<strong>Estimated Density Class:</strong>", estimated_density
-  #       ),
-  #       group = "temporary_marker"
-  #     )
-  # })
+  observeEvent(input$calculate_plastic, {
+    # Get the center of the current map view
+    map_center <- isolate(input$us_map_center)
+    
+    # If the map center is available, use it; otherwise, set a default location
+    lat <- if (!is.null(map_center$lat)) map_center$lat else 39.5
+   lon <- if (!is.null(map_center$lng)) map_center$lng else -98.35
   
+   # Estimate density_class based on population (simple logic example)
+   ## this will require a LM based on a krig!
+   estimated_density = "Placeholder Value"
+  
+   # Add the new marker to the map
+   leafletProxy("us_map") %>%
+     addCircleMarkers(
+       lng = lon, lat = lat,
+       color = "purple", fillColor = "purple",
+       radius = 8,
+       fillOpacity = 0.7,
+       popup = paste(
+         "<strong>Estimated City:</strong>", input$user_city, "<br>",
+         "<strong>Population:</strong>", formatC(input$user_population, format = "d", big.mark = ","), "<br>",
+         "<strong>Estimated Density Class:</strong>", estimated_density
+       ),
+       group = "temporary_marker"
+     )
+  })
+
   # clear out all the temporary markers we've created
   # observeEvent(input$clear_calculations, {
-  #   
+  #
   #   leafletProxy("us_map") %>% clearGroup("temporary_marker")
   # })
-  
+
   ts_plot_data <- eventReactive(input$time_series_plot, {
     req(map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
     
@@ -316,6 +314,7 @@ server = function(input, output, session) {
       print("inside plot function")
       ts_plot_data()
     })
+
     updateTabsetPanel(session, "tabs", selected = "trend_plastics")
   })
   
@@ -323,6 +322,22 @@ server = function(input, output, session) {
   # Let users easily go back to the map  
   observeEvent(input$return_to_map, {
     updateTabsetPanel(session, "tabs", selected = "all_data")
+  })
+  
+  # output estimated microplastics measurement based on city pop
+  observeEvent(input$est_plastic, {
+    # Get the city population input
+    city_pop <- input$est_pop
+    
+    # Estimate microplastics based on city population
+    estimated_microplastics <- city_pop * 0.0001  # Placeholder calculation
+    
+    # Show the estimated microplastics in a modal dialog
+    showModal(modalDialog(
+      title = "Estimated Microplastics Measurement",
+      paste("Estimated microplastics measurement (population of", format(city_pop, big.mark = ","), "): ", format(estimated_microplastics, big.mark = ",")),
+      easyClose = TRUE
+    ))
   })
 }
 

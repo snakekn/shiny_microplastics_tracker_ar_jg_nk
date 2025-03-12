@@ -57,9 +57,9 @@ get_city_trend = function(city) {
   )
   
   # check if our fit is any good
-  ggplot(aes=aes(x=year,y=pop))+
-    geom_line(data=fit,color="blue",aes(x=year,y=pop))+
-    geom_line(data=as.data.frame(city_ts),color="red",aes(x=year,y=pop))
+  # ggplot(aes=aes(x=year,y=pop))+
+  #   geom_line(data=fit,color="blue",aes(x=year,y=pop))+
+  #   geom_line(data=as.data.frame(city_ts),color="red",aes(x=year,y=pop))
   
   return(fit)
 }

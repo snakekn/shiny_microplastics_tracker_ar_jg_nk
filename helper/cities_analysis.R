@@ -85,3 +85,5 @@ cities_lr = microplastics_in_buffers |>
 gg = ggplot(data=cities_lr, aes(x=pop,y=measurement,color=city_st))+
   geom_point()
 plotly::ggplotly(gg)
+
+
