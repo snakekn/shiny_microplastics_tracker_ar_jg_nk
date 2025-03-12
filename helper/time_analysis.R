@@ -97,3 +97,34 @@ build_time_series <- function( bbox=list(
 
 ## for testing!
 build_time_series(data=microplastics, seasons=season_choices, year_range=c(1900,2010),density_class=unique(microplastics$density_class))
+
+
+
+
+
+
+# Justin's Work 
+plastic_clean_df <- st_drop_geometry(microplastics_clean)
+
+
+# Convert date column to Date format (if it isn't already)
+plastic_clean_df <- plastic_clean_df %>%
+  mutate(date = as.Date(date))
+
+# Aggregate by year and month
+plastic_monthly <- plastic_clean_df %>%
+  mutate(year = year(date), month = month(date)) %>%
+  group_by(year, month) %>%
+  summarise(mean_measurement = mean(measurement, na.rm = TRUE), .groups = "drop")
+
+# Create a tsibble
+plastic_ts <- plastic_monthly %>%
+  mutate(year_month = yearmonth(paste(year, month, sep = "-"))) %>%
+  select(year_month, mean_measurement) %>%
+  as_tsibble(index = year_month)
+
+# Graph
+ggplot(data = plastic_ts, aes(x = year_month, y = mean_measurement)) +
+  geom_line() +
+  labs(x = "Date",
+       y = "Mean daily air temperature (Celsius)\n at Toolik Station")
