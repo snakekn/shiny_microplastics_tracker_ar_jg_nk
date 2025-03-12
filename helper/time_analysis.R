@@ -103,12 +103,10 @@ build_time_series(data=microplastics, seasons=season_choices, year_range=c(1900,
 
 
 
-# Justin's Work 
-plastic_clean_df <- st_drop_geometry(microplastics_clean)
+#Justin's Work 
 
-
-# Convert date column to Date format (if it isn't already)
-plastic_clean_df <- plastic_clean_df %>%
+# Drop geometry and convert date column to Date format
+plastic_clean_df <- st_drop_geometry(microplastics_clean) %>%
   mutate(date = as.Date(date))
 
 # Aggregate by year and month
@@ -117,14 +115,164 @@ plastic_monthly <- plastic_clean_df %>%
   group_by(year, month) %>%
   summarise(mean_measurement = mean(measurement, na.rm = TRUE), .groups = "drop")
 
+# Apply log1p transformation
+plastic_monthly <- plastic_monthly %>%
+  mutate(log_mean_measurement = log(mean_measurement+1))
+
 # Create a tsibble
 plastic_ts <- plastic_monthly %>%
+  mutate(year_month = yearmonth(paste(year, month, sep = "-"))) %>%
+  select(year_month, log_mean_measurement) %>%
+  as_tsibble(index = year_month)
+
+# Graph
+ggplot(data = plastic_ts, aes(x = year_month, y = log_mean_measurement)) +
+  geom_line() +
+  labs(x = "Date",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Monthly Microplastic Levels (Log-Transformed)") +
+  theme_minimal()
+
+gg_season(plastic_ts %>% fill_gaps(), y = log_mean_measurement, pal = hcl.colors(n = 9)) +
+  theme_minimal() +
+  labs(x = "Month",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Seasonal Trends in Microplastic Levels")
+
+plastic_ts %>%
+  fill_gaps() %>%
+  ACF(log_mean_measurement) %>% 
+  autoplot()
+
+###########SINCE 2000################
+
+plastic_ts_filtered <- plastic_clean_df %>%
+  filter(year >= 2010) %>%
+  mutate(date = as.Date(date)) %>%
+  mutate(year = year(date), month = month(date)) %>%
+  group_by(year, month) %>%
+  summarise(mean_measurement = mean(measurement, na.rm = TRUE), .groups = "drop") %>%
   mutate(year_month = yearmonth(paste(year, month, sep = "-"))) %>%
   select(year_month, mean_measurement) %>%
   as_tsibble(index = year_month)
 
-# Graph
-ggplot(data = plastic_ts, aes(x = year_month, y = mean_measurement)) +
+# Apply log transformation
+plastic_ts_filtered <- plastic_ts_filtered %>%
+  mutate(log_mean_measurement = log(mean_measurement + 1))
+
+# Graph the time series
+ggplot(data = plastic_ts_filtered, aes(x = year_month, y = log_mean_measurement)) +
   geom_line() +
-  labs(x = "Date",
-       y = "Mean daily air temperature (Celsius)\n at Toolik Station")
+  labs(x = "Date", y = "Log of Mean Microplastic Measurement (log-transformed)")
+
+#Seasonal Plot 
+gg_season(plastic_ts_filtered %>% fill_gaps(), y = log_mean_measurement, pal = hcl.colors(n = 9)) +
+  theme_minimal() +
+  labs(x = "Month",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Seasonal Trends in Microplastic Levels")
+
+
+# Check for autocorrelation and plot it
+plastic_ts_filtered %>%
+  fill_gaps() %>%
+  ACF(log_mean_measurement) %>%
+  autoplot()
+
+########## ATTEMPTING BY SEASON INSTEAD OF BY MONTH ######################
+
+
+# Aggregate by year and season using the existing 'year' and 'season' columns
+plastic_seasonal <- plastic_clean_df %>%
+  group_by(year, season) %>%
+  summarise(mean_measurement = mean(measurement, na.rm = TRUE), .groups = "drop")
+
+# Apply log1p transformation
+plastic_seasonal <- plastic_seasonal %>%
+  mutate(log_mean_measurement = log(mean_measurement + 1))
+
+# Map season to quarters (you can adjust the mapping to suit your data)
+season_to_quarter <- c("Winter" = "Q4", "Spring" = "Q1", "Summer" = "Q2", "Fall" = "Q3")
+
+# Create a `year_season` column by mapping season to quarter
+plastic_ts_seasonal <- plastic_seasonal %>%
+  mutate(
+    season_quarter = paste(year, season_to_quarter[season], sep = "-")  # Combine year and quarter
+  ) %>%
+  # Convert the 'season_quarter' column to 'yearquarter'
+  mutate(season_quarter = yearquarter(season_quarter)) %>%
+  select(season_quarter, log_mean_measurement) %>%
+  as_tsibble(index = season_quarter)
+
+# Plot seasonal trends using ggplot
+ggplot(data = plastic_ts_seasonal, aes(x = season_quarter, y = log_mean_measurement)) +
+  geom_line() +
+  labs(x = "Season",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Seasonal Microplastic Levels (Log-Transformed)") +
+  theme_minimal()
+
+#Seasonal Decomp Plot 
+gg_season(plastic_ts_seasonal %>% fill_gaps(), y = log_mean_measurement, pal = hcl.colors(n = 9)) +
+  theme_minimal() +
+  labs(x = "Season",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Seasonal Trends in Microplastic Levels")
+
+
+
+
+################# SINCE 2000 FOR SEASONS #####################
+
+# Filter the data for years 2000 and onwards
+plastic_seasonal <- plastic_clean_df %>%
+  filter(year >= 2000) %>%  # Filter by year >= 2000
+  group_by(year, season) %>%
+  summarise(mean_measurement = mean(measurement, na.rm = TRUE), .groups = "drop")
+
+# Apply log1p transformation
+plastic_seasonal <- plastic_seasonal %>%
+  mutate(log_mean_measurement = log(mean_measurement + 1))
+
+# Map season to quarters (you can adjust the mapping to suit your data)
+season_to_quarter <- c("Winter" = "Q4", "Spring" = "Q1", "Summer" = "Q2", "Fall" = "Q3")
+
+# Create a `year_season` column by mapping season to quarter
+plastic_ts_seasonal <- plastic_seasonal %>%
+  mutate(
+    season_quarter = paste(year, season_to_quarter[season], sep = "-")  # Combine year and quarter
+  ) %>%
+  # Convert the 'season_quarter' column to 'yearquarter'
+  mutate(season_quarter = yearquarter(season_quarter)) %>%
+  select(season_quarter, log_mean_measurement) %>%
+  as_tsibble(index = season_quarter)
+
+# Plot seasonal trends using ggplot
+ggplot(data = plastic_ts_seasonal, aes(x = season_quarter, y = log_mean_measurement)) +
+  geom_line() +
+  labs(x = "Season",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Seasonal Microplastic Levels (Log-Transformed)") +
+  theme_minimal()
+
+# Seasonal decomposition plot using gg_season
+gg_season(plastic_ts_seasonal %>% fill_gaps(), y = log_mean_measurement, pal = hcl.colors(n = 9)) +
+  theme_minimal() +
+  labs(x = "Season",
+       y = "Log(1 + Mean Microplastic Measurement)",
+       title = "Seasonal Trends in Microplastic Levels")
+
+# Autocorrelation plot using ACF
+plastic_ts_seasonal %>%
+  fill_gaps() %>%
+  ACF(log_mean_measurement) %>% 
+  autoplot() 
+
+
+
+
+
+
+
+
+          
