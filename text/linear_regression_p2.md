@@ -1,0 +1,5 @@
+The plots above show how the microplastics data is distributed by population. The plot above (average yearly plastic measurements) performed better under a linear regression. 
+
+Utilizing various data manipulations, the most significant model utilized was when we predicted the log10 of the average yearly measurement (using a +1 shift) using the log10 of the population that year (log(avg_measurement) ~ log(population), p-value = 1.1e-07**). While the p-value seems significant here, the total variance described is still significantly low (R^2 = 0.0066). This means that using population as a measure of plastics is a poor indicator of total variance, and other data should be introduced to help predict microplastics pollution in marine areas near urban spaces.
+
+In the future, the team plans to include additional data sources in the map and the linear model to better predict the microplastic density in the area. Data sources could include local industry, ocean currents, local recycling rates, or nearby tourism data.

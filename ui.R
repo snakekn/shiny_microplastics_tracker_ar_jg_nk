@@ -81,11 +81,12 @@ ui = fluidPage(
                        fluidRow( # result currently shows in a modal
                          column(12,
                                 wellPanel(
-                                  p("Click on a city to view the linear regression between city population and microplastics measurements"),
+                                  p("The map shows the cities and the localized microplastic data utilized to create a linear model. You can click on city (pink) or plastic sample to learn more about each data point."),
                                   accordion(id="calculate_lr",
                                             open=FALSE,
                                             accordion_panel("🧮 Calculate Expected Microplastics for a City Population",
                                                             p("Input a population size, and we'll attempt to find an expected microplastics measurement."),
+                                                            p("NOTE: The linear model is a poor indicator of total variance in the microplastics data. Due to how poorly population predicts microplastic density, the model always outputs a medium density of microplastics. The team needs to collect more data to improve this model. Please read the disclosure below the map to learn more."),
                                                             numericInput("est_pop", "City Population:", value = 1e6, min = 0),
                                                             actionButton("est_plastic", "Estimate Plastic Measurement Averages Near the City")
                                             )
@@ -95,7 +96,17 @@ ui = fluidPage(
                        ),
                        fluidRow(
                          column(12,
-                                leafletOutput("trend_map",height="600px")
+                                leafletOutput("trend_map",height="600px"),
+                                br(),
+                                accordion(id="linear_disclosure", open=FALSE,
+                                          accordion_panel("Disclosure on the Linear Regression Process",
+                                                          includeMarkdown("text/linear_regression_p1.md"), # what we tried, why it didn't work
+                                                          tags$img(src="linear_manipulation.jpg", width="100%"), # show the plot image
+                                                          includeMarkdown("text/linear_regression_p2.md") # what we tried, why it didn't work
+                                                          
+                                          )
+                                )
+                                
                          )
                        )
                        

@@ -8,9 +8,10 @@ library(sp)
 # pull in prepped microplastics data
 microplastics = read_csv(here::here("data","microplastics.csv"))
 
-microplastics_clean <- microplastics_data_sf |> 
+microplastics_clean <- microplastics_data_sf |>
   filter(unit == "pieces/m3") |> 
   st_transform(crs = 4326)
+  
 
 # 5. Define the bounding box and grid size for each region
 regions <- list(
