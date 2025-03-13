@@ -15,12 +15,12 @@ microplastics_clean <- microplastics_data_sf |>
 
 # 5. Define the bounding box and grid size for each region
 regions <- list(
-  Tampa = list(lon = c(-83, -81), lat = c(27, 29), grid_size = 1000), # 1km grid
-  BayArea = list(lon = c(-124, -121), lat = c(36, 39), grid_size = 2000), # 2km grid
-  NewEngland = list(lon = c(-72, -66), lat = c(41, 45), grid_size = 3000), # 3km grid
-  Miami = list(lon = c(-81.5, -79.5), lat = c(25, 27), grid_size = 1000), # 1km grid
-  PugetSound = list(lon = c(-123.5, -122), lat = c(47.0, 48.5), grid_size = 1000), # 1km grid
-  AtlanticOcean = list(lon = c(-77, -64), lat = c(24, 40), grid_size = 10000) # 10km grid
+  Tampa = list(lon = c(-83, -81), lat = c(27, 29), grid_size = 50), # 1km grid
+  BayArea = list(lon = c(-124, -121), lat = c(36, 39), grid_size = 50), # 2km grid
+  NewEngland = list(lon = c(-72, -66), lat = c(41, 45), grid_size = 50), # 3km grid
+  Miami = list(lon = c(-81.5, -79.5), lat = c(25, 27), grid_size = 50), # 1km grid
+  PugetSound = list(lon = c(-123.5, -122), lat = c(47.0, 48.5), grid_size = 50), # 1km grid
+  AtlanticOcean = list(lon = c(-77, -64), lat = c(24, 40), grid_size = 50) # 10km grid
 )
 
 plot_variogram_for_region <- function(region_name, region_data, microplastics_clean) {
