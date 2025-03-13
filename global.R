@@ -52,6 +52,7 @@ pal_microplastics <- colorFactor(
   domain = microplastics$density_class  # The categorical variable
 )
 
+
 ## 3. City Population data - can do a lot of selecting out here...
 # source(here::here("helper","coastal_buffer.R")) # builds population_coastal.csv
 population = read.csv(here::here("data","population_coastal.csv")) # Post-buffer population data, 1704 cities!
@@ -75,9 +76,16 @@ cities_map = cities_data |>
   distinct(city_st, lat, lon, marker, pop, year) # for making the map counts show up properly
 
 
-cities_all_filter = read_csv(here::here("data","cities_all.csv"))
+cities_all_filter = read_csv(here::here("data","cities_all.csv")) |>
+  rename(city_st = city)
 cities_lr = cities_map |>
-  filter(city_st %in% cities_all_filter$city)
+  filter(city_st %in% cities_all_filter$city_st) |>
+  left_join(cities_all_filter, by="city_st")
+
+pal_city <- colorFactor(
+  palette = c("pink","purple"),  # Define colors for each class
+  domain = cities_lr$known  # The categorical variable
+)
 
 ## 5. Microplastics data specifically near our 19 cities
 # source(here::here("helper","cities_analysis.R")) # builds population_coastal.csv

@@ -95,7 +95,7 @@ server = function(input, output, session) {
         lng = ~lon, lat = ~lat,
         radius = ~marker,
         color = "black",      # Outline color
-        fillColor = "hotpink", 
+        fillColor = ~pal_city(known),
         fillOpacity = 0.7,
         options = markerOptions(count = 1),
         layerId = ~city_st,

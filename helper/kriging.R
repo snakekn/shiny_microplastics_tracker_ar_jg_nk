@@ -7,11 +7,11 @@ library(sp)
 
 # pull in prepped microplastics data
 microplastics = read_csv(here::here("data","microplastics.csv"))
-
+microplastics_data_sf = read_csv(here::here("data","microplastics_data_sf.csv"))
 microplastics_clean <- microplastics_data_sf |>
   filter(unit == "pieces/m3") |> 
   st_transform(crs = 4326)
-  
+write_csv(microplastics_clean, here::here("data","microplastics_clean.csv"))
 
 # 5. Define the bounding box and grid size for each region
 regions <- list(
@@ -141,6 +141,8 @@ microplastics_data_sf <- st_as_sf(microplastics, coords = c("lon", "lat"), crs =
     density_class == "Medium" ~ 3,
     density_class == "High" ~ 4,
     density_class == "Very High" ~ 5))
+write_csv(microplastics_data_sf, here::here("data","microplastics_data_sf.csv"))
+
 
 #Split Pacific and Atlantic 
 us_pacific_data <- microplastics_data_sf %>% filter(oceans == "Pacific Ocean")|>

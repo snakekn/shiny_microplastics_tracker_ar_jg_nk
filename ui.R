@@ -82,6 +82,7 @@ ui = fluidPage(
                          column(12,
                                 wellPanel(
                                   p("The map shows the cities and the localized microplastic data utilized to create a linear model. You can click on city (pink) or plastic sample to learn more about each data point."),
+                                  p("Pink dots are cities with fewer than 3 yearly measurements and have an estimated microplastics measurement. Purple dots are cities with 3+ yearly plastic measurements."),
                                   accordion(id="calculate_lr",
                                             open=FALSE,
                                             accordion_panel("🧮 Calculate Expected Microplastics for a City Population",

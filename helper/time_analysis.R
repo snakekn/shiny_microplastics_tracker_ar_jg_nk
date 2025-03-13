@@ -105,6 +105,8 @@ build_time_series(data=microplastics, seasons=season_choices, year_range=c(1900,
 
 #Justin's Work 
 
+microplastics_clean = read_csv(here::here("data","microplastics_clean.csv"))
+
 # Drop geometry and convert date column to Date format
 plastic_clean_df <- st_drop_geometry(microplastics_clean) %>%
   mutate(date = as.Date(date))
