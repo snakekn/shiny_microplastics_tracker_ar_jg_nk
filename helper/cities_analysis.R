@@ -20,6 +20,8 @@ cities_unknown = data.frame(
 # get all cities, known and unknown, into one dataframe. This helps us color them differently and call them differently on the map
 ## Note that this isn't finished!
 cities_all = rbind(cities_known, cities_unknown)
+write_csv(cities_all, here::here("data", "cities_all.csv"))
+
 
 ## get population data without any time gaps
 population_no_gaps = population |> # main population dataframe
@@ -103,6 +105,33 @@ cities_lr = microplastics_in_buffers |>
   group_by(city_st, year, pop) |>
   summarize(avg_m = mean(measurement), .groups = "drop")
 
+write_csv(cities_lr, here::here("data", "cities_lr.csv"))
+cities_lr = read_csv(here::here("data","cities_lr.csv"))
+
+count_cities_lr = cities_lr |>
+  filter(city_st %in% cities_all$city) |>
+  group_by(city_st) |>
+  summarize(count=n())
+
+cities_lr_log = cities_lr |>
+  select(avg_m, pop, city_st) |>
+  mutate(log_p = log10(pop+1),
+         log_m = log10(avg_m+1)+1)
+
+# get LR for each location
+city_models = cities_lr_log |>
+  filter(city_st %in% cities_all$city) |>
+  group_by(city_st) |>
+  nest() |>
+  mutate(model = map(data, ~lm(log_m ~ log_p, data=.x)),
+         tidied=map(model,tidy),
+         glanced=map(model,glance),
+         augmented=map(model,augment)
+         )
+
+saveRDS(city_models, here::here("data", "city_models.rds"))
+city_models <- readRDS(here::here("data", "city_models.rds"))
+
 # get measurement estimate using lr
 cities_lr_log = cities_lr_log |>
   mutate(measurement_est = predict(lr))
@@ -115,11 +144,6 @@ cities_lr_log = cities_lr_log |>
 gg = ggplot(data=cities_lr, aes(x=pop,y=measurement,color=city_st))+
   geom_point()
 plotly::ggplotly(gg)
-
-cities_lr_log = cities_lr |>
-  select(avg_m, pop, city_st) |>
-  mutate(log_p = log10(pop+1),
-         log_m = log10(avg_m+1)+1)
 
 gg_log_p = ggplot(data=cities_lr_log, aes(x=log_p,y=avg_m))+
   geom_point()+

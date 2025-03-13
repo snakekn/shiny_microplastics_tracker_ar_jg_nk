@@ -91,7 +91,7 @@ server = function(input, output, session) {
       addTiles() |>  # Default tile layer (OpenStreetMap)
       setView(lng = -98.35, lat = 39.50, zoom = 4) |> # Centered on the US
       addCircleMarkers( # show cities
-        data = cities_map,
+        data = cities_lr,
         lng = ~lon, lat = ~lat,
         radius = ~marker,
         color = "black",      # Outline color
@@ -99,7 +99,7 @@ server = function(input, output, session) {
         fillOpacity = 0.7,
         options = markerOptions(count = 1),
         layerId = ~city_st,
-        group = "cities",
+        group = "cities_lr",
         popup = ~paste0(
           "<strong>City Name: </strong>", city_st, "<br>",
           "<strong>Population: </strong>", format(pop,big.mark = ','), " (",as.character(year),")<br>"
@@ -245,12 +245,85 @@ server = function(input, output, session) {
       
       showModal(modalDialog(
         title=paste("City: ",city_name),
-        paste0("Showing population data across ", range, " year(s) [", total, " data point(s)]\n"),
+        paste0("Showing population data across ", range, " year(s) [", total, " data point(s)]"),
         plotOutput("sparkline"),
         easyClose=TRUE
       ))
     }
   })
+  # observe({
+  #   print(input$trend_map_marker_click)
+  # })
+  
+  # show LR for each city
+  observeEvent(input$trend_map_marker_click, ignoreNULL = TRUE, { # generic name format for marker clicks: "MAPID_marker_click"
+    click = input$trend_map_marker_click # for ease
+    print(click)
+    if (is.null(click$id)) return()
+    
+    clicked_city = click$id
+    if (clicked_city %in% population_unique$city_st) {
+      
+      # Get clicked city
+      clicked_city <- input$trend_map_marker_click
+      print(clicked_city)
+      
+      # Ensure a valid city is clicked
+      if (is.null(clicked_city)) return()
+      
+      # Extract city name
+      city_name <- clicked_city$id  # Ensure your markers have IDs matching city names
+      
+      city_lr_df = get_city_lr(city_name)
+      print(city_lr_df)
+      if (is.null(city_lr_df)) {
+        mp_count = 0
+      } else {
+        mp_count = nrow(city_lr_df)
+      }
+      
+      # helpful text if we don't have a plot
+      output$city_lr_note <- renderText({
+        if (mp_count < 3) {
+          city_pop_data = cities_lr |>
+            filter(city_st == city_name)
+          mp_est = get_plastic_estimate(city_pop_data$pop)
+          
+          paste0("Not enough data to run a linear regression for this city. Providing you an estimate instead. For a city with a most recent population of ", 
+                 format(city_pop_data$pop, big.mark = ','), " (", city_pop_data$year, "), 
+                 we expect the city to have a microplastics count of ", round(mp_est$e,5), 
+                 " (pieces/m^3). This meets density class ", mp_est$d, ".")
+        } else {
+          ""
+        }
+      })
+      output$city_lr = {
+        renderPlot({
+          if (mp_count < 3) { return(NULL) } else { 
+            ggplot(city_lr_df, aes(x = log_p, y = log_m)) +
+              geom_point(color = "steelblue", alpha = 0.6) +   # scatter plot
+              geom_smooth(method = "lm", se = FALSE, color = "darkred") +  # regression line with CI
+              labs(
+                title = paste0("Linear Regression of Sampled Microplastics within 100 miles of ", city_name),
+                x = "log10(Population)",
+                y = "log10(Average Yearly Microplastic Count)"
+              ) +
+              theme_minimal()
+          }
+        })
+      } 
+      
+      showModal(modalDialog(
+        title=paste("City: ",city_name),
+        p(paste0("(Years of Microplastic Data: ", mp_count, ")")),
+        textOutput("city_lr_note"),
+        plotOutput("city_lr"),
+        easyClose=TRUE
+      ))
+    }
+  })
+  
+
   
   # calculate density based on population
   observeEvent(input$calculate_plastic, {

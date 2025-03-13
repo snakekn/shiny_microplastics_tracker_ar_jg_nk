@@ -6,6 +6,17 @@ cities_lr_log = read_csv(here::here("data","cities_lr_log.csv"))
 # make LR
 lr = lm(data=cities_lr_log, log_m ~ log_p) # R^2 = .0066, p-val = 1.1e-7
 
+# plot to include in the disclaimer
+ggplot(cities_lr_log, aes(x = log_p, y = log_m)) +
+  geom_point(color = "steelblue", alpha = 0.6) +   # scatter plot
+  geom_smooth(method = "lm", se = FALSE, color = "darkred") +  # regression line with CI
+  labs(
+    title = "Linear Regression of Sampled Microplastics using Population",
+    x = "log10(Population)",
+    y = "log(Microplastic Count)"
+  ) +
+  theme_minimal()
+
 # get density_classes
 microplastic_densities = read_csv(here::here("data","microplastics.csv")) |>
   filter(unit == "pieces/m3")
@@ -32,4 +43,31 @@ get_plastic_estimate = function(new_pop) {
     filter(min_range <= estimate & max_range >= estimate)
   r = data.frame(d = density$density_class, e = estimate)
   return(r)
+}
+
+## Get LR per city to show off in the app
+city_models <- readRDS(here::here("data", "city_models.rds"))
+city = "Boston, MA"
+get_city_lr = function(city) {
+  # get the entire model
+  city_model = city_models |>
+    filter(city_st == city)
+  
+  if(nrow(city_model)<1) { return(NULL) }
+  # View(city_model)
+  
+  # get the underlying data
+  data = city_model |>
+    unnest(data) |>
+    select(1:5)
+  # get the LR tidied values
+  lm = city_model |>
+    unnest(tidied) |>
+    select(1,4:8)
+  # get the analysis values
+  outcome = city_model |>
+    unnest(glanced) |>
+    select(1,4:17)
+  
+  return(data)
 }

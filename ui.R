@@ -96,17 +96,17 @@ ui = fluidPage(
                        ),
                        fluidRow(
                          column(12,
-                                leafletOutput("trend_map",height="600px"),
-                                br(),
                                 accordion(id="linear_disclosure", open=FALSE,
                                           accordion_panel("Disclosure on the Linear Regression Process",
                                                           includeMarkdown("text/linear_regression_p1.md"), # what we tried, why it didn't work
                                                           tags$img(src="linear_manipulation.jpg", width="100%"), # show the plot image
-                                                          includeMarkdown("text/linear_regression_p2.md") # what we tried, why it didn't work
+                                                          includeMarkdown("text/linear_regression_p2.md"), # what we tried, why it didn't work
+                                                          tags$img(src="lin_reg.jpg",width="100%") # show the linear regression and how poor it is
                                                           
                                           )
-                                )
-                                
+                                ),
+                                br(),
+                                leafletOutput("trend_map",height="600px"),
                          )
                        )
                        
