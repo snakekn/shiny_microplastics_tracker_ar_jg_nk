@@ -1,18 +1,33 @@
 ## Overview of the Shiny App
 
-The goal of this project is to begin understanding the relationship of the population of coastal cities in the United States and the plastic pollution in the oceans in the same vicinity. 
+The goal of this project is to begin understanding the relationship between the population of coastal cities in the United States and the plastic pollution in the oceans in the same vicinity. This app is designed to provide an interactive way to explore and analyze this relationship, as well as understand the data limiations, using data from NOAA and the US Census Bureau.
+ 
 
 ### App features
-- US Map of all Populations & Microplastics -- An interactive map of the United States showing platic pollution data in the ocean and coastal city population data
-- Time Series: Microplastic Density by Season -- A time series analysis of microplastic density by season .... (STILL NEED TO UPDATE)
-- Linear Regression: US Map of Analyzed Populations & Microplatics -- A linear regression analysis of the relationship between coastal city populations and microplastic pollution in the ocean ... (STILL NEED TO UPDATE)
+
+US Map of all Populations & Microplastics
+
+ - An interactive map of the United States showing plastic pollution data in the ocean and coastal city population data
+
+Time Series: Microplastic Density by Season
+
+  -  A time series analysis of microplastics over time by season
+
+Linear Regression: US Map of Analyzed Populations & Microplatics
+
+  - A linear regression analysis of the relationship between coastal city populations and localized microplastic pollution in the ocean
+
+Kriging Analysis & Challenges
+
+  - Kriging attempt to determine microplastic measurements in areas where there is insufficient data, and why it didn't work with this data. 
 
 ### How to Use the App
 
-1. Show microplastic samples and/or coastal city populations in the US map.
-2. Filter for microplastics data by density or sample year/season.
-3. View city population data and how they've changed with time.
-4. View plastics pollution trends over time for the map area shown.
+1. Select a tab to view the corresponding analysis.
+2. For the US Map of all Populations & Microplastics tab
+  a. Use the "Data Selection" dropdown menu to select if you want to see microplastic data and/or population data
+  b. Use the "Filters" dropdown menu to filter for specifics in the microplastic data and/or population data
+  c. Use the "Get Time Series" dropdown memu 
 
 ### Data Sources
 
