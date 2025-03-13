@@ -5,13 +5,13 @@ library(gstat)
 library(sp)
 
 
-# pull in prepped microplastics data
-microplastics = read_csv(here::here("data","microplastics.csv"))
-microplastics_data_sf = read_csv(here::here("data","microplastics_data_sf.csv"))
-microplastics_clean <- microplastics_data_sf |>
-  filter(unit == "pieces/m3") |> 
-  st_transform(crs = 4326)
-write_csv(microplastics_clean, here::here("data","microplastics_clean.csv"))
+microplastics <- read_csv(here::here("data", "microplastics.csv"))
+
+# Filter and transform
+microplastics_clean <- microplastics %>%
+  filter(unit == "pieces/m3") %>%
+  st_as_sf(coords = c("lon", "lat"), crs = 4326) %>%  # Convert to spatial data
+  st_transform(crs = 4326) 
 
 # 5. Define the bounding box and grid size for each region
 regions <- list(
@@ -48,20 +48,32 @@ plot_variogram_for_region <- function(region_name, region_data, microplastics_cl
   # Compute variogram
   region_vgm <- gstat::variogram(measurement ~ 1, data = region_data_sf)
   
-  # Plot the variogram
-  plot(region_vgm, main = paste("Variogram for", region_name))
+  # Convert variogram object to a data frame for ggplot
+  variogram_df <- data.frame(
+    dist = region_vgm$dist,
+    gamma = region_vgm$gamma
+  )
+  
+  # Create a ggplot variogram plot
+  p <- ggplot(variogram_df, aes(x = dist, y = gamma)) +
+    geom_point() +
+    geom_line() +
+    labs(title = paste("Variogram for", region_name), x = "Distance", y = "Semivariance") +
+    theme_minimal()
 }
 
-# Apply the function to each region
-lapply(names(regions), function(region_name) {
+# Apply the function to each region and display the plots
+plot_list <- lapply(names(regions), function(region_name) {
   plot_variogram_for_region(region_name, regions[[region_name]], microplastics_clean)
 })
 
+# Print the plots to display them in the Plots pane
+lapply(plot_list, print)
 
-
-
-for (region_name in names(regions)) {
-  region <- regions[[region_name]]
+  
+  
+  
+  
   
   # 6.1. Create the prediction grid based on the bounding box and grid size
   grid <- expand.grid(lon = seq(region$lon[1], region$lon[2], by = region$grid_size),
