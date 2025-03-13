@@ -24,10 +24,29 @@ Kriging Analysis & Challenges
 ### How to Use the App
 
 1. Select a tab to view the corresponding analysis.
+
 2. For the US Map of all Populations & Microplastics tab
+
   a. Use the "Data Selection" dropdown menu to select if you want to see microplastic data and/or population data
-  b. Use the "Filters" dropdown menu to filter for specifics in the microplastic data and/or population data
-  c. Use the "Get Time Series" dropdown memu 
+  
+3. For the Time Series: Microplastic Density by Season tab
+
+  a. Use the "Filters" dropdown menu from the previous tab to select for different season/density/year combinations
+  
+  b. This will update the time series plot to show the selected data
+  
+4. For the Linear Regression: US Map of Analyzed Populations & Microplastics tab
+
+  a. Read the disclosure for linear regression with this data
+  
+  b. Can calculate expected microplastics by population data
+  
+  c. Use the interactive map to see linear regressions for different cities
+  
+5. For the Kriging Analysis & Challenges tab
+
+  a. Read about the attempted kriging analysis and why it didn't work with this data
+
 
 ### Data Sources
 
