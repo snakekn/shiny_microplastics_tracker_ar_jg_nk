@@ -3,12 +3,12 @@
 
 # print("time_analysis.R properly called")
 
-bbox_null = list(
-  south = -16.46,
-  west = -123,
-  north = 56,
-  east = -73.7
-)
+# bbox_null = list(
+#   south = -16.46,
+#   west = -123,
+#   north = 56,
+#   east = -73.7
+# )
 
 # create a function that creates a time series analysis plot based on UI selections for viewed map area, season, year, density class
 build_time_series <- function( bbox=list(
@@ -18,12 +18,12 @@ build_time_series <- function( bbox=list(
                                 east = -73.7
                               ), data, seasons, year_range, density_class) {
   # fix in case we're getting reactive data
-  if(length(class(bbox)) > 1) { 
+  if(length(class(bbox)) > 1) {
     bbox_val = bbox()
   } else {
     bbox_val = bbox
   }
-  
+
   # print(bbox_val) # confirm our bbox works
   # print(summary(data))
   # print(seasons)
@@ -31,25 +31,25 @@ build_time_series <- function( bbox=list(
   # print(density_class)
 
   ts_data = data %>%
-    filter(lat >= bbox_val$south & lat <= bbox_val$north,  
-           lon >= bbox_val$west & lon <= bbox_val$east,  
-           season %in% seasons,  
-           year >= year_range[1] & year <= year_range[2],  
+    filter(lat >= bbox_val$south & lat <= bbox_val$north,
+           lon >= bbox_val$west & lon <= bbox_val$east,
+           season %in% seasons,
+           year >= year_range[1] & year <= year_range[2],
            density_class %in% density_class)
 
   ts_data = ts_data |>
     filter(unit=="pieces/m3") |>
     mutate(yearmonth = yearmonth(date), year=year(date)) |>
     group_by(density_class, yearmonth, year, season) |>
-    summarise(count = n(), avg = mean(measurement), .groups = "drop") 
+    summarise(count = n(), avg = mean(measurement), .groups = "drop")
     # View(ts_data)
-  
+
   # check that microplastic data is in the area
   if(nrow(ts_data) == 0) {
     print("No microplastic data in the selected area")
     return(NULL)
   }
-  
+
   ts_whole = ts_data |>
     ggplot(aes(x = yearmonth, y = avg, color = density_class)) +
     geom_point(size = 1.2) +
@@ -75,7 +75,7 @@ build_time_series <- function( bbox=list(
 
   ts_complete = ts_whole / ts_facet
   print(ts_complete)
-  
+
   ## now, let's try creating and decomposing the model to check for time series activity
   ts_data_ts = ts_data |>
     as_tsibble(key = c("season", "density_class"), index = yearmonth) |>
@@ -83,11 +83,11 @@ build_time_series <- function( bbox=list(
     tidyr::fill(avg, .direction="down") |>
     mutate(year = yearmonth(yearmonth))
   # View(ts_data_ts)
-  
+
   ts_model = ts_data_ts |>
     model(ARIMA(avg ~ season(method="A")+trend(method="A")))
   ts_predict = broom::augment(ts_model)
-  # 
+  #
   # components(ts_model) %>%
   #   autoplot() +
   #   theme_minimal()

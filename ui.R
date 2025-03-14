@@ -41,12 +41,6 @@ ui = fluidPage(
                                                                                         choices = unique(microplastics$density_class),
                                                                                         selected = unique(microplastics$density_class), 
                                                                                         multiple = TRUE)
-                                                            ),
-                                                            accordion_panel("Population Filters",
-                                                                            sliderInput("pop_year_range", "Year Range:", 
-                                                                                        min = min(microplastics$year, na.rm = TRUE),
-                                                                                        max = max(microplastics$year, na.rm = TRUE),
-                                                                                        value = c(1972, 2022), step = 1, sep = "")
                                                             )
                                             )
                                   ),
@@ -100,10 +94,9 @@ ui = fluidPage(
                                 accordion(id="linear_disclosure", open=FALSE,
                                           accordion_panel("Disclosure on the Linear Regression Process",
                                                           includeMarkdown("text/linear_regression_p1.md"), # what we tried, why it didn't work
-                                                          tags$img(src="linear_manipulation.jpg", width="100%"), # show the plot image
+                                                          tags$img(src="linear_manipulation.jpg", width="60%"), # show the plot image
                                                           includeMarkdown("text/linear_regression_p2.md"), # what we tried, why it didn't work
-                                                          tags$img(src="lin_reg.jpg",width="100%") # show the linear regression and how poor it is
-                                                          
+                                                          tags$img(src="lin_reg.jpg",width="60%") # show the linear regression and how poor it is
                                           )
                                 ),
                                 br(),
@@ -115,21 +108,13 @@ ui = fluidPage(
                           fluidRow(
                             column(12,
                                    wellPanel(
-                                     p("Our first goal was to use our data on microplastics to krig so we could determine microplastic measurements in areas with a lack of information."),
-                                     p("We initially tried to interpolate microplastic density across unsampled regions using kriging, a geostatistical technique that estimates values at unobserved locations based on spatial autocorrelation."),
-                                     # Displaying each image (with updated src path)
+                                     includeMarkdown("text/krig.md"),
                                      tags$img(src="Atlantic.png", width="100%"),
                                      tags$img(src="PugetSound.png", width="100%"),
                                      tags$img(src="Miami.png", width="100%"),
                                      tags$img(src="NE.png", width="100%"),
                                      tags$img(src="BayArea.png", width="100%"),
-                                     tags$img(src="Tampa.png", width="100%"),
-                                     
-                                     p("Ultimately, due to the highly irregular and sparse nature of the microplastic data, kriging did not perform well. 
-                                       The spatial distribution lacked a strong enough correlation structure, leading to unreliable interpolations. Thus, we
-                                       decided to move on to time series analysis and can say at least in our preliminary analysis that there isn't a strong correlation 
-                                       between distance and microplastic concentration." 
-                                       )
+                                     tags$img(src="Tampa.png", width="100%")
                                    )
                             )
                           )

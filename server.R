@@ -361,35 +361,35 @@ server = function(input, output, session) {
   # })
 
   ts_plot_data <- eventReactive(input$time_series_plot, {
-    req(map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
-    
-    build_time_series(
-      data = microplastics,
-      bbox = isolate(map_bounds()),
-      season = input$season_filter,
-      year_range = input$plastic_year_range,
-      density_class = input$density_class_filter
-    )
+   req(map_bounds, input$season_filter, input$plastic_year_range, input$density_class_filter)
+   
+   build_time_series(
+     data = microplastics,
+     bbox = isolate(map_bounds()),
+     season = input$season_filter,
+     year_range = input$plastic_year_range,
+     density_class = input$density_class_filter
+   )
   })
   
   # create time series plot
-  observeEvent(input$time_series_plot, {
-    print(map_bounds)
-    print(input$season_filter)
-    print(input$plastic_year_range)
-    print(input$density_class_filter)
-    
-    req(ts_plot_data)
-    
-    print("after req")
-    
-    output$time_series_trend <- renderPlot({
-      print("inside plot function")
-      ts_plot_data()
-    })
-
-    updateTabsetPanel(session, "tabs", selected = "trend_plastics")
-  })
+  # observeEvent(input$time_series_plot, {
+  #   print(map_bounds)
+  #   print(input$season_filter)
+  #   print(input$plastic_year_range)
+  #   print(input$density_class_filter)
+  #   
+  #   req(ts_plot_data)
+  #   
+  #   print("after req")
+  #   
+  #   output$time_series_trend <- renderPlot({
+  #     print("inside plot function")
+  #     ts_plot_data()
+  #   })
+  # 
+  #   updateTabsetPanel(session, "tabs", selected = "trend_plastics")
+  # })
   
 
   # Let users easily go back to the map  
