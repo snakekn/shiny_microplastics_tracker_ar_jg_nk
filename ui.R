@@ -133,7 +133,7 @@ ui = fluidPage(
     secondary = "#D32F2F",  # Secondary color (red)
     success = "#388E3C",  # Success color (green)
     font_scale = 1.1,  # Slightly larger font size
-    bg = "#F5F5F5",  # Background color
+    bg = "#FFFFFF",  # Background color
     fg = "#333333"  # Foreground text color
   )
 )

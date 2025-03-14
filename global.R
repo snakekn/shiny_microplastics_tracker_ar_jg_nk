@@ -32,6 +32,7 @@ library(feasts)
 library(fable)
 library(lmtest)
 library(car)
+library(shinythemes)
 
 ## Prepare data 
 season_choices = c("Spring", "Summer", "Fall", "Winter") # create static seasonal options
