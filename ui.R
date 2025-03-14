@@ -67,10 +67,13 @@ ui = fluidPage(
               ),
               #microplastic density trends
               tabPanel("Time Series: Microplastic Density by Season", value="trend_plastics",
-                       plotOutput("time_series_trend",height="400px"),
+                       accordion(id="plastic_time_series", open=FALSE,
+                                 accordion_panel("Process of Developing a Time Series Analysis on NCEI Microplastics Data",
+                                                 includeMarkdown("text/plastic_time.md") # what we tried, why it didn't work
+                                 )),
                        actionButton("return_to_map", "Return to the map"),
                        br(),
-                       includeMarkdown("text/plastic_time.md") # what we tried, why it didn't work
+                       plotOutput("time_series_trend",height="600px")
               ),
               # LR Map
               tabPanel("Linear Regression: US Map of Analyzed Populations & Microplastics", value="trend_cities",

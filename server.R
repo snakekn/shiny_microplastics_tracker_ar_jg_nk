@@ -373,23 +373,23 @@ server = function(input, output, session) {
   })
   
   # create time series plot
-  # observeEvent(input$time_series_plot, {
-  #   print(map_bounds)
-  #   print(input$season_filter)
-  #   print(input$plastic_year_range)
-  #   print(input$density_class_filter)
-  #   
-  #   req(ts_plot_data)
-  #   
-  #   print("after req")
-  #   
-  #   output$time_series_trend <- renderPlot({
-  #     print("inside plot function")
-  #     ts_plot_data()
-  #   })
-  # 
-  #   updateTabsetPanel(session, "tabs", selected = "trend_plastics")
-  # })
+  observeEvent(input$time_series_plot, {
+   print(map_bounds)
+   print(input$season_filter)
+   print(input$plastic_year_range)
+   print(input$density_class_filter)
+   
+   req(ts_plot_data)
+   
+   print("after req")
+   
+   output$time_series_trend <- renderPlot({
+     print("inside plot function")
+     ts_plot_data()
+   })
+  
+   updateTabsetPanel(session, "tabs", selected = "trend_plastics")
+  })
   
 
   # Let users easily go back to the map  
