@@ -9,7 +9,9 @@ ui = fluidPage(
               # Overview Tab (First) - this explains the point of the app, and how to use it
               tabPanel("Overview", value = "overview",
                        column(1),
-                       column(10,includeMarkdown("text/about.md")),
+                       column(10,
+                              tags$img(src = "microplastics.jpg", width = "100%", style = "margin-bottom: 20px;"),
+                              includeMarkdown("text/about.md")),
                        column(1)
               ), # end the overview page
               
