@@ -1,6 +1,6 @@
 ## Overview of the Shiny App
 
-The goal of this project is to begin understanding the relationship between the population of coastal cities in the United States and the plastic pollution in the oceans in the same vicinity. This app is designed to provide an interactive way to explore and analyze this relationship, as well as understand the data limiations, using data from NOAA and the US Census Bureau.
+The goal of this project is to explore the relationship between the population of coastal cities in the United States and plastic pollution in nearby oceans. This app provides an interactive platform to analyze this relationship and understand data limitations, using data from NOAA and the US Census Bureau.
  
 
 ### App features
@@ -46,6 +46,10 @@ Kriging Analysis & Challenges
 5. For the Kriging Analysis & Challenges tab
 
   a. Read about the attempted kriging analysis and why it didn't work with this data
+  
+### Units
+
+1 m^3 = 1000 L = 35.3147 ft^3 = 1.308 yard^3 = 264.1721 gallons 
 
 
 ### Data Sources
